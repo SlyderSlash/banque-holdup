@@ -1,30 +1,36 @@
 /* Fichier CSS additionnel */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
 *{
     font-family: 'Poppins', sans-serif;
 }
-#homepage header{
-    background-image: url('/assets/img/header-background-hp.png');
-    background-size: cover;
-    min-height:155px;
-    max-height: 564px;
-    /* background-repeat: no-repeat; */
+
+#homepage header .header-bg{
+    position: absolute;
+    max-height:564px;
 }
 
 #homepage header .logo{
     max-width:37px;
 }
 
+#homepage header h1.title{
+    margin-top:-70px;
+    position: relative;
+}
+
+/* MENU OVERLAY */
 #homepage header .logo-expand{
     position: absolute;
     top:-2px;
     left:10%;
-    z-index:1;
+    z-index:2;
     opacity:0.5;
 }
-
 #homepage .navbar-nav.homepage{
     background-color:#121526;
     position: fixed;
+    z-index: 1;
     left: 0;
     top:0;
     width: 100%;
@@ -33,7 +39,34 @@
 
 #homepage .navbar-toggler.expanded{
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 15px;
     right:0;
+}
+
+@media screen and (min-width:768px){
+    #homepage .navbar-nav.homepage{
+        background-color:transparent;
+        position:relative;
+    }
+    #homepage .navbar-nav.homepage li a{
+        font-size:14px;
+    }
+
+    #homepage header h1.title{
+        margin-top:inherit;
+        text-align: left !important;
+        max-width:1200px;
+        font-size:45px !important;
+        width:60% !important;
+    }
+}
+
+@media screen and (min-width:1920px){
+    #homepage header .header-bg{
+        margin-top:-200px;
+    }
+    #homepage header h1.title{
+        margin-top:50px;
+    }
 }
