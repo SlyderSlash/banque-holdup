@@ -1,13 +1,39 @@
-/* STYLE BANKER CONNEXION PAGE */
-#banque-connexion h1 {
-text-align: center;
+/* Fichier CSS additionnel */
+*{
+    font-family: 'Poppins', sans-serif;
+}
+#homepage header{
+    background-image: url('/assets/img/header-background-hp.png');
+    background-size: cover;
+    min-height:155px;
+    max-height: 564px;
+    /* background-repeat: no-repeat; */
 }
 
-#banque-connexion input, #banque-connexion span.input-group-text{
-  border-color:#FFDCDC;
+#homepage header .logo{
+    max-width:37px;
 }
-     
-#banque-connexion .btn{
-   background-color:#F23F3F;
-  color:white;
+
+#homepage header .logo-expand{
+    position: absolute;
+    top:-2px;
+    left:10%;
+    z-index:1;
+    opacity:0.5;
+}
+
+#homepage .navbar-nav.homepage{
+    background-color:#121526;
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+}
+
+#homepage .navbar-toggler.expanded{
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    right:0;
 }
