@@ -1,8 +1,22 @@
 /* Fichier CSS additionnel */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
+/* ------- GENERAL ------- */
 *{
     font-family: 'Poppins', sans-serif;
+}
+.btn{
+    background-color:#F23F3F;
+    border-radius: 100px;
+}
+
+.link{
+    color:#F23F3F;
+}
+
+/* ------- HEADER ------- */
+#homepage header{
+    min-height: 155px;
 }
 
 #homepage header .header-bg{
@@ -19,7 +33,7 @@
     position: relative;
 }
 
-/* MENU OVERLAY */
+/* ------- HEADER MENU OVERLAY ------- */
 #homepage header .logo-expand{
     position: absolute;
     top:-2px;
@@ -29,12 +43,8 @@
 }
 #homepage .navbar-nav.homepage{
     background-color:#121526;
-    position: fixed;
     z-index: 1;
     left: 0;
-    top:0;
-    width: 100%;
-    height: 100%;
 }
 
 #homepage .navbar-toggler.expanded{
@@ -44,7 +54,24 @@
     right:0;
 }
 
+/* ------- HOMEPAGE MAIN ------- */
+#homepage main{
+    max-width: 1200px;
+}
+#homepage .btn.inscription{
+    max-width:200px;
+}
+
+/* ------- MEDIA QUERIES ------- */
 @media screen and (min-width:768px){
+    #homepage header h1.title{
+        margin-top:inherit;
+        text-align: left !important;
+        max-width:1200px;
+        font-size:45px !important;
+        width:60% !important;
+    }
+
     #homepage .navbar-nav.homepage{
         background-color:transparent;
         position:relative;
@@ -53,20 +80,25 @@
         font-size:14px;
     }
 
-    #homepage header h1.title{
-        margin-top:inherit;
-        text-align: left !important;
-        max-width:1200px;
-        font-size:45px !important;
-        width:60% !important;
+}
+
+@media screen and (min-width:1200px){
+    #homepage main{
+        margin-top:100px !important;
     }
 }
 
-@media screen and (min-width:1920px){
+@media screen and (min-width:1440px){
     #homepage header .header-bg{
         margin-top:-200px;
     }
     #homepage header h1.title{
         margin-top:50px;
+    }
+}
+
+@media screen and (min-width:2500px){
+    #homepage main{
+        margin-top:300px !important;
     }
 }
