@@ -1,1 +1,30 @@
 /* Fichier CSS additionnel */
+
+/**************Footer***************/
+
+
+
+#footerNav{
+    list-style: none;
+    margin-right: 2rem;
+}
+li a{
+    color: aliceblue;
+    margin: 4rem;
+    padding-left: 2.5rem;
+}
+#footerBg{
+    color: aliceblue;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(18,21,38);
+    text-align: center;
+}
+.logoFooter{
+    width: 100px;
+    height: 50px;
+}
+.iconSocial{
+    margin-left: 10px;
+}
