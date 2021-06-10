@@ -1,0 +1,34 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    color: #121526
+}
+h1{
+    font-weight: bold;
+}
+h2{
+    font-weight: medium;
+}
+p, label, input{
+    font-weight: lighter;
+}
+
+.input-group-text, .form-check-input{
+    border: 1px solid #FFDCDC;
+}
+
+a{
+    color: #F23F3F;
+    font-weight: lighter;
+}
+
+.form-control{
+    border: 1px solid #FFDCDC;
+    font-size: 12px;
+    font-weight: lighter;
+}
+.btn{
+    background-color: #F23F3F;
+    border-radius: 20px;
+    color: white;
+    font-weight: lighter;
+}
