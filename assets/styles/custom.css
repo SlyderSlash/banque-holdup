@@ -10,8 +10,8 @@
     border-radius: 100px;
 }
 
-.link{
-    color:#F23F3F;
+.logo {
+    width:calc(20px + 5vw);
 }
 
 /* ------- HEADER ------- */
@@ -25,10 +25,10 @@ header .header-bg{
     max-height:564px;
 }
 
-.navbar-brand img{
+/* .navbar-brand img{
     height: auto;
     width: 2.5rem;
-}
+} */
 
 header .title{
     /* margin-top:-70px;
