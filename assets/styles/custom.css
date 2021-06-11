@@ -1,1 +1,104 @@
 /* Fichier CSS additionnel */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* ------- GENERAL ------- */
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.btn{
+    background-color:#F23F3F;
+    border-radius: 100px;
+}
+
+.link{
+    color:#F23F3F;
+}
+
+/* ------- HEADER ------- */
+#homepage header{
+    min-height: 155px;
+}
+
+#homepage header .header-bg{
+    position: absolute;
+    max-height:564px;
+}
+
+#homepage header .logo{
+    max-width:37px;
+}
+
+#homepage header h1.title{
+    margin-top:-70px;
+    position: relative;
+}
+
+/* ------- HEADER MENU OVERLAY ------- */
+#homepage header .logo-expand{
+    position: absolute;
+    top:-2px;
+    left:10%;
+    z-index:2;
+    opacity:0.5;
+}
+#homepage .navbar-nav.homepage{
+    background-color:#121526;
+    z-index: 1;
+    left: 0;
+}
+
+#homepage .navbar-toggler.expanded{
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right:0;
+}
+
+/* ------- HOMEPAGE MAIN ------- */
+#homepage main{
+    max-width: 1200px;
+}
+#homepage .btn.inscription{
+    max-width:200px;
+}
+
+/* ------- MEDIA QUERIES ------- */
+@media screen and (min-width:768px){
+    #homepage header h1.title{
+        margin: top 0;
+        text-align: left !important;
+        max-width:1200px;
+        font-size:45px !important;
+        width:60% !important;
+    }
+
+    #homepage .navbar-nav.homepage{
+        background-color:transparent;
+        position:relative;
+    }
+    #homepage .navbar-nav.homepage li a{
+        font-size:14px;
+    }
+
+}
+
+@media screen and (min-width:1200px){
+    #homepage main{
+        margin-top:100px !important;
+    }
+}
+
+@media screen and (min-width:1440px){
+    #homepage header .header-bg{
+        margin-top:-200px;
+    }
+    #homepage header h1.title{
+        margin-top:50px;
+    }
+}
+
+@media screen and (min-width:2500px){
+    #homepage main{
+        margin-top:300px !important;
+    }
+}
