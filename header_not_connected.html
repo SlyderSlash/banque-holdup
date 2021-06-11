@@ -18,20 +18,26 @@
     <title>Banque Hold'Up</title>
   </head>
 
-  <body id="homepage">
+  <body>
 
     <!-- Début du header_not_connected  -->
     <header>
       <figure class="header-bg">
         <img src="./assets/img/header-background-hp.png" class="w-100">
       </figure>
-      <nav class="navbar navbar-expand-md">
-        <div class="container-fluid w-100">
-          <a class="navbar-brand" href="index.html" title="Retour à l'accueil">
-            <figure class="logo">
-              <img src="./assets/img/logo-white-without-text.png" class="w-100" alt="Logo de la banque Hold up">
-            </figure>
-          </a>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand m-0" href="index.html" title="Retour à l'accueil">
+            <!-- <figure class="logo"> -->
+              <!-- <img src="./assets/img/logo-white-without-text.png" class="w-100" alt="Logo de la banque Hold up"> -->
+              <img src="./assets/img/logo-white-without-text.png" alt="Logo de la banque Hold up">
+              <!-- </figure> -->
+          </a>  
+          <span class="d-flex flex-column-reverse align-items-center">
+            <h1 class="mb-0 text-white" style="font-size: medium;">Banque Hold'up</h1>
+            <p class="mb-0 text-white fst-italic">Bienvenue chez</p>
+          </span>          
+          <!-- <h1 class="text-white"><span></span><br><span class="text-uppercase"></span></h1> -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
               <figure>
@@ -41,32 +47,32 @@
           </button>
 
           <!-- Add menu overlay while waiting Wilfried's one -->
-          <div class="collapse navbar-collapse homepage" id="navbarText">
-            <button class="navbar-toggler expanded d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="collapse navbar-collapse flex-grow-0" id="navbarText">
+            <button class="navbar-toggler expanded d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">
                 <figure>
                   <img src="./assets/img/cross.png">
                 </figure>
               </span> 
             </button>
-            <figure class="logo-expand d-md-none">
+            <figure class="logo-expand d-lg-none">
               <img src="./assets/img/logo-gradient-opacity.png">
             </figure>
-            <ul class="navbar-nav homepage d-flex p-5 align-items-end p-md-0 justify-content-md-end fixed-top w-100 h-100">
-              <li class="nav-item my-2 me-md-2">
+            <ul class="navbar-nav d-flex p-5 align-items-end p-lg-0 justify-content-lg-end fixed-top w-100 h-100">
+              <li class="nav-item my-2 me-lg-2">
                 <a class="nav-link text-white fw-light" href="#" title="Inscription">Inscription</a>
               </li>
-              <li class="nav-item my-2 border border-white rounded px-3 px-md-2">
+              <li class="nav-item my-2 border border-white rounded px-3 px-lg-2">
                 <a class="nav-link text-white fw-light" href="#" title="Connexion">Connexion</a>
               </li>
-              <li class="nav-item my-2 d-md-none">
+              <li class="nav-item my-2 d-lg-none">
                 <a class="nav-link text-white fw-light" href="" title="Conditions générales">Conditions générales</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-       <h1 class="title fs-6 text-center text-white fw-light w-50 mx-auto">Bienvenue chez <br><span class="fw-bold text-uppercase">Banque Hold'up</span></h1>
+      <!-- <h1 class="title fs-6 text-center text-white fw-light w-50 mx-auto">Bienvenue chez <br><span class="fw-bold text-uppercase">Banque Hold'up</span></h1> -->
     </header>   
       <!-- Fin du header_not_connected  -->
 
