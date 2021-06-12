@@ -10,6 +10,9 @@
     border-radius: 100px;
 }
 
+/* ------- START NOT CONNECTED HEADER ------- */
+
+/*Logo responsive*/
 .logo {
     width:calc(20px + 5vw);
 }
@@ -20,9 +23,10 @@
     height: 10vh;
 } */
 
-header .header-bg{
+.header-bg{
     position: absolute;
-    max-height:564px;
+    /*Background responsive*/
+    max-height:calc(15vh + 10vw);
 }
 
 /* .navbar-brand img{
@@ -30,10 +34,10 @@ header .header-bg{
     width: 2.5rem;
 } */
 
-header .title{
-    /* margin-top:-70px;
-    position: relative; */
-}
+/*header .title{
+     margin-top:-70px;
+    position: relative; 
+}*/
 
 /* ------- HEADER MENU OVERLAY ------- */
 header .logo-expand{
@@ -63,38 +67,38 @@ header .logo-expand{
 
 /* ------- MEDIA QUERIES ------- */
 @media screen and (max-width:768px){
-    header .header-bg{
+    /* header .header-bg{
         margin-top:-30px;
-    }
+    } */
 }
 
 @media screen and (min-width:768px){
-    header .header-bg{
+    /* header .header-bg{
         margin-top:-80px;
-    }
+    } */
     
-    header h1{
-        /* margin: top 0; */
+   /* header h1{
+         margin: top 0; */
         /* text-align: left !important; */
         /* max-width:1200px; */
         /* font-size:1.85rem !important; */
-        /* width:60% !important; */
-    }
+        /* width:60% !important; 
+    }*/
 
     .navbar-nav.homepage{
         background-color:transparent;
         position:relative;
     }
-    .navbar-nav. li a{
+    .navbar-nav .li a{
         font-size:14px;
     }
 
 }
 
 @media screen and (min-width:992px){
-    header .header-bg{
+    /* header .header-bg{
         margin-top:-120px;
-    }
+    } */
     
     .navbar-nav{
         background-color:transparent;
@@ -103,16 +107,16 @@ header .logo-expand{
 }
 
 @media screen and (min-width:1200px){
-    header .header-bg{
-        margin-top:-180px;
+    /* header .header-bg{
+        margin-top:-180px; */
     }
-    header h1.title{
-        /* margin-top:50px; */
+   /* header h1.title{
+         margin-top:50px; 
     }
-}
+}*/
 
 @media screen and (min-width:1400px){
-    header .header-bg{
+    /* header .header-bg{
          margin-top:-200px;
-    }
+    } */
 }
