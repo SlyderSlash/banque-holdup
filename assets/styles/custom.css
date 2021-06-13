@@ -29,7 +29,7 @@
 }
 
  .nav-link {
-    font-size: calc(0.5rem + 1.5vw);
+    font-size: calc(1rem + 0.5vw);
 }
 
 
@@ -56,6 +56,14 @@ header .logo-expand{
 }
 
 /* ------- MEDIA QUERIES ------- */
+@media screen and (min-width:319px) {
+    .header_title > h1,p {
+        font-size: calc(1rem + 1.25vw);
+        } 
+    .header_title > p {
+        font-style: italic;
+        } 
+}
 
 /* Breakpoint BS -> LG */
 @media screen and (min-width:992px){
@@ -68,10 +76,12 @@ header .logo-expand{
 /* Breakpoint BS -> XL */
 @media screen and (min-width:1200px){
     .header_title > h1,p {
-        font-size: calc(1.375rem + 1.5vw) !important;
-        font-weight: normal !important;
-        font-style: normal !important;
+        font-size: calc(1rem + 2vw);
     } 
+    .header_title > p {
+        font-style: normal;
+        } 
+
     .header_title > h1 {
         transform: translateX(0%);
     }
