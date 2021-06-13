@@ -28,8 +28,12 @@
     transform: translateX(-10%);
 }
 
- .nav-link {
+.nav-link {
+    color: rgba(255, 255, 255, 0.50);
     font-size: calc(1rem + 0.5vw);
+}
+.nav-link:hover {
+    color: #D9383D;
 }
 
 
