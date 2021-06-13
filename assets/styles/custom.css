@@ -18,10 +18,6 @@
 }
 
 /* ------- HEADER ------- */
-/* header{
-    position: relative;
-    height: 10vh;
-} */
 
 .header-bg{
     position: absolute;
@@ -36,20 +32,6 @@
     transform: translateX(-10%);
 }
 
-/* .nav-item > a {
-    font-size: calc(0.85rem + 1vh);    
-} */
-
-/* .navbar-brand img{
-    height: auto;
-    width: 2.5rem;
-} */
-
-/*header .title{
-     margin-top:-70px;
-    position: relative; 
-}*/
-
 /* ------- HEADER MENU OVERLAY ------- */
 header .logo-expand{
     position: absolute;
@@ -58,11 +40,7 @@ header .logo-expand{
     z-index:2;
     opacity:0.5;
 }
-/* .navbar-nav.homepage{
-    background-color:#121526;
-    z-index: 1;
-    left: 0;
-} */
+
 .navbar-nav{
     background-color:#121526;
     z-index: 1;
@@ -77,38 +55,8 @@ header .logo-expand{
 }
 
 /* ------- MEDIA QUERIES ------- */
-@media screen and (max-width:768px){
-    /* header .header-bg{
-        margin-top:-30px;
-    } */
-}
-
-@media screen and (min-width:768px){
-    /* header .header-bg{
-        margin-top:-80px;
-    } */
-    
-   /* header h1{
-         margin: top 0; */
-        /* text-align: left !important; */
-        /* max-width:1200px; */
-        /* font-size:1.85rem !important; */
-        /* width:60% !important; 
-    }*/
-
-    .navbar-nav.homepage{
-        background-color:transparent;
-        position:relative;
-    }
-
-
-}
 
 @media screen and (min-width:992px){
-    /* header .header-bg{
-        margin-top:-120px;
-    } */
-    
     .navbar-nav{
         background-color:transparent;
         position:relative;
@@ -116,13 +64,6 @@ header .logo-expand{
 }
 
 @media screen and (min-width:1200px){
-     /* .header_title h1{
-        transform: translateX(10%);
-    }
-    .header_title p{
-        transform: translateX(-10%);
-    } */
-
     .header_title > h1,p {
         font-size: calc(1.375rem + 1.5vw) !important;
         font-weight: normal !important;
@@ -135,20 +76,4 @@ header .logo-expand{
     .header_title > p {
         transform: translateX(0%);
     }
-
 }
-    /* span .header_title p {
-        font-size: calc(1.375rem + 1.5vw) !important;
-    }*/
-
-    /* header .header-bg{
-        margin-top:-180px; 
-    }*/
-   /* header h1.title{
-         margin-top:50px; 
-    }
-}
-
-/* @media screen and (min-width:1400px){
-
-} */
