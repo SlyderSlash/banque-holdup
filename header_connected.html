@@ -20,14 +20,14 @@
 
   <body>
 
-    <!-- Début du header_not_connected  -->
+    <!-- Début du header_connected  -->
     <header>
         <img src="./assets/img/header-background-hp.png" class="w-100 header-bg">
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand m-0" href="index.html" title="Retour à l'accueil">
-              <img class="logo" src="./assets/img/logo-white-without-text.png" alt="Logo de la banque Hold up">
-          </a>  
+            <img class="logo" src="./assets/img/logo-white-without-text.png" alt="Logo de la banque Hold up">
+          </a>
           <span class="header_title d-flex flex-column flex-grow-1 align-content-start">
             <h1 class="mb-0 text-white">Banque</h1>
             <h1 class="mb-0 text-white">Hold'up</h1>
@@ -40,7 +40,7 @@
             </span>
           </button>
 
-          <!-- Add menu overlay while waiting Wilfried's one -->
+          <!-- menu overlay -->
           <div class="collapse navbar-collapse flex-grow-0" id="navbarText">
             <button class="navbar-toggler expanded d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon">
@@ -52,22 +52,40 @@
             <figure class="logo-expand d-lg-none">
               <img src="./assets/img/logo-gradient-opacity.png">
             </figure>
-            <ul class="navbar-nav d-flex p-5 align-items-end p-lg-0 justify-content-lg-end fixed-top w-100 h-100">
-              <li class="nav-item my-2 me-lg-2">
-                <a class="nav-link text-white fw-light" href="#" title="Inscription">Inscription</a>
+            <ul class="navbar-nav d-flex pt-5 align-items-end p-lg-0 justify-content-lg-end fixed-top w-100 h-100">
+              <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Mon compte</h6>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-white-50 fw-light pe-4" href="#" title="Historique du compte">Historique</a>
               </li>
-              <li class="nav-item my-2 border border-white rounded px-3 px-lg-2">
-                <a class="nav-link text-white fw-light" href="#" title="Connexion">Connexion</a>
+              <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Virements</h6>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-white-50 fw-light pe-4" href="#" title="Mes virements">Mes virements</a>
+              </li> 
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-white-50 fw-light pe-4" href="#" title="Ajouter bénéficiaires">Ajouter des bénéficiaires</a>
               </li>
-              <li class="nav-item my-2 d-lg-none">
-                <a class="nav-link text-white fw-light" href="#" title="Conditions générales">Conditions générales</a>
+              <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Profil</h6>
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-white-50 fw-light pe-4" href="#" title="Modifier coordonnées">Modifier mes coordonnées</a>
+              </li> 
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-white-50 fw-light pe-4" href="#" title="Cloturer le compte">Cloturer mon compte</a>
+              </li> 
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-white-50 fw-light pe-4" href="#" title="Contacter conseiller">Contacter mon conseiller</a>
+              </li>                 
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-white-50 fw-light pe-4" href="#" title="Conditions générales">Conditions générales</a>
+              </li>              
+              <li class="nav-item border border-white rounded align-self-end px-4 mt-4 me-4">
+                <a class="nav-link text-white fw-light" href="#" title="Déconnexion">Déconnexion</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>   
-      <!-- Fin du header_not_connected  -->
+      <!-- Fin du header_connected  -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
