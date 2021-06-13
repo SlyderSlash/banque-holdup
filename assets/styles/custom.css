@@ -5,19 +5,15 @@
 *{
     font-family: 'Poppins', sans-serif;
 }
-.btn{
-    background-color:#F23F3F;
-    border-radius: 100px;
-}
 
 /* ------- START NOT CONNECTED HEADER ------- */
 
-/*Logo responsive*/
+/* ------- HEADER ------- */
+
 .logo {
+    /*Logo responsive*/
     width:calc(20px + 5vw);
 }
-
-/* ------- HEADER ------- */
 
 .header-bg{
     position: absolute;
@@ -31,6 +27,11 @@
 .header_title p{
     transform: translateX(-10%);
 }
+
+ .nav-link {
+    font-size: calc(0.5rem + 1.5vw);
+}
+
 
 /* ------- HEADER MENU OVERLAY ------- */
 header .logo-expand{
@@ -47,7 +48,7 @@ header .logo-expand{
     left: 0;
 }
 
-.navbar-toggler.expanded{
+.navbar-toggler.expanded {
     position: absolute;
     z-index: 2;
     top: 15px;
@@ -56,6 +57,7 @@ header .logo-expand{
 
 /* ------- MEDIA QUERIES ------- */
 
+/* Breakpoint BS -> LG */
 @media screen and (min-width:992px){
     .navbar-nav{
         background-color:transparent;
@@ -63,13 +65,13 @@ header .logo-expand{
     }
 }
 
+/* Breakpoint BS -> XL */
 @media screen and (min-width:1200px){
     .header_title > h1,p {
         font-size: calc(1.375rem + 1.5vw) !important;
         font-weight: normal !important;
         font-style: normal !important;
     } 
-
     .header_title > h1 {
         transform: translateX(0%);
     }
