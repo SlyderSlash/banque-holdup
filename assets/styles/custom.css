@@ -36,6 +36,10 @@
     transform: translateX(-10%);
 }
 
+/* .nav-item > a {
+    font-size: calc(0.85rem + 1vh);    
+} */
+
 /* .navbar-brand img{
     height: auto;
     width: 2.5rem;
@@ -96,9 +100,7 @@ header .logo-expand{
         background-color:transparent;
         position:relative;
     }
-    .navbar-nav .li a{
-        font-size:14px;
-    }
+
 
 }
 
