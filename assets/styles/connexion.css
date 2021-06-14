@@ -1,34 +1,29 @@
-body{
-    font-family: 'Poppins', sans-serif;
-    color: #121526
-}
-h1{
-    font-weight: bold;
-}
-h2{
-    font-weight: medium;
-}
-p, label, input{
-    font-weight: lighter;
-}
-
-.input-group-text, .form-check-input{
+.input-group-text, .form-check-input, .form-select{
     border: 1px solid #FFDCDC;
 }
 
-a{
+a, #selectedFile{
     color: #F23F3F;
-    font-weight: lighter;
 }
 
 .form-control{
     border: 1px solid #FFDCDC;
     font-size: 12px;
-    font-weight: lighter;
 }
 .btn{
     background-color: #F23F3F;
     border-radius: 20px;
     color: white;
-    font-weight: lighter;
+}
+.inputFile{
+    border-radius: 20px;
+    background-color: white;
+    color: #F23F3F;
+    border: #F23F3F 1px solid;
+}
+.opt{
+    font-size: 9px;
+}
+input{
+    height: 38px;
 }
