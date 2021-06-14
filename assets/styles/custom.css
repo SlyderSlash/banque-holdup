@@ -6,7 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* ------- START NOT CONNECTED HEADER ------- */
+/* ------- START HEADER ------- */
 
 /* ------- HEADER ------- */
 
@@ -77,6 +77,18 @@ header .logo-expand{
     }
 }
 
+/**************Footer***************/
+.footer-bg{
+    background-color: rgb(18,21,38);
+}
+.logoFooter{
+    width: calc(150px + 5vw);
+}
+.nav-link > img{
+   width: calc(30px + 1vw);
+}
+/************** Fin Footer***************/
+
 /* Breakpoint BS -> XL */
 @media screen and (min-width:1200px){
     .header_title > h1,p {
@@ -93,3 +105,4 @@ header .logo-expand{
         transform: translateX(0%);
     }
 }
+
