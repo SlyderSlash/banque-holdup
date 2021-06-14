@@ -1,9 +1,83 @@
 /* Fichier CSS additionnel */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* ------- GENERAL ------- */
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ------- START HEADER ------- */
+
+/* ------- HEADER ------- */
+
+.logo {
+    /*Logo responsive*/
+    width:calc(20px + 5vw);
+}
+
+.header-bg{
+    position: absolute;
+    /*Background responsive*/
+    max-height:calc(15vh + 10vw);
+}
+
+.header_title h1{
+    transform: translateX(10%);
+}
+.header_title p{
+    transform: translateX(-10%);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.50);
+    font-size: calc(1rem + 0.5vw);
+}
+.nav-link:hover {
+    color: #D9383D;
+}
+
+
+/* ------- HEADER MENU OVERLAY ------- */
+header .logo-expand{
+    position: absolute;
+    top:-2px;
+    left:10%;
+    z-index:2;
+    opacity:0.5;
+}
+
+.navbar-nav{
+    background-color:#121526;
+    z-index: 1;
+    left: 0;
+}
+
+.navbar-toggler.expanded {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right:0;
+}
+
+/* ------- MEDIA QUERIES ------- */
+@media screen and (min-width:319px) {
+    .header_title > h1,p {
+        font-size: calc(1rem + 1.25vw);
+        } 
+    .header_title > p {
+        font-style: italic;
+        } 
+}
+
+/* Breakpoint BS -> LG */
+@media screen and (min-width:992px){
+    .navbar-nav{
+        background-color:transparent;
+        position:relative;
+    }
+}
 
 /**************Footer***************/
-
-
-
 .footer-bg{
     background-color: rgb(18,21,38);
 }
@@ -14,3 +88,21 @@
    width: calc(30px + 1vw);
 }
 /************** Fin Footer***************/
+
+/* Breakpoint BS -> XL */
+@media screen and (min-width:1200px){
+    .header_title > h1,p {
+        font-size: calc(1rem + 2vw);
+    } 
+    .header_title > p {
+        font-style: normal;
+        } 
+
+    .header_title > h1 {
+        transform: translateX(0%);
+    }
+    .header_title > p {
+        transform: translateX(0%);
+    }
+}
+
