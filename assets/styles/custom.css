@@ -8,7 +8,7 @@
     list-style: none;
     margin-right: 2rem;
 }
-li a{
+.footerli a{
     color: aliceblue;
     margin: 4rem;
     padding-left: 2.5rem;
@@ -28,3 +28,4 @@ li a{
 .iconSocial{
     margin-left: 10px;
 }
+/************** Fin Footer***************/
