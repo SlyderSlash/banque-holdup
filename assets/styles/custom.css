@@ -1,29 +1,18 @@
-/* Fichier CSS additionnel */
-@import url('https://fonts.googleapis.com/css2? family = Advent + Pro & family = Dancing + Script: wght @ 500 & display = swap');
-h1 {
+/* STYLE BANKER CONNEXION PAGE */
+#banque-connexion h1 {
 text-align: center;
-font-family:Arial, Helvetica, sans-serif;
-
-
-
 }
 
-form {
-
-margin-block-start: auto;
-
-
-
+#banque-connexion input, #banque-connexion span.input-group-text{
+  border-color:#FFDCDC;
 }
 
-body {
-    font-family: 'Advent Pro', sans-serif;
-    
-      padding: 30px 10px;;
-      Margin: -10px;
-      background-color:white;
-      max-width: 60em;
-}
-
+<<<<<<< HEAD
 
      
+=======
+#banque-connexion .btn{
+  background-color:#F23F3F;
+  color:white;
+}
+>>>>>>> c66c2028ae2ae03df71de5c3b8c202a55e1b38a0
