@@ -14,7 +14,7 @@
     color:#F23F3F;
 }
 
-/* ------- HEADER ------- */
+/* ------- HOMEPAGE HEADER ------- */
 #homepage header{
     min-height: 155px;
 }
@@ -33,7 +33,7 @@
     position: relative;
 }
 
-/* ------- HEADER MENU OVERLAY ------- */
+/* ------- HOMEPAGE HEADER MENU OVERLAY ------- */
 #homepage header .logo-expand{
     position: absolute;
     top:-2px;
@@ -41,6 +41,7 @@
     z-index:2;
     opacity:0.5;
 }
+
 #homepage .navbar-nav.homepage{
     background-color:#121526;
     z-index: 1;
@@ -48,6 +49,59 @@
 }
 
 #homepage .navbar-toggler.expanded{
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    right:0;
+}
+
+/* ------- START HEADER ------- */
+
+/* ------- HEADER ------- */
+
+.logo {
+    /*Logo responsive*/
+    width:calc(20px + 5vw);
+}
+
+.header-bg{
+    position: absolute;
+    /*Background responsive*/
+    max-height:calc(15vh + 10vw);
+}
+
+.header_title h1{
+    transform: translateX(10%);
+}
+.header_title p{
+    transform: translateX(-10%);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.50);
+    font-size: calc(1rem + 0.5vw);
+}
+.nav-link:hover {
+    color: #D9383D;
+}
+
+
+/* ------- HEADER MENU OVERLAY ------- */
+header .logo-expand{
+    position: absolute;
+    top:-2px;
+    left:10%;
+    z-index:2;
+    opacity:0.5;
+}
+
+.navbar-nav{
+    background-color:#121526;
+    z-index: 1;
+    left: 0;
+}
+
+.navbar-toggler.expanded {
     position: absolute;
     z-index: 2;
     top: 15px;
@@ -62,7 +116,18 @@
     max-width:200px;
 }
 
+
+
 /* ------- MEDIA QUERIES ------- */
+@media screen and (min-width:319px) {
+    .header_title > h1 {
+        font-size: calc(1rem + 1.25vw);
+        } 
+    .header_title > p {
+        font-style: italic;
+        } 
+}
+
 @media screen and (min-width:768px){
     #homepage header h1.title{
         margin-top:inherit;
@@ -82,7 +147,42 @@
 
 }
 
+/* Breakpoint BS -> LG */
+@media screen and (min-width:992px){
+    .navbar-nav{
+        background-color:transparent;
+        position:relative;
+    }
+}
+
+/**************Footer***************/
+.footer-bg{
+    background-color: rgb(18,21,38);
+}
+.logoFooter{
+    width: calc(150px + 5vw);
+}
+.nav-link > img{
+    width: calc(30px + 1vw);
+}
+/************** Fin Footer***************/
+
+/* Breakpoint BS -> XL */
 @media screen and (min-width:1200px){
+    .header_title > h1 {
+        font-size: calc(1rem + 2vw);
+    } 
+    .header_title > p {
+        font-style: normal;
+        } 
+
+    .header_title > h1 {
+        transform: translateX(0%);
+    }
+    .header_title > p {
+        transform: translateX(0%);
+    }
+
     #homepage main{
         margin-top:100px !important;
     }
@@ -102,3 +202,4 @@
         margin-top:300px !important;
     }
 }
+
