@@ -61,7 +61,7 @@ header .logo-expand{
 
 /* ------- MEDIA QUERIES ------- */
 @media screen and (min-width:319px) {
-    .header_title > h1,p {
+    .header_title > h1 {
         font-size: calc(1rem + 1.25vw);
         } 
     .header_title > p {
@@ -85,16 +85,17 @@ header .logo-expand{
     width: calc(150px + 5vw);
 }
 .nav-link > img{
-   width: calc(30px + 1vw);
+    width: calc(30px + 1vw);
 }
 /************** Fin Footer***************/
 
 /* Breakpoint BS -> XL */
 @media screen and (min-width:1200px){
-    .header_title > h1,p {
+    .header_title > h1 {
         font-size: calc(1rem + 2vw);
     } 
     .header_title > p {
+        font-size: calc(1rem + 2vw);
         font-style: normal;
         } 
 
