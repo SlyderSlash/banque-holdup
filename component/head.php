@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="fr">
-  <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +7,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png"/>
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <!-- Custom CSS -->
@@ -16,16 +15,3 @@
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>Banque Hold'Up</title>
-  </head>
-  <body>
-    
-    <!-- Contenu à enlever  -->
-    <h1>DOCTYPE V 1.0</h1> 
-    <p>Pour servir de base de travail commune</p>
-    <p>Sera probablement complété par d'autres meta SEO</p>
-    <!-- Fin du contenu à enlever  -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  </body>
-</html>
