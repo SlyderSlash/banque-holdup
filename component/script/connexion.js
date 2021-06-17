@@ -1,3 +1,7 @@
+//TODO Bloquer page suivante en mobile si tous les champs ne sont pas rempli
+
+
+
 // GESTION DE L'AFFICHAGE
 
   // variables pour gérer l'input file carte d'identité
