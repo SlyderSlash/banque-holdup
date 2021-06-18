@@ -161,7 +161,7 @@ header .logo-expand{
     background-color: rgb(18,21,38);
 }
 .logoFooter{
-    width: calc(150px + 5vw);
+    width: calc(150px + 4vw);
 }
 .nav-link > img{
     width: calc(30px + 1vw);
