@@ -16,6 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <!-- Custom CSS -->
         <!-- <link href="./assets/styles/custom.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="/assets/styles/connexion.css">
         <!-- Bootstrap icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <title>Banque Hold'Up</title>
@@ -24,9 +25,60 @@
     <!-- Load connected header -->
     <!-- <?php require_once('./component/header/headerConnected.php'); ?> -->
 
-    <!-- Start of main content -->
+<!-- Start of main content -->
+    <main class="container">
+        <!-- <div class="row-cols-sm-auto d-flex justify-content-end">
+            <button class="btn" type="button">Je reste</button>
+        </div> -->
 
-    <!-- Start of main content -->
+<!-- Resiliation form -->
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="text-center mb-3 mb-lg-5">Vous souhaitez nous quitter ?</h2>
+        <section class="d-flex justify-content-center h-75">
+            <form action="formokay.php" method="POST" class="d-flex flex-column align-items-center justify-content-center">
+                <div class="mb-3 d-flex flex-column align-items-center">
+                    <label for="titulaire" class="form-label">Titulaire du compte</label>
+                    <div class="input-group">
+                        <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" id="titulaire" value="<?php echo xxxx ?>" readonly>
+                    </div>
+                </div>
+                <div class="mb-3 d-flex flex-column align-items-center">
+                    <p>Demande manuscrite signée</p>
+                    <label class="btn border-danger bg-light text-danger" for="lettreResiliation">
+                    <input id="lettreResiliation" type="file" class="visually-hidden" required>
+                    Sélectionner la pièce
+                    </label>
+                </div>
+                <button class="btn" type="submit" id="resilier">Au revoir</button>
+            </form>
+        </section>
+    </div>
+
+    <div class="col-md-6 d-none d-md-flex flex-column h-75">
+        <h2 class="text-center mb-3 mb-lg-5">Pourquoi vous devriez rester!</h2>
+        <section class="d-flex flex-column justify-content-center">
+            <p class="mb-5">
+                No! Hoc non credant? Gus habet cameras ubique placet. 
+                Audire te! Non, omnia noit, omnia simul. Ubi eras hodie ? 
+                In Lab! Et vos nolite cogitare suus 'possible ut Tyrus de cigarette elevaverunt CAPSA vestris.
+            </p>
+            <p class="mb-5">
+                Tu nunc coci ejus. Tu autem cocus Lab et probavimus liceat mihi sine causa est nunc coci interficere. 
+                Reputo it! Suus egregie. Ut antecedat. Quod si putas me posse facere, ergo ante. 
+                Pone aute in caput !
+            </p>
+            <p class="mb-5">
+                Ludum mutavit. Verbum est ex. Et ... sunt occidat. Videtur quod est super indamissible oppidum. 
+                Quis transfretavit tu iratus es
+            </p>
+        </section>
+    </div>
+</div>
+
+    </main>
+<!-- END of main content -->
     
     <!-- Load footer-->
     <!-- <?php require_once('./component/footer.php'); ?> -->
