@@ -16,7 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <!-- Custom CSS -->
         <!-- <link href="./assets/styles/custom.css" rel="stylesheet"> -->
-        <link rel="stylesheet" href="/assets/styles/connexion.css">
+        <link rel="stylesheet" href="/assets/styles/dryplz.css">
         <!-- Bootstrap icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <title>Banque Hold'Up</title>
@@ -27,9 +27,9 @@
 
 <!-- Start of main content -->
     <main class="container">
-        <!-- <div class="row-cols-sm-auto d-flex justify-content-end">
-            <button class="btn" type="button">Je reste</button>
-        </div> -->
+        <div class="row-cols-sm-auto d-flex justify-content-end d-md-none">
+            <button class="btn rounded-pill bg-danger text-white" type="button">Je reste</button>
+        </div>
 
 <!-- Resiliation form -->
 <div class="row">
@@ -46,14 +46,14 @@
                 </div>
                 <div class="mb-3 d-flex flex-column align-items-center">
                     <p>Demande manuscrite signée</p>
-                    <label class="btn border-danger bg-light text-danger" for="lettreResiliation">
+                    <label class="btn border-danger rounded-pill bg-light text-danger" for="lettreResiliation">
                     <input id="lettreResiliation" type="file" class="visually-hidden" required>
                     Sélectionner la pièce
                     </label>
                 </div>
-                <button class="btn" type="submit" id="resilier">Au revoir</button>
+                <button class="btn rounded-pill bg-danger text-white" type="submit" id="resilier">Au revoir</button>
             </form>
-        </section>
+        </section>            
     </div>
 
     <div class="col-md-6 d-none d-md-flex flex-column h-75">
@@ -69,10 +69,13 @@
                 Reputo it! Suus egregie. Ut antecedat. Quod si putas me posse facere, ergo ante. 
                 Pone aute in caput !
             </p>
-            <p class="mb-5">
+            <p>
                 Ludum mutavit. Verbum est ex. Et ... sunt occidat. Videtur quod est super indamissible oppidum. 
                 Quis transfretavit tu iratus es
             </p>
+            <div class="row-cols-sm-auto d-md-flex justify-content-end d-none me-1 mt-1">
+                <button class="btn rounded-pill bg-danger text-white" type="button">Je reste</button>
+            </div>
         </section>
     </div>
 </div>
