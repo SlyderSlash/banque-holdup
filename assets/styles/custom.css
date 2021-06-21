@@ -217,3 +217,15 @@ text-align: center;
    background-color:#F23F3F;
   color:white;
 }
+
+/************** Start of deleteAccount.php styles ***************/
+
+.delete-bg {
+    background-image: url(/assets/img/bg-deleteAccount.svg);
+    background-size: contain;
+    background-position: left,center;
+    background-repeat: no-repeat;
+    overflow: visible;
+}
+
+/************** End of deleteAccount.php styles ***************/
