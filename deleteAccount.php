@@ -59,7 +59,7 @@
                 Quis transfretavit tu iratus es
             </p>
             <div class="row-cols-sm-auto d-md-flex justify-content-end d-none me-1 mt-1">
-                <button class="btn rounded-pill bg-danger text-white mb-5 w-25" type="button">Je reste</button>
+                <button class="btn rounded-pill bg-danger text-white mb-5" type="button">Je reste</button>
             </div>
         </section>
     </div>
