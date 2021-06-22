@@ -4,7 +4,7 @@
     <!-- Load head -->
     <?php require_once('./component/head.php'); ?>
 </head>
-<body>
+<body class="clientpath">
     <!-- Load connected header -->
     <?php require_once('./component/header/headerConnected.php'); ?>
 

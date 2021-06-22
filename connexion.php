@@ -18,14 +18,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"> 
     <link href="./assets/styles/connexion.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="clientpath">
     <?php require_once('./component/header/headerNotConnected.php'); 
         //import de header_not_connected.php contenant le header non connecté
     ?>
     <main class="container py-5 mt-5">
 
     <!-- section de connexion -->
-        <section class="row text-center" id="logInForm" method="" action="">
+        <section class="row text-center" id="logIn">
             <h1 >Se connecter</h1>
             <div class="d-md-flex justify-content-center">
                     <p class="pe-md-2 mb-0 ">Nouveau client ?</p>
@@ -39,13 +39,13 @@
                         <img src="./assets/img/connexion-illustration.svg" alt="" class="">
                     </div>
                     <!-- formulaire -->
-                    <form action="formokay.php" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
+                    <form action="formokay.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
                         <!-- email -->
                         <div class="text-start mb-3 ">
                             <label for="email" >Email</label>
                             <div class="input-group ">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-envelope"></i></span>
-                                <input type="email" required id="email" name="email" placeholder="Votre e-mail" class="border-start-0 form-control ">
+                                <input type="email" required id="lgemail" name="email" placeholder="Votre e-mail" class="border-start-0 form-control ">
                             </div>
                         </div>
                         <!-- password -->
@@ -53,7 +53,7 @@
                             <label for="password" >Mot de passe</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" required name="password"id="password" placeholder="Votre mot de passe" class="border-start-0 form-control">
+                                <input type="password" required name="password"id="lgpassword" placeholder="Votre mot de passe" class="border-start-0 form-control">
                             </div>
                         </div>
                         <!-- se souvenir de moi -->
@@ -64,7 +64,7 @@
                         <!-- mot de passe oublié -->
                         <a href="#" class=" mb-4 align-self-center">Mot de passe oublié ?</a>
                         <!-- bouton sumit -->
-                        <button class="btn  me-5 ms-5" type="submit"name="btnSubmit" id="btnSubmit">Se connecter</button>
+                        <button class="btn  me-5 ms-5" type="submit" name="btnSubmit" id="lgbtnSubmit">Se connecter</button>
     
                     </form>
                 </div>
@@ -243,7 +243,7 @@
     
     
     </main>
-    <script src="./component/script/login.js"></script>
+    <script src="component/script/login.js"></script>
     <script src="component/script/connexion.js"></script>
     <?php require_once('./component/footer.php'); ?>
   </body>

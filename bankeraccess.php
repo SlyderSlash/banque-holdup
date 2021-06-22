@@ -9,43 +9,48 @@
     <?php require_once('./component/head.php');?>
   </head>
   
-  <body>  
+  <body class="clientpath">  
   <?php require_once('./component/header/headerNotConnected.php'); ?>
     <!-- Contenu à enlever  -->
-    <main id="banque-connexion" class="mx-auto"> 
-  
-      <h1 class="mb-5">Accès interne</h1>
-      <div class="d-flex flex-column flex-md-row justify-content-center">
-
-        <figure class="me-2 d-flex justify-content-center">
-          <img src="assets/img/connexionpage.png" alt="illustration de la page de connexion banquier ">
-        </figure>
-
-        <form class="d-flex flex-column justify-content-center mx-3 px-3">
-          <div class="mb-3">
-
-            <!-- EMAIL INPUT -->
-            <label for="inputEmail" class="form-label">Email</label>
-            <div class="input-group mb-3">
-              <span class="input-group-text border-end-0 bg-transparent" id="email-addon">@</span>
-              <input required  type="email" name="bankerEmail" class="form-control border-start-0" id="inputEmail" aria-describedby="emailHelp" placeholder="Votre e-mail">
+    <main id="banque-connexion" class="container py-5 mt-5">
+      <section class="row text-center" id="logIn">
+            <h1>Accès Interne</h1>
+            <div class="col-12">
+                <!--  illustration + formulaire -->
+                <div class="row d-flex  justify-content-between align-items-center">
+                    <!-- illustration -->
+                    <div class="col-6 d-none d-md-flex text-end justify-content-center" >
+                        <img src="./assets/img/banker.svg" alt="" class="">
+                    </div>
+                    <!-- formulaire -->
+                    <form action="formokay.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
+                        <!-- email -->
+                        <div class="text-start mb-3 ">
+                            <label for="email" >Email</label>
+                            <div class="input-group ">
+                                <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-envelope"></i></span>
+                                <input type="email" required id="lgemail" name="email" placeholder="Votre e-mail" class="border-start-0 form-control ">
+                            </div>
+                        </div>
+                        <!-- password -->
+                        <div class="text-start mb-3">
+                            <label for="password" >Mot de passe</label>
+                            <div class="input-group">
+                                <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
+                                <input type="password" required name="password"id="lgpassword" placeholder="Votre mot de passe" class="border-start-0 form-control">
+                            </div>
+                        </div>
+                        <button class="btn  me-5 ms-5" type="submit" name="btnSubmit" id="lgbtnSubmit">Se connecter</button>
+    
+                    </form>
+                </div>
+    
+    
             </div>
-            
-            <!-- PASSWORD INPUT -->
-            <label for="inputPassword" class="form-label">Votre mot de passe</label>
-            <div class="input-group">
-              <span class="input-group-text border-end-0 bg-transparent" id="password-addon">@</span>
-              <input required type="password" name="bankerPassword" class="form-control border-start-0" id="inputPassword" placeholder="Votre mot de passe">
-            </div> 
-          </div> oublie pas de git add, puis commit avant de push :)
-          <div class="mx-auto w-100">
-            <button type="button" class="btn w-100">Se connecter</button>
-          </div>
-        </form>
-
-      </div>
+        </section>
     </main> 
-  <?php require_once('./component/footer.php'); ?>
+    <script src="component/script/login.js"></script>
+    <?php require_once('./component/footer.php'); ?>
   </body>
         
 </html> 

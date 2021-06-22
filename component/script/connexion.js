@@ -15,7 +15,7 @@
 
   // variables pour choix connexion / inscription
   let signIn = document.getElementById('signin')
-  let login = document.getElementById('login')
+  let login = document.getElementById('logIn')
   let signInBtn = document.getElementById('signinBtn')
 
 

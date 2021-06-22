@@ -6,7 +6,7 @@
     ?>
     
   </head>
-  <body id="homepage">
+  <body class="notclient" id="homepage">
     <?php require_once('./component/header/headerHome.php'); 
     //import de header-home.php contenant le header spécifique à la page home
     ?>

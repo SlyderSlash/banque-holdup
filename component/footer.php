@@ -7,15 +7,15 @@
 
 <nav>
 <div class="row">
-   <ul class="d-flex flex-column align-items-center flex-lg-row justify-content-center list-unstyled mt-3 ">
-      <li class="mx-lg-2 pe-5">
-        <a class="nav-link pe-5  fw-light" href="#">Contact</a></li>
-      <li class="mx-lg-2 px-5 " >
-        <a class="nav-link px-5  fw-light" href="#">C.G.V</a></li>
-      <li class="mx-lg-2 px-5 " >
-        <a class="nav-link px-5  fw-light" href="#">Mention légale</a></li>
-      <li class="mx-lg-2 ps-5 " >
-        <a class="nav-link ps-5  fw-light" href="bankeraccess.php">Banker access</a></li>
+   <ul class="d-flex flex-column align-items-center flex-lg-row justify-content-around list-unstyled mt-3 ">
+      <li class="mx-lg-4">
+        <a class="nav-link  fw-light" href="#">Contact</a></li>
+      <li class="mx-lg-4 " >
+        <a class="nav-link  fw-light" href="#">C.G.V</a></li>
+      <li class="mx-lg-4 " >
+        <a class="nav-link  fw-light" href="#">Mention légale</a></li>
+      <li class="mx-lg-4 " >
+        <a class="nav-link  fw-light" href="bankeraccess.php">Accès interne</a></li>
     </ul>
 </div>
 </nav>
