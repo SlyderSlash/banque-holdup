@@ -12,7 +12,9 @@
   <body id="banque-connexion" class="mx-auto">
   <?php require_once('./component/header/headerNotConnected.php'); ?>
     <!-- Contenu à enlever  -->
-    
+    <main id="main-content">
+    <!-- Contenu principal de la page -->
+  </main>
     <h1 class="mb-5">Accès interne</h1>
     <div class="d-flex flex-column flex-md-row justify-content-center">
 
