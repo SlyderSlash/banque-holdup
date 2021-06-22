@@ -25,11 +25,11 @@
     <main class="container py-5 mt-5">
 
     <!-- section de connexion -->
-        <section class="row text-center" id="login">
+        <section class="row text-center" id="logInForm" method="" action="">
             <h1 >Se connecter</h1>
             <div class="d-md-flex justify-content-center">
                     <p class="pe-md-2 mb-0 ">Nouveau client ?</p>
-                    <a href="#" type="button" class="ps-md-2" id="signinBtn">S'inscrire</a>
+                    <a href="#" type="button" class="ps-md-2" name²="signinBtn"id="signinBtn">S'inscrire</a>
             </div>
             <div class="col-12">
                 <!--  illustration + formulaire -->
@@ -53,18 +53,18 @@
                             <label for="password" >Mot de passe</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" id="password" placeholder="Votre mot de passe" class="border-start-0 form-control">
+                                <input type="password" required name="password"id="password" placeholder="Votre mot de passe" class="border-start-0 form-control">
                             </div>
                         </div>
                         <!-- se souvenir de moi -->
                         <div class="form-check  mb-3 align-self-center">
-                            <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                            <input class="form-check-input" type="checkbox" value=""name="rememberMe" id="rememberMe">
                             <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
                         </div>
                         <!-- mot de passe oublié -->
                         <a href="#" class=" mb-4 align-self-center">Mot de passe oublié ?</a>
                         <!-- bouton sumit -->
-                        <button class="btn  me-5 ms-5" type="submit">Se connecter</button>
+                        <button class="btn  me-5 ms-5" type="submit"name="btnSubmit" id="btnSubmit">Se connecter</button>
     
                     </form>
                 </div>
@@ -243,6 +243,7 @@
     
     
     </main>
+    <script src="./component/script/login.js"></script>
     <script src="component/script/connexion.js"></script>
     <?php require_once('./component/footer.php'); ?>
   </body>
