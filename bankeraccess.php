@@ -37,7 +37,7 @@
               <span class="input-group-text border-end-0 bg-transparent" id="password-addon">@</span>
               <input required type="password" name="bankerPassword" class="form-control border-start-0" id="inputPassword" placeholder="Votre mot de passe">
             </div> 
-          </div> oublie pas de git add, puis commit avant de push :)
+          </div>
           <div class="mx-auto w-100">
             <button type="button" class="btn w-100">Se connecter</button>
           </div>
