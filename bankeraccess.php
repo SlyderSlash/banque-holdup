@@ -1,5 +1,6 @@
 <!-- TODO
 - [ ] Ajout sur les formulaires des name 
+
 - [ ] Pensez au required ( pour le confort mais ne pas le considerer comme une sécurité)
 - [ ] Créer une balise main avec l'id et la class du body
 -->
