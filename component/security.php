@@ -20,4 +20,14 @@ function testName ($value){
 // Mais dans tous les cas tu apprendra :D
 // P.S N'oublie pas de tester t'es valeur avec une variable et des var_dump
 // Bon courage et si tu a besoin, ton fidèle serviteur reste dispo :D
+
+
+function testEmail($value){
+    if(filter_var($value, FILTER_VALIDATE_EMAIL)){
+       return htmlspecialchars($value) ;
+    } else {
+        return false;
+    }
+}
+
 ?>
