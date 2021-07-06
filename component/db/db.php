@@ -1,10 +1,10 @@
 <?php
 // config part
-$dbhost = "";
-$dbport ="";
-$dbuser = "";
-$dbpass = "";
-$dbname = "";
+$dbhost = "15.188.57.143";
+$dbport ="3306";
+$dbuser = "team";
+$dbpass = "F:g8#Hc94";
+$dbname = "DBHoldUp";
 
 // BDD connexion
 try {
