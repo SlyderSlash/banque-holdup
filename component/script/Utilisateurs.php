@@ -18,23 +18,44 @@ private $erreurs = [],
         $pi,
         $suppress;
 
+//Erreurs []
+const   Nom_invalide = 1,
+        Email_invalide = 2;
+
 // Setters
 
 public function setId($id) {
-    $this->id = (int) $id;
+    if(!empty($id))
+        {
+            $this->id = (int) $id;
+        }        
 }
+
 public function setIban($iban) {
     $this->iban = $iban;
 }
+
 public function setBanquierId($banquierId) {
     $this->banquierId = (int) $banquierId;
 }
+
 public function setGenre($genre) {
-    $this->genre = (bool) $genre;
+    $this->genre = $genre;
 }
 public function setNom($nom) {
-    $this->nom = $nom;
+    $nom = htmlspecialchars($nom);
+    if  (strlen($nom) >= 150 || 
+        strlen($nom) <= 1 || 
+        preg_match('/[0-9]/',$nom))
+    {
+        $this->erreurs[] = self::Nom_invalide;
+    }
+    else
+    { 
+        $this->nom = $nom;
+    }
 }
+
 public function setPrenom($prenom) {
     $this->prenom = $prenom;
 }
@@ -50,9 +71,18 @@ public function setVille($ville) {
 public function setNaissance($naissance) {
     $this->naissance = $naissance;
 }
+
 public function setMail($mail) {
-    $this->mail = $mail;
+    if(filter_var($mail, FILTER_VALIDATE_EMAIL))
+    {
+        $this->mail = htmlspecialchars($mail);
+    } 
+    else 
+    {
+        $this->erreurs[] = self::Email_invalide;
+    }
 }
+
 public function setPass($pass) {
     $this->pass = $pass;
 }
