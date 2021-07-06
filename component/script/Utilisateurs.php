@@ -20,48 +20,48 @@ private $erreurs = [],
 
 // Setters
 
-    public function setId($id) {
-
-    }
-    public function setIban($iban) {
-        
-    }
-    public function setBanquierId($banquierId) {
-        
-    }
-    public function setGenre($genre) {
-        
-    }
-    public function setNom($nom) {
-        
-    }
-    public function setPrenom($prenom) {
-        
-    }
-    public function setAdresse($adresse) {
-        
-    }
-    public function setCodepostal($codepostal) {
-        
-    }
-    public function setVille($ville) {
-        
-    }
-    public function setNaissance($naissance) {
-        
-    }
-    public function setMail($mail) {
-        
-    }
-    public function setPass($pass) {
-        
-    }
-    public function setPi($pi) {
-        
-    }
-    public function setSuppress($suppress) {
-        
-    }
+public function setId($id) {
+    $this->id = (int) $id;
+}
+public function setIban($iban) {
+    $this->iban = $iban;
+}
+public function setBanquierId($banquierId) {
+    $this->banquierId = (int) $banquierId;
+}
+public function setGenre($genre) {
+    $this->genre = (bool) $genre;
+}
+public function setNom($nom) {
+    $this->nom = $nom;
+}
+public function setPrenom($prenom) {
+    $this->prenom = $prenom;
+}
+public function setAdresse($adresse) {
+    $this->adresse = $adresse;
+}
+public function setCodepostal($codepostal) {
+    $this->codepostal = (int) $codepostal;
+}
+public function setVille($ville) {
+    $this->ville = $ville;
+}
+public function setNaissance($naissance) {
+    $this->naissance = $naissance;
+}
+public function setMail($mail) {
+    $this->mail = $mail;
+}
+public function setPass($pass) {
+    $this->pass = $pass;
+}
+public function setPi($pi) {
+    $this->pi = $pi;
+}
+public function setSuppress($suppress) {
+    $this->suppress = $suppress;
+}
 
 
 // Getters
