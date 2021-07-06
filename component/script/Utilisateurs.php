@@ -67,46 +67,46 @@ public function setSuppress($suppress) {
 // Getters
 
     public function getId($id) {
-
+        return $this->id;
     }
     public function getIban($iban) {
-        
+        return $this->iban;
     }
     public function getBanquierId($banquierId) {
-        
+        return $this->banquierId;
     }
     public function getGenre($genre) {
-        
+        return $this->genre;
     }
     public function getNom($nom) {
-        
+        return $this->nom;
     }
     public function getPrenom($prenom) {
-        
+        return $this->prenom;
     }
     public function getAdresse($adresse) {
-        
+        return $this->adresse;
     }
     public function getCodepostal($codepostal) {
-        
+        return $this->codepostal;
     }
     public function getVille($ville) {
-        
+        return $this->ville;
     }
     public function getNaissance($naissance) {
-        
+        return $this->naissance;
     }
     public function getMail($mail) {
-        
+        return $this->mail;
     }
     public function getPass($pass) {
-        
+        return $this->pass;
     }
     public function getPi($pi) {
-        
+        return $this->pi;
     }
-    public function getSuppress($suppres) {
-        
+    public function getSuppress($suppress) {
+        return $this->suppress;
     }
 
 }
