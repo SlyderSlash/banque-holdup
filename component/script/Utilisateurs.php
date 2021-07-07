@@ -20,7 +20,8 @@ private $erreurs = [],
 
 //Erreurs []
 const   Nom_invalide = 1,
-        Email_invalide = 2;
+        Prenom_invalide = 2,
+        Email_invalide = 3;
 
 // Setters
 
@@ -57,10 +58,22 @@ public function setNom($nom) {
 }
 
 public function setPrenom($prenom) {
-    $this->prenom = $prenom;
+    $prenom = htmlspecialchars($prenom);
+    if  (strlen($prenom) >= 150 || 
+        strlen($prenom) <= 1 || 
+        preg_match('/[0-9]/',$prenom))
+    {
+        $this->erreurs[] = self::Prenom_invalide;
+    }
+    else
+    { 
+        $this->prenom = $prenom;
+    }
 }
+
 public function setAdresse($adresse) {
     $this->adresse = $adresse;
+    
 }
 public function setCodepostal($codepostal) {
     $this->codepostal = (int) $codepostal;
