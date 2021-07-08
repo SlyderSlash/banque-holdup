@@ -169,5 +169,7 @@ public function setSuppress($suppress) {
     public function getSuppress() {
         return $this->suppress;
     }
-
+    public function getErreurs() {
+        return $this->erreurs;
+    }
 }
