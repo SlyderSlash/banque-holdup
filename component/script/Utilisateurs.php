@@ -23,6 +23,24 @@ const   Nom_invalide = 1,
         Prenom_invalide = 2,
         Email_invalide = 3;
 
+// Appel la fonction hydrate sur l'objet
+public function __construct($donnees = [])
+{
+    if(!empty($donnees)){
+        $this->hydrate($donnees);
+    }
+}
+
+
+//Permet d'assigner les valeurs aux attributs de l'objet en appellant le setter
+public function hydrate($donnees)
+{
+    foreach ($donnees as $attribut => $valeur) {
+        $methodeSetters = 'set'.ucfirst($attribut);
+        $this->$methodeSetters($valeur);
+    }
+}
+
 // Setters
 
 public function setId($id) {
