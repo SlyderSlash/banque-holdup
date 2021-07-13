@@ -71,12 +71,13 @@
     max-height:calc(15vh + 10vw);
 }
 
-.header_title h1{
+/**** Bug d'accès menu connecté sur mobile *****/
+/* .header_title h1{
     transform: translateX(10%);
 }
 .header_title p{
     transform: translateX(-10%);
-}
+} */
 
 .nav-link {
     color: rgba(255, 255, 255, 0.50);
@@ -161,7 +162,7 @@ header .logo-expand{
     background-color: rgb(18,21,38);
 }
 .logoFooter{
-    width: calc(150px + 5vw);
+    width: calc(150px + 4vw);
 }
 .nav-link > img{
     width: calc(30px + 1vw);
@@ -216,4 +217,30 @@ text-align: center;
 #banque-connexion .btn{
    background-color:#F23F3F;
   color:white;
+}
+
+/************** Start of deleteAccount.php styles ***************/
+
+.delete-bg {
+    background-image: url(/assets/img/bg-deleteAccount.svg);
+    background-size: contain;
+    background-position: left,center;
+    background-repeat: no-repeat;
+    overflow: visible;
+}
+
+/************** End of deleteAccount.php styles ***************/
+
+.clientpath{
+    background-image: url('/assets/img/backgroundHeader.svg');
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+.notclient{
+    background-image: url('/assets/img/backgroundHome.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
 }

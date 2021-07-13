@@ -1,9 +1,9 @@
 <!-- TODO
 - [ ] Ajout sur les formulaires des name 
-- [ ] Birthdate réduire la taille de la police pour un meilleur résultat
-- [ ] Se renseigner et mettre en place un input type hidden pour la pièce en filename
-- [ ] Mettre en type number ce qui peut l'être
-- [ ] Pensez au required ( pour le confort mais ne pas le considerer comme une sécurité)
+- [x] Birthdate réduire la taille de la police pour un meilleur résultat
+- [-] Se renseigner et mettre en place un input type hidden pour la pièce en filename
+- [x] Mettre en type number ce qui peut l'être
+- [x] Pensez au required ( pour le confort mais ne pas le considerer comme une sécurité)
 - [ ] 
 
 
@@ -18,18 +18,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"> 
     <link href="./assets/styles/connexion.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="clientpath">
     <?php require_once('./component/header/headerNotConnected.php'); 
         //import de header_not_connected.php contenant le header non connecté
     ?>
     <main class="container py-5 mt-5">
 
     <!-- section de connexion -->
-        <section class="row text-center" id="login">
+        <section class="row text-center" id="logIn">
             <h1 >Se connecter</h1>
             <div class="d-md-flex justify-content-center">
                     <p class="pe-md-2 mb-0 ">Nouveau client ?</p>
-                    <a href="#" type="button" class="ps-md-2" id="signinBtn">S'inscrire</a>
+                    <a href="#" type="button" class="ps-md-2" name²="signinBtn"id="signinBtn">S'inscrire</a>
             </div>
             <div class="col-12">
                 <!--  illustration + formulaire -->
@@ -39,13 +39,13 @@
                         <img src="./assets/img/connexion-illustration.svg" alt="" class="">
                     </div>
                     <!-- formulaire -->
-                    <form action="formokay.php" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
+                    <form action="formokay.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
                         <!-- email -->
                         <div class="text-start mb-3 ">
                             <label for="email" >Email</label>
                             <div class="input-group ">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-envelope"></i></span>
-                                <input type="email" required id="email" name="email" placeholder="Votre e-mail" class="border-start-0 form-control ">
+                                <input type="email" required id="lgemail" name="email" placeholder="Votre e-mail" class="border-start-0 form-control ">
                             </div>
                         </div>
                         <!-- password -->
@@ -53,18 +53,18 @@
                             <label for="password" >Mot de passe</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" id="password" placeholder="Votre mot de passe" class="border-start-0 form-control">
+                                <input type="password" required name="password"id="lgpassword" placeholder="Votre mot de passe" class="border-start-0 form-control">
                             </div>
                         </div>
                         <!-- se souvenir de moi -->
                         <div class="form-check  mb-3 align-self-center">
-                            <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                            <input class="form-check-input" type="checkbox" value=""name="rememberMe" id="rememberMe">
                             <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
                         </div>
                         <!-- mot de passe oublié -->
                         <a href="#" class=" mb-4 align-self-center">Mot de passe oublié ?</a>
                         <!-- bouton sumit -->
-                        <button class="btn  me-5 ms-5" type="submit">Se connecter</button>
+                        <button class="btn  me-5 ms-5" type="submit" name="btnSubmit" id="lgbtnSubmit">Se connecter</button>
     
                     </form>
                 </div>
@@ -91,7 +91,7 @@
                             <label for="name">Nom</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-person"></i></span>
-                                <input type="text" name="name" id="name" placeholder="Votre nom" class="border-start-0 form-control pt-2 pb-2">
+                                <input type="text" name="name" id="name" placeholder="Votre nom" class="border-start-0 form-control pt-2 pb-2" required>
                             </div>
                         </div>
     
@@ -100,7 +100,7 @@
                             <label for="firstName">Prénom</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-person"></i></span>
-                                <input type="text" name="firstname" id="firstName" placeholder="Votre prénom" class="border-start-0 form-control">
+                                <input type="text" name="firstname" id="firstName" placeholder="Votre prénom" class="border-start-0 form-control" required>
                             </div>
                         </div>
     
@@ -112,13 +112,13 @@
                                 <label for="birthdate" class="d-none d-lg-flex d-xl-none">Naissance</label>
                                 <div class="input-group">
                                     <span class="input-group-text border-end-0 bg-transparent " ><i class="bi bi-calendar3"></i></span>
-                                    <input type="date" name="birthDate" id="birthdate" class="border-start-0 form-control">
+                                    <input type="date" name="birthDate" id="birthdate" class="border-start-0 form-control p-0 text-center" required>
                                 </div>
                             </div>
                             <!-- gender -->
                             <div class="text-start mb-3 col-sm-6 ">
                                 <label for="gender">Genre</label>
-                                <select class="form-select" name="gender" id="gender" aria-label="Gender selection">
+                                <select class="form-select" name="gender" id="gender" aria-label="Gender selection" required>
                                     <option selected value="" class="form-select">Genre</option>
                                     <option value="man" class="form-select">Homme</option>
                                     <option value="woman" class="form-select">Femme</option>
@@ -130,7 +130,7 @@
                         <!-- Pièce d'identité -->
                         <div class="mb-3 mt-3 d-flex flex-column align-items-stretch">
                             <button type="button" id="iD" class="inputFile">Pièce d'identité</button>
-                            <input class="form-control d-none" name="idCard" type="file" id="idCard" accept="image/png, image/jpeg, image/jpg, .pdf">
+                            <input class="form-control d-none" name="idCard" type="file" id="idCard" accept="image/png, image/jpeg, image/jpg, .pdf" required>
                             <div class="opt mt-1 text-center">formats acceptés : *.jpg, *.jpeg, *.png, *.pdf</div>
                             <div id="selectedFile" class="mt-2 text-center">
     
@@ -152,13 +152,13 @@
                             <!-- Num. -->
                             <div class=" col-3 text-start mb-3">
                                 <label for="num">Num.</label>
-                                <input type="text" id="num" class="form-control p-2">
+                                <input type="number" id="num" class="form-control p-2">
                             </div>
                             
                             <!-- Rue -->
                             <div class="text-start mb-3 col-9">
                                 <label for="street">Rue</label>
-                                <input type="text" name="street" id="street" class="form-control p-2">
+                                <input type="text" name="street" id="street" class="form-control p-2" required>
                             </div>
     
                         </div>
@@ -176,13 +176,13 @@
                             <!-- CP. -->
                             <div class="text-start mb-3 col-6 col-md-6" >
                                 <label for="cp">Code postal</label>
-                                <input type="text" name="postalCode" id="cp" class="form-control p-2">
+                                <input type="number" name="postalCode" id="cp" class="form-control p-2" required>
                             </div>
                             
                             <!-- Ville -->
                             <div class="text-start mb-3 col-6 col-md-6">
                                 <label for="town">Ville</label>
-                                <input type="text" name="town" id="town" class="form-control p-2">
+                                <input type="text" name="town" id="town" class="form-control p-2" required>
                             </div>
     
                         </div>
@@ -198,7 +198,7 @@
                             <label for="emailId">Email</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-envelope"></i></span>
-                                <input type="email" name="email" id="emailId" placeholder="Votre e-mail" class="border-start-0 form-control">
+                                <input type="email" name="email" id="emailId" placeholder="Votre e-mail" class="border-start-0 form-control" required>
                             </div>
                         </div>
                         <!-- password -->
@@ -206,7 +206,7 @@
                             <label for="passwordId">Mot de passe</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" name="password" id="passwordId" placeholder="Votre mot de passe" class="border-start-0 form-control">
+                                <input type="password" name="password" id="passwordId" placeholder="Votre mot de passe" class="border-start-0 form-control" required>
                             </div>
                         </div>
                         <!-- password verif -->
@@ -214,7 +214,7 @@
                             <label for="passwordCheck">Vérification du mot de passe</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" id="passwordCheck" placeholder="Répétez votre mot de passe" class="border-start-0 form-control">
+                                <input type="password" id="passwordCheck" placeholder="Répétez votre mot de passe" class="border-start-0 form-control" required>
                             </div>
                         </div>
                         
@@ -225,7 +225,7 @@
     
                     <!-- valider les CGV -->
                     <div id="cgv" class="col-12 form-check mt-2 d-none d-lg-flex justify-content-center ">
-                        <input class="form-check-input me-3" name="cgv" type="checkbox" value="" id="cgvbox" >
+                        <input class="form-check-input me-3" name="cgv" type="checkbox" value="" id="cgvbox"  required>
                         <label class="form-check-label" for="cgvbox">Valider les C.G.V.</label>
                     </div>
                     <!-- bouton sumit -->
@@ -243,6 +243,7 @@
     
     
     </main>
+    <script src="component/script/login.js"></script>
     <script src="component/script/connexion.js"></script>
     <?php require_once('./component/footer.php'); ?>
   </body>

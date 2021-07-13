@@ -1,9 +1,8 @@
  <!-- Début du header_not_connected  -->
     <header>
-        <img src="./assets/img/backgroundHeader.svg" class="w-100 header-bg"> 
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand m-0" href="index.html" title="Retour à l'accueil">
+          <a class="navbar-brand m-0" href="index.php" title="Retour à l'accueil">
               <img class="logo w-50" src="./assets/img/logoHeader.svg" alt="Logo de la banque Hold up">
           </a>    
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

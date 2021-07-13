@@ -1,11 +1,7 @@
 <header>
-      <figure class="header-bg">
-        <img src="assets/img/header-background-hp.png" class="w-100">
-        <!-- TODO : PNG en SVG -->
-      </figure>
       <nav class="navbar navbar-expand-md">
         <div class="container-fluid w-100">
-          <a class="navbar-brand" href="index.html" title="Retour à l'accueil">
+          <a class="navbar-brand" href="index.php" title="Retour à l'accueil">
             <figure class="logo">
               <img src="assets/img/logo-white-without-text.png" class="w-100" alt="Logo de la banque Hold up">
             </figure>
