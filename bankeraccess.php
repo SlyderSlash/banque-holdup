@@ -1,5 +1,6 @@
 <!-- TODO
 - [ ] Ajout sur les formulaires des name 
+
 - [ ] Pensez au required ( pour le confort mais ne pas le considerer comme une sécurité)
 - [ ] Créer une balise main avec l'id et la class du body
 -->
@@ -34,20 +35,19 @@
                         </div>
                         <!-- password -->
                         <div class="text-start mb-3">
-                            <label for="password" >Mot de passe</label>
-                            <div class="input-group">
-                                <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" required name="password"id="lgpassword" placeholder="Votre mot de passe" class="border-start-0 form-control">
-                            </div>
-                        </div>
-                        <button class="btn  me-5 ms-5" type="submit" name="btnSubmit" id="lgbtnSubmit">Se connecter</button>
-    
-                    </form>
-                </div>
-    
-    
-            </div>
+                            <label for="inputPassword" class="form-label">Votre mot de passe</label>
+            <div class="input-group">
+              <span class="input-group-text border-end-0 bg-transparent" id="password-addon">@</span>
+              <input required type="password" name="bankerPassword" class="form-control border-start-0" id="inputPassword" placeholder="Votre mot de passe">
+            </div> 
+          </div>
+          <div class="mx-auto w-100">
+            <button type="button" class="btn w-100">Se connecter</button>
+          </div>
+        </form>
+        </div>
         </section>
+
     </main> 
     <script src="component/script/login.js"></script>
     <?php require_once('./component/footer.php'); ?>
