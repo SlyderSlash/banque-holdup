@@ -10,8 +10,50 @@
 
 
 -->
+
 <!doctype html>
 <html lang="fr">
+<?php 
+//require_once(); DB
+//require_once(); Security
+//require_once(); function/signIn
+//require_once(); function/logIn
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $db = DB::connect();
+    if (!$db){
+        // Code pour afficher une erreur
+    }
+    else {
+        if(Functions::signIn($db,
+            $_POST['name'],
+            $_POST['firstname'],
+            $_POST['email'],
+            $_POST['password'],
+            $_POST['verifPassword'],
+            $_POST['idCard'],
+            $_FILE['idCard'],
+            $_POST['birthDate'],
+            $_POST['postalCode'],
+            $_POST['town'],
+            $_POST['street'],
+            $_POST['numberstreet'],
+            $_POST['cgv']))
+        {
+            //Code success = > to connected
+        }else {
+            //retourner un message d'erreur 
+        }
+        if(Functions::logIn($db,
+        $_POST['email'],
+        $_POST['password']))
+        {
+            //Code success = > to connected
+        }else{
+            //Retourner un message d'erreur 
+        }
+    }
+}
+?>
   <head>
     <?php require_once('./component/head.php'); ?>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -152,7 +194,7 @@
                             <!-- Num. -->
                             <div class=" col-3 text-start mb-3">
                                 <label for="num">Num.</label>
-                                <input type="number" id="num" class="form-control p-2">
+                                <input type="number" id="num" name='numberstreet' class="form-control p-2">
                             </div>
                             
                             <!-- Rue -->
@@ -214,7 +256,7 @@
                             <label for="passwordCheck">Vérification du mot de passe</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" id="passwordCheck" placeholder="Répétez votre mot de passe" class="border-start-0 form-control" required>
+                                <input type="password" name="verifPassword" id="passwordCheck" placeholder="Répétez votre mot de passe" class="border-start-0 form-control" required>
                             </div>
                         </div>
                         

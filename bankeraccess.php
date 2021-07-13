@@ -6,6 +6,28 @@
 -->
 <!doctype html>
 <html lang="fr">
+<?php
+//require_once(); DB
+//require_once(); Security
+//require_once(); function/loginBanker
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $db = DB::connect();
+    if(!$db || !$email || $password){
+        //Code pour afficher une erreur
+    }else{
+        if(Functions::loginBanker($db,
+            $_POST['email'],
+            $_POST['password']))
+            {
+                //Code success = > to connected
+            }else{
+                //retourner un message d'erreur 
+            }
+    }
+}
+
+?>
+
   <head>
     <?php require_once('./component/head.php');?>
   </head>
