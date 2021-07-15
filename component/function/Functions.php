@@ -122,7 +122,7 @@ class Functions{
     }
 
     public function deleteClientRequest($db, $idclient, $titulaire){
-        $titulaire = Security::testTitulaire($titulaire);
+        $titulaire = DB::getTestTitulaire($titulaire);
         $lettreResiliation = Security::testLettreResiliation($titulaire);
 
         if($db && $idclient && $titulaire){

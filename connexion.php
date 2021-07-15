@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="col-12">
     
                 <!-- ROW formulaire -->
-                <form action="" method="POST" class="row mt-5" id="signInForm">
+                <form action="formokay.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
                     
                     <!-- partie 1 : identité -->
                     <div id="identity" class="col-12 col-lg-4 text-sm-start d-flex flex-column  align-items-stretch ps-5 pe-5  d-lg-flex d-none">
@@ -267,7 +267,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
                     <!-- valider les CGV -->
                     <div id="cgv" class="col-12 form-check mt-2 d-none d-lg-flex justify-content-center ">
-                        <input class="form-check-input me-3" name="cgv" type="checkbox" value="" id="cgvbox"  required>
+                        <input class="form-check-input me-3" name="cgv" type="checkbox" id="cgvbox"  required>
                         <label class="form-check-label" for="cgvbox">Valider les C.G.V.</label>
                     </div>
                     <!-- bouton sumit -->
@@ -287,6 +287,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </main>
     <script src="component/script/login.js"></script>
     <script src="component/script/connexion.js"></script>
-    <?php require_once('./component/footer.php'); ?>
+    <?php require_once('./component/footer.php');?>
   </body>
 </html>
