@@ -134,6 +134,7 @@ class Security{
     //DEMBA :
     //testCheckObligate($cgv); ( CHECKBOX => true or false :: check if true ) ok
     //testBirthday($birthDate); ( DATE DE NAISSANCE =>  2021-07-15) ok
+    //testPassLog($password) test la taille et type String 
     //testAmount($amount); (MONTANT VIREMENT => Verifier nombre avec 2 chiffres après la virgule) => Demba
 
  /*    $_POST => array(13) { 
