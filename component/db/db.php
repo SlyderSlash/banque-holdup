@@ -7,12 +7,19 @@ $dbpass = "F:g8#Hc94";
 $dbname = "DBHoldUp";
 
 // BDD connexion
-try {
-  $conn = new PDO('mysql:host='.$dbhost.';dbport='. $dbport.';dbname='.$dbname.';charset=utf8',$dbuser,$dbpass);
-} catch (Exception $e) 
-{
-  die('Erreur : ' .$e -> getMessage());
-};
+class DB {
+  function connect (){
+    try {
+      $conn = new PDO('mysql:host='.$dbhost.';dbport='. $dbport.';dbname='.$dbname.';charset=utf8',$dbuser,$dbpass);
+    } catch (Exception $e) 
+    {
+      die('Erreur : ' .$e -> getMessage());
+      return false;
+    };
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $conn;
+  }
+}
 
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 ?>

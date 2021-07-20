@@ -10,8 +10,50 @@
 
 
 -->
+
 <!doctype html>
 <html lang="fr">
+<?php 
+//require_once(); DB
+//require_once(); Security
+//require_once(); function/signIn
+//require_once(); function/logIn
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $db = DB::connect();
+    if (!$db){
+        // Code pour afficher une erreur
+    }
+    else {
+        if(Functions::signIn($db,
+            $_POST['name'],
+            $_POST['firstname'],
+            $_POST['email'],
+            $_POST['password'],
+            $_POST['verifPassword'],
+            $_POST['idCard'],
+            $_FILE['idCard'],
+            $_POST['birthDate'],
+            $_POST['postalCode'],
+            $_POST['town'],
+            $_POST['street'],
+            $_POST['numberstreet'],
+            $_POST['cgv']))
+        {
+            //Code success = > to connected
+        }else {
+            //retourner un message d'erreur 
+        }
+        if(Functions::logIn($db,
+        $_POST['email'],
+        $_POST['password']))
+        {
+            //Code success = > to connected
+        }else{
+            //Retourner un message d'erreur 
+        }
+    }
+}
+?>
   <head>
     <?php require_once('./component/head.php'); ?>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -80,7 +122,8 @@
             <div class="col-12">
     
                 <!-- ROW formulaire -->
-                <form action="" method="POST" class="row mt-5" id="signInForm" enctype="multipart/form-data">
+                <form action="formokay.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
+
                     
                     <!-- partie 1 : identité -->
                     <div id="identity" class="col-12 col-lg-4 text-sm-start d-flex flex-column  align-items-stretch ps-5 pe-5  d-lg-flex d-none">
@@ -153,7 +196,7 @@
                             <!-- Num. -->
                             <div class=" col-3 text-start mb-3">
                                 <label for="num">Num.</label>
-                                <input type="number" id="num" class="form-control p-2">
+                                <input type="number" id="num" name='numberstreet' class="form-control p-2">
                             </div>
                             
                             <!-- Rue -->
@@ -215,7 +258,7 @@
                             <label for="passwordCheck">Vérification du mot de passe</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0 bg-transparent" ><i class="bi bi-lock"></i></span>
-                                <input type="password" id="passwordCheck" placeholder="Répétez votre mot de passe" class="border-start-0 form-control" required>
+                                <input type="password" name="verifPassword" id="passwordCheck" placeholder="Répétez votre mot de passe" class="border-start-0 form-control" required>
                             </div>
                         </div>
                         
@@ -226,7 +269,7 @@
     
                     <!-- valider les CGV -->
                     <div id="cgv" class="col-12 form-check mt-2 d-none d-lg-flex justify-content-center ">
-                        <input class="form-check-input me-3" name="cgv" type="checkbox" value="" id="cgvbox"  required>
+                        <input class="form-check-input me-3" name="cgv" type="checkbox" id="cgvbox"  required>
                         <label class="form-check-label" for="cgvbox">Valider les C.G.V.</label>
                     </div>
                     <!-- bouton sumit -->
@@ -246,6 +289,6 @@
     </main>
     <script src="component/script/login.js"></script>
     <script src="component/script/connexion.js"></script>
-    <?php require_once('./component/footer.php'); ?>
+    <?php require_once('./component/footer.php');?>
   </body>
 </html>
