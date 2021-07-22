@@ -1,5 +1,5 @@
 <?php
-session_start();git
+session_start();
 class Security{
     function testName ($value){
         $value = htmlspecialchars($value);
@@ -47,7 +47,7 @@ class Security{
         $town = htmlspecialchars($town);
         $street = htmlspecialchars($street);
         $numberstreet = htmlspecialchars($numberstreet);
-        if (strlen($postalCode) !== 5 || !is_int($postalCode))
+        if (preg_match('~[0-9]{5}~', $value)) //strlen($postalCode) !== 5 || !is_int($postalCode)
         {
             return false;
         }
@@ -99,13 +99,38 @@ class Security{
         }
         else return false;
     }
-
     function testAmount($amount){
         $amount = htmlspecialchars($amount);
-       if($amount)g
-
+       if(!is_Number($amount))
+       {
+           return false;
+       }
+       else return $amount;
     }
 
+    function testGender($value){
+        if($value === 'man' || $value === 'woman'){
+            return htmlspecialchars($value);
+        } else {
+            return false;
+        }
+    }
+
+    function testUploadedFile($file){
+        if
+        (
+            ($file['type'] === 'image/png' || 'image/jpeg' || 'application/pdf') && 
+            ($file['size'] <= 1000000) && 
+            ($file['error'] === UPLOAD_ERR_OK)
+        )
+        {
+            return $file;
+        } 
+        else 
+        {
+            return false;
+        }
+    }
 
 
     //JEREMY :
@@ -117,7 +142,8 @@ class Security{
     //DEMBA :
     //testCheckObligate($cgv); ( CHECKBOX => true or false :: check if true ) ok
     //testBirthday($birthDate); ( DATE DE NAISSANCE =>  2021-07-15) ok
-    //testAmount($amount); (MONTANT VIREMENT => Verifier nombre avec 2 chiffres après la virgule)
+    //testPassLog($password) test la taille et type String 
+    //testAmount($amount); (MONTANT VIREMENT => Verifier nombre avec 2 chiffres après la virgule) => Demba
 
  /*    $_POST => array(13) { 
         ["name"]=> string(12) "BanqueHoldUP" 

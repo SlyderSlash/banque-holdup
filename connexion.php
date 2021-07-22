@@ -123,6 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
                 <!-- ROW formulaire -->
                 <form action="formokay.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
+
                     
                     <!-- partie 1 : identité -->
                     <div id="identity" class="col-12 col-lg-4 text-sm-start d-flex flex-column  align-items-stretch ps-5 pe-5  d-lg-flex d-none">
@@ -172,6 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <!-- Pièce d'identité -->
                         <div class="mb-3 mt-3 d-flex flex-column align-items-stretch">
                             <button type="button" id="iD" class="inputFile">Pièce d'identité</button>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                             <input class="form-control d-none" name="idCard" type="file" id="idCard" accept="image/png, image/jpeg, image/jpg, .pdf" required>
                             <div class="opt mt-1 text-center">formats acceptés : *.jpg, *.jpeg, *.png, *.pdf</div>
                             <div id="selectedFile" class="mt-2 text-center">
