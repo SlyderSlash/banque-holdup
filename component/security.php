@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start();git
 class Security{
     function testName ($value){
         $value = htmlspecialchars($value);
@@ -98,6 +98,12 @@ class Security{
             else return false;
         }
         else return false;
+    }
+
+    function testAmount($amount){
+        $amount = htmlspecialchars($amount);
+       if($amount)g
+
     }
 
 
