@@ -1,9 +1,8 @@
 <!-- Début du header_connected  -->
     <header>
-        <img src="./assets/img/header-background-hp.png" class="w-100 header-bg">
-      <nav class="navbar navbar-expand-lg">
+       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand m-0" href="index.html" title="Retour à l'accueil">
+          <a class="navbar-brand m-0" href="index.php" title="Retour à l'accueil">
             <img class="logo" src="./assets/img/logo-white-without-text.png" alt="Logo de la banque Hold up">
           </a>
           <span class="header_title d-flex flex-column flex-grow-1 align-content-start">

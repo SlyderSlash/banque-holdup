@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
+
+<?php
+//require_once(); DB
+//require_once(); Security
+//require_once(); function/DeleteClientRequest
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $db = DB::connect();
+    $idclient = DB::connect(); //A changer : Je ne sais pas encore ou est ce qu'on récupère l'idClient.
+    if(!$db || !$idclient){
+        //Code pour afficher une erreur
+    }else{
+        if(Functions::deleteClientRequest($db,
+            $idclient,
+            $_POST['titulaire'],
+            $_FILES['lettreResiliation']))
+            {
+                //Code success = > to connected
+            }else{
+                //retourner un message d'erreur 
+            }
+    }
+}
+
+?>
 <head>
     <!-- Load head -->
     <?php require_once('./component/head.php'); ?>
 </head>
-<body>
+<body class="clientpath">
     <!-- Load connected header -->
     <?php require_once('./component/header/headerConnected.php'); ?>
 
@@ -26,13 +50,13 @@
                     <label for="titulaire" class="form-label">Titulaire du compte</label>
                     <div class="input-group">
                         <span class="input-group-text border-end-0 bg-white" ><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control bg-white" id="titulaire" value="<?php echo $variable ?>" readonly>
+                        <input type="text" name="titulaire" class="form-control bg-white" id="titulaire" value="<?php echo $variable ?>" readonly>
                     </div>
                 </div>
                 <div class="my-3 d-flex flex-column align-items-center">
                     <p>Demande manuscrite signée</p>
                     <label class="btn border-danger rounded-pill bg-light text-danger px-5" for="lettreResiliation">
-                    <input id="lettreResiliation" type="file" accept="image/png, image/jpeg, image/jpg, .pdf" class="visually-hidden" required>
+                    <input id="lettreResiliation" name="lettreResiliation" type="file" accept="image/png, image/jpeg, image/jpg, .pdf" class="visually-hidden" required>
                     Sélectionner la pièce
                     </label>
                 </div>

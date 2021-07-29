@@ -8,7 +8,7 @@
 }
 .btn{
     background-color:#F23F3F;
-    /* border-radius: 100px; */
+    border-radius: 100px;
 }
 
 .link{
@@ -162,7 +162,7 @@ header .logo-expand{
     background-color: rgb(18,21,38);
 }
 .logoFooter{
-    width: calc(150px + 5vw);
+    width: calc(150px + 4vw);
 }
 .nav-link > img{
     width: calc(30px + 1vw);
@@ -230,3 +230,17 @@ text-align: center;
 }
 
 /************** End of deleteAccount.php styles ***************/
+
+.clientpath{
+    background-image: url('/assets/img/backgroundHeader.svg');
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+.notclient{
+    background-image: url('/assets/img/backgroundHome.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}

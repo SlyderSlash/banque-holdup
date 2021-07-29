@@ -15,11 +15,11 @@
 
   // variables pour choix connexion / inscription
   let signIn = document.getElementById('signin')
-  let login = document.getElementById('login')
+  let login = document.getElementById('logIn')
   let signInBtn = document.getElementById('signinBtn')
 
 
-  // gestion connexion / inscription
+  // gestion affichage : connexion / inscription
   signInBtn.addEventListener('click', ()=>{
     signIn.classList.toggle('d-none')
     login.classList.toggle('d-none')
@@ -37,21 +37,6 @@
     const curFiles = idCardInput.files[0];
     selectedFile.textContent = curFiles.name    
     }
-
-  // gestion inscription version mobile
-  identificationBtn.addEventListener('click', (e)=>{
-  document.querySelector('#identity').classList.toggle('d-none')
-  document.querySelector('#identification').classList.toggle('d-none')
-
-  })
-
-  identityBtn.addEventListener('click', ()=>{
-    document.querySelector('#identity').classList.toggle('d-none')
-    document.querySelector('#adress').classList.toggle('d-none')
-    document.querySelector('#cgv').classList.toggle('d-none')
-    document.querySelector('#cgv').classList.toggle('d-flex')
-    document.querySelector('#submit').classList.toggle('d-none')
-  })
 
 
 
@@ -143,7 +128,7 @@
   } 
 
   function validEmail(value) {  
-    let emailRgx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    let emailRgx =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if(!emailRgx.test(value)){
       return 'Veuillez entrer une adresse email valide.\n'
     }
@@ -176,7 +161,74 @@
     return '';
   }
 
+  // VERSION MOBILE - AFFICHAGE ET VALIDATION DES ÉTAPES
 
+    // gestion inscription version mobile
+    identificationBtn.addEventListener('click', (e)=>{
+      error = ''
+      
+      for(var count=0; count<form.elements.length; count++) {
+        switch (form.elements[count].name) {
+          case 'email' :
+            error += validEmail(form.elements[count].value)
+            break
+          case 'password':
+            error += passwordType(form.elements[count].value)
+            break
+        }
+      }
+          
+      error += validPassword(passwordId.value, passwordCheck.value)
+      if (error !== '') {
+        alert(error)
+        e.preventDefault()
+      } else {
+        document.querySelector('#identity').classList.toggle('d-none')
+        document.querySelector('#identification').classList.toggle('d-none')
+      }
+  
+    })
+  
+    identityBtn.addEventListener('click', (e)=>{
+      error = ''
+      
+      for(var count=0; count<form.elements.length; count++) {
+        switch (form.elements[count].name) {
+          case 'name':
+            error+= validName(form.elements[count].value)
+            break;
+          case 'firstname':
+            error += validFirstName(form.elements[count].value)
+            break; 
+          case 'birthDate':
+            error += validDate(form.elements[count].value)
+            break
+          case 'gender':
+            error += validGender(form.elements[count].value)
+            break
+          case 'idCard':
+            error += validIdCard(form.elements[count].value)
+            break
+        }
+      }
+          
+      error += validPassword(passwordId.value, passwordCheck.value)
+      if (error !== '') {
+        alert(error)
+        e.preventDefault()
+      } else {
+        document.querySelector('#identity').classList.toggle('d-none')
+        document.querySelector('#adress').classList.toggle('d-none')
+        document.querySelector('#cgv').classList.toggle('d-none')
+        document.querySelector('#cgv').classList.toggle('d-flex')
+        document.querySelector('#submit').classList.toggle('d-none')
+      }
+    })
+  
+  
+
+
+  // VALIDATION DU FORMULAIRE
   form.addEventListener('submit', (event) => {
     error = ''
     

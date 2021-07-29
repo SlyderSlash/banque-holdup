@@ -4,22 +4,22 @@
     <img class="logoFooter" src="assets/img/logoFooter.svg">
 </div>
 
-<!--liens utiles-->
+
 <nav>
 <div class="row">
-     <!-- TODO : Mettre un espacement plus important au niveau des liens ( voir sur la maquettes ) -->
-   <ul class="d-flex flex-column align-items-center flex-lg-row justify-content-center list-unstyled mt-3">
-      <li class="mx-lg-2">
-        <a class="nav-link fw-light" href="#">Contact</a></li>
-      <li class="mx-lg-2" >
-        <a class="nav-link fw-light" href="#">C.G.V</a></li>
-      <li class="mx-lg-2" >
-        <a class="nav-link fw-light" href="#">Mention légale</a></li>
-        <!-- TODO : Ajout d'un lien pour la connection des banquiers ( banker.php ) -->
+   <ul class="d-flex flex-column align-items-center flex-lg-row justify-content-around list-unstyled mt-3 ">
+      <li class="mx-lg-4">
+        <a class="nav-link  fw-light" href="#">Contact</a></li>
+      <li class="mx-lg-4 " >
+        <a class="nav-link  fw-light" href="#">C.G.V</a></li>
+      <li class="mx-lg-4 " >
+        <a class="nav-link  fw-light" href="#">Mention légale</a></li>
+      <li class="mx-lg-4 " >
+        <a class="nav-link  fw-light" href="bankeraccess.php">Accès interne</a></li>
     </ul>
 </div>
 </nav>
- 
+
 <div id="socialMedia" class="row">
   <ul class="d-flex flex-row justify-content-center list-unstyled mt-3">
     <li class="mx-lg-2">
