@@ -1,6 +1,6 @@
 <?php
-
-class Functions{
+session_start();
+class FunctionsClient{
     public function signIn($db,
       $name,
       $firstname,
@@ -15,7 +15,7 @@ class Functions{
       $street,
       $numberstreet,
       $cgv)
-        {
+    {
         $lastName = Security::testName($name);
         $firstName = Security::testName($firstname);
         $email = Security::testEmail($email);
@@ -25,77 +25,133 @@ class Functions{
         $adress = Security::testAdress($postalCode,$town,$street,$numberstreet,);
         $cgu = Security::testCheckObligate($cgv);
 
-        if ($lastName 
-            && $firstName 
-            && $email 
-            && $password 
-            && $pi 
-            && $birthday 
-            && $adress 
-            && $cgu)
+        switch (false)
         {
-            if(DB::signIn($db, $lastName, $firstName, $email, $password, $pi, $birthday, $adress, $cgu)){
-                return true ;
-            }
-            else return false;
+            case $lastName:
+                $_SESSION['error']= "Le nom de famille n'est pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            case $firstName:
+                $_SESSION['error']= "Le prénom n'est pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            case $email:
+                $_SESSION['error']= "L'adresse email n'est pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            case $password:
+                $_SESSION['error']= "Le mot de passe n'est pas au bon format - 8 Caractère minimum ( 1 Majuscule, 1 Minuscule et 1 chiffre nécesaire)";
+                header('Location: ../connexion.php');
+                break;
+            case $pi:
+                $_SESSION['error']= "Problême lors du chargement et de la vérification de la pièce d'identité";
+                header('Location: ../connexion.php');
+                break;
+            case $birthday:
+                $_SESSION['error']= "La date de naissance n'est pas au bon format ou votre age est inférieur à 18 ans";
+                header('Location: ../connexion.php');
+                break;
+            case $adress:
+                $_SESSION['error']= "L'adresse n'est pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            case $cgu:
+                $_SESSION['error']= "Les Conditions Générales de Vente doivent obligatoirement être validé";
+                header('Location: ../connexion.php');
+                break;
+            case NoAuthDB::PUTClient($lastName, $firstName, $email, $password, $pi, $birthday, $adress):
+                $_SESSION['error']= "Problême technique lors de votre inscription";
+                header('Location: ../connexion.php');
+                break;
+            default :
+                $_SESSION['success']= "Bienvenu ".$lastName." ".$firstName." . Votre compte, sera validé dès que possible par l'un de nos conseillers.";
+                header('Location: ../index.php');
+                break;
         }
-        else return false ;
     }
 
-    public function logIn($db, $email, $password){
+    public function logIn($email, $password){
         $email = Security::testEmail($email);
-        $password = Security::testPass($password);
-
-        if ($email && $password){
-            if(DB::logIn($db, $email, $password)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
+        $password = Security::testPassLog($password);
+        $idclient = NoAuthDB::GETClientId($email, $password);
+        switch(false){
+            case $email:
+                $_SESSION['error']= "L'adresse n'est pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            case $password:
+                $_SESSION['error']= "Le mot de passe n'est pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            default:
+                if (!$idclient) {
+                    $_SESSION['error']= "Problême d'identifiant";
+                    header('Location: ../connexion.php');
+                    break;
+                }
+                else {
+                    $token = ClientDB::PUTToken($idclient);
+                    if (!$token){
+                        $_SESSION['error']= "Problème technique";
+                        header('Location: ../connexion.php');
+                    }
+                    else {
+                        $_SESSION['token'] = $token;
+                        $_SESSION['success']="Bienvenue !";
+                        header('Location: ../index.php');
+                    }
+                    break;
+                }
         }
     }
 
-    public function loginBanker($db, $email, $password){
-        $email = Security::testEmail($email);
-        $email = Security::testPass($password);
 
-        if($db && $email && $password){
-            if(DB::loginBanker($db,$email,$password)){
-                return true;
-            }else{
-                return false;
-            }
-        }
-    }
-
-    public function addBeneficiaire($db, $idclient, $iban){
+    public function addBeneficiaire( $idclient, $iban){
         $iban = Security::testIban($iban);
-        if($db && $idclient && $iban){
-            if(DB::addBeneficiaire($db,$idclient,$iban)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
+        switch (false) {
+            case $iban:
+                $_SESSION['error']= "L'IBAN n'est pas au bon format";
+                header('Location: ../addbenef.php');
+                break;
+            case ClientDB::PUTBeneficiaire($idclient,$iban) :
+                $_SESSION['error']= "Problème technique lors de l'ajout du bénéficiaire";
+                header('Location: ../addbenef.php');
+                break;
+            default:
+                $_SESSION['success']= "Votre bénéficiaire a bien été ajouté, veuillez patienter, le temps que votre conseiller le valide";
+                header('Location: ../virement.php');
+                break;
         }
     }
 
-    public function virement($db, $idclient, $amount){
-        $amount = Security::testAmount($amount);
+    public function deleteClientRequest($idclient, $titulaire, $letter){
+        $titulaire = ClientDB::GETClientName($titulaire);
+        $lettreResiliation = Security::testUploadedFile($letter);
 
-        if($db && $idclient && $amount){
-            if(DB::virement($db, $idclient, $amount)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
+        switch(false){
+            case $lettreResiliation:
+                $_SESSION['error']= "Probleme lors du chargement et de la vérification de la lettre de résiliation";
+                header('Location: ../deleteAccount.php');
+                break;
+            case $titulaire:
+                $_SESSION['error']= "Le nom indiqué lors de la demande de suppression et celui en base de donnée ne correspondent pas";
+                header('Location: ../deleteAccount.php');
+                break;
+
+            case ClientDB::PATCHClientDelete($idclient, $titulaire, $lettreResiliation):
+                $_SESSION['error']="Problème technique lors de la suppression du client"; 
+                header('Location: ../deleteAccount.php');
+                break;
+            
+            default:
+                $_SESSION['success']= "La suppresion client à bien été prise en compte";
+                header('Location: ../index.php');
+                break;
+                
         }
     }
+
+    
 
     public function validClient($db, $idclient, $idbanker){
         if($db && $idclient && $idbanker){
@@ -121,20 +177,7 @@ class Functions{
         }
     }
 
-    public function deleteClientRequest($db, $idclient, $titulaire){
-        $titulaire = DB::getTestTitulaire($titulaire);
-        $lettreResiliation = Security::testLettreResiliation($titulaire);
-
-        if($db && $idclient && $titulaire){
-            if(DB::deleteClientRequest($db, $idclient, $titulaire, $lettreResiliation)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
-        }
-    }
+  
 
     public function validDeleteClient($db, $idclient, $idbanker){
         if($db && $idclient && $idbanker){
@@ -145,6 +188,19 @@ class Functions{
             }
         }else{
             return true;
+        }
+    }
+    public function virement($db, $idclient, $amount){
+        $amount = Security::testAmount($amount);
+
+        if($db && $idclient && $amount){
+            if(DB::virement($db, $idclient, $amount)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
         }
     }
 
