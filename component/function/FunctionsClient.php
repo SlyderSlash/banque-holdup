@@ -151,56 +151,38 @@ class FunctionsClient{
         }
     }
 
-    
-
-    public function validClient($db, $idclient, $idbanker){
-        if($db && $idclient && $idbanker){
-            if(DB::validClient($db, $idclient, $idbanker)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
-        }
-    }
-
-    public function validBeneficiaire($db,$idclient,$idbanker){
-        if($db && $idclient && $idbanker){
-            if(DB::validBeneficiaire($db,$idclient,$idbanker)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
-        }
-    }
-
-  
-
-    public function validDeleteClient($db, $idclient, $idbanker){
-        if($db && $idclient && $idbanker){
-            if(DB::validDeleteClient($db, $idclient, $idbanker)){
-                return true;
-            }else{
-                false;
-            }
-        }else{
-            return true;
-        }
-    }
-    public function virement($db, $idclient, $amount){
+    public function virement($idclient, $amount, $idbenef){
         $amount = Security::testAmount($amount);
+        $idbenef = Security::testID($idbenef);
+        $iban = ClientDB::GETIbanWithBenef($idbenef);
+        $balance = ClientDB::GETSolde($idclient);
 
-        if($db && $idclient && $amount){
-            if(DB::virement($db, $idclient, $amount)){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            return false;
+        switch(false){
+            case $amount:
+                $_SESSION['error']= "Le montant renseigné n'es pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            case $amount:
+                $_SESSION['error']= "Le bénéficiaire renseigné n'es pas au bon format";
+                header('Location: ../connexion.php');
+                break;
+            case $iban:
+                $_SESSION['error']= "Le bénéficiaire n'est pas relié à un compte client";
+                header('Location: ../connexion.php');
+                break;
+            case ($balance >= $amount):
+                $_SESSION['error']= "Votre solde de $balance € n'est pas suffisant pour effectuer le virement de $amount €";
+                header('Location: ../connexion.php');
+                break;
+            case (ClientDB::PATCHVirement($idclient, $iban, $amount)):
+                $_SESSION['error']= "Problème technique lors du virement";
+                header('Location: ../connexion.php');
+                break;
+            default:
+            $balance = $balance - $amount;
+            $_SESSION['success']= "Le virement de $amount € a bien été effectué. Votre nouveau solde est de $balance €";
+            header('Location: ../index.php');
+            break;
         }
     }
 

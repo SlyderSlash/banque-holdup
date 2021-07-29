@@ -132,6 +132,12 @@ class Security{
         }
     }
 
+    function testID($value){
+        if(preg_match_all('/[0-9]/', $value) !== strlen($value)){
+            return false;
+        }
+        else return htmlspecialchars($value);
+    }
 
     //JEREMY :
     //testPass($password,$verifPassword) ok
