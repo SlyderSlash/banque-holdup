@@ -1,12 +1,14 @@
 <?php
 require './db.php';
 class NoAuthDB{
-
+  //Passer bien la connexion DB via la class
+private $conn;
   public function getBankerId($mail,$pass){
     try {
       $data=$conn->prepare('SELECT banquierid FROM banquier WHERE mail=:Mail AND pass=:"Password"');
       $data->bindParam(':Mail',$mail);
       $data->bindParam(':Password',$pass);
+      $data->execute();
       $banker=$data->fetch(PDO::FETCH_ASSOC); 
       if(is_int($bankerid))
       {
