@@ -99,6 +99,14 @@ class Security{
         }
         else return false;
     }
+    function testAmount($amount){
+        $amount = htmlspecialchars($amount);
+       if(!is_Number($amount))
+       {
+           return false;
+       }
+       else return $amount;
+    }
 
     function testGender($value){
         if($value === 'man' || $value === 'woman'){
