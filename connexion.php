@@ -10,7 +10,9 @@
 
 
 -->
-
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="fr">
 <?php 
@@ -61,8 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <link href="./assets/styles/connexion.css" rel="stylesheet">
   </head>
   <body class="clientpath">
-    <?php require_once('./component/header/headerNotConnected.php'); 
-        //import de header_not_connected.php contenant le header non connecté
+    <?php 
+    if (isset($_SESSION['token'])){
+        require_once('./component/header/headerConnected.php');
+    }else{
+       require_once('./component/header/headerNotConnected.php'); 
+       //import de header_not_connected.php contenant le header non connecté
+    }
     ?>
     <main class="container py-5 mt-5">
 
@@ -81,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <img src="./assets/img/connexion-illustration.svg" alt="" class="">
                     </div>
                     <!-- formulaire -->
-                    <form action="formokay.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
+                    <form action="avenir.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
                         <!-- email -->
                         <div class="text-start mb-3 ">
                             <label for="email" >Email</label>
@@ -122,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="col-12">
     
                 <!-- ROW formulaire -->
-                <form action="formokay.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
+                <form action="avenir.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
 
                     
                     <!-- partie 1 : identité -->

@@ -1,6 +1,5 @@
-<!-- TODO
+<!-- TODO Coucou demba et severine :D
 - [ ] Ajout sur les formulaires des name 
-
 - [ ] Pensez au required ( pour le confort mais ne pas le considerer comme une sécurité)
 - [ ] Créer une balise main avec l'id et la class du body
 -->
@@ -22,7 +21,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 //Code success = > to connected
             }else{
                 //retourner un message d'erreur 
-            }
+            } 
     }
 }
 
@@ -32,9 +31,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <?php require_once('./component/head.php');?>
   </head>
   
-  <body class="clientpath">  
-  <?php require_once('./component/header/headerNotConnected.php'); ?>
-    <!-- Contenu à enlever  -->
+  <body class="clientpath">
+  <?php 
+    if (isset($_SESSION['token'])){
+        require_once('./component/header/headerConnected.php');
+    }else{
+       require_once('./component/header/headerNotConnected.php'); 
+       //import de header_not_connected.php contenant le header non connecté
+    }
+    ?>
     <main id="banque-connexion" class="container py-5 mt-5">
       <section class="row text-center" id="logIn">
             <h1>Accès Interne</h1>
@@ -46,7 +51,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         <img src="./assets/img/banker.svg" alt="" class="">
                     </div>
                     <!-- formulaire -->
-                    <form action="formokay.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
+                    <form action="avenir.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
                         <!-- email -->
                         <div class="text-start mb-3 ">
                             <label for="email" >Email</label>

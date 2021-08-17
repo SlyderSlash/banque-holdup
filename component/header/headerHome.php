@@ -28,13 +28,13 @@
             </figure>
             <ul class="navbar-nav homepage d-flex p-5 align-items-end p-md-0 justify-content-md-end fixed-top w-100 h-100">
               <li class="nav-item my-2 me-md-2">
-                <a class="nav-link text-white fw-light" href="#" title="Inscription">Inscription</a>
+                <a class="nav-link text-white fw-light" href="../../connexion.php#inscription" title="Inscription">Inscription</a>
               </li>
               <li class="nav-item my-2 border border-white rounded px-3 px-md-2">
-                <a class="nav-link text-white fw-light" href="#" title="Connexion">Connexion</a>
+                <a class="nav-link text-white fw-light" href="../../connexion.php#connexion" title="Connexion">Connexion</a>
               </li>
               <li class="nav-item my-2 d-md-none">
-                <a class="nav-link text-white fw-light" href="" title="Conditions générales">Conditions générales</a>
+                <a class="nav-link text-white fw-light" href="../../CGU.php" title="Conditions générales">Conditions générales</a>
               </li>
             </ul>
           </div>
