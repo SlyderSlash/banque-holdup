@@ -44,10 +44,10 @@ class FunctionsClient{
                 $_SESSION['error']= "Le mot de passe n'est pas au bon format - 8 Caractère minimum ( 1 Majuscule, 1 Minuscule et 1 chiffre nécesaire)";
                 header('Location: ../connexion.php');
                 break;
-            case $pi:
+            /* case $pi:
                 $_SESSION['error']= "Problême lors du chargement et de la vérification de la pièce d'identité";
                 header('Location: ../connexion.php');
-                break;
+                break; */
             case $birthday:
                 $_SESSION['error']= "La date de naissance n'est pas au bon format ou votre age est inférieur à 18 ans";
                 header('Location: ../connexion.php');
