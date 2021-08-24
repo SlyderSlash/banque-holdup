@@ -1,6 +1,4 @@
 <?php
-require_once ('./../db/noAuth.php');
-require_once ('./../security.php');
 session_start();
 class FunctionsClient{
     public function signIn($db,
@@ -189,5 +187,3 @@ class FunctionsClient{
     }
 
 };
-
-?>
