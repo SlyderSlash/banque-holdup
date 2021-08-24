@@ -31,6 +31,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     else if ($_POST['type'] === 'li') {
         Functions::logIn($_POST['email'], $_POST['password']);
     } 
+    else if ($_POST['type'] === 'dev') {
+        $funcclient = new FunctionsClient;
+        $call = $funcclient->signIn(
+            "Harnes",
+            "Jack",
+            "jesuisunmail@croyezmoi.fr",
+            "Bonjourfrom78",
+            "Bonjourfrom78",
+            null, null,
+            "1990-02-01",
+            "78000",
+            "Versailles",
+            "Rue des mecs sur un cheval d'or",
+            "99",
+            "on");
+    } 
     }
 ?>
   <head>
@@ -50,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     ?>
     <main class="container py-5 mt-5">
-
+    <form method="post" ><button class="btn  me-5 ms-5" type="submit" name="type" value="dev"  id="lgbtnSubmit">DevMode</button></form>
     <!-- section de connexion -->
         <section class="row text-center" id="logIn">
             <h1 >Se connecter</h1>
