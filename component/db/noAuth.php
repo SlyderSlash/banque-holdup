@@ -2,7 +2,7 @@
 require './component/db/db.php';
 class NoAuthDB{
   use DB;
-  public static function getBankerId($mail,$pass){
+  public function getBankerId($mail,$pass){
     if (is_null($this->pdo)){return false;}
     try {
       $data=$this->pdo->prepare('SELECT banquierid FROM banquier WHERE mail=:Mail AND pass=:"Password"');
@@ -24,7 +24,7 @@ class NoAuthDB{
     };
   }
 
-  public static function getClientId($mail,$pass) {
+  public function getClientId($mail,$pass) {
     if (is_null($this->pdo)){return false;}
     try 
     {
@@ -45,7 +45,7 @@ class NoAuthDB{
     }
   }
 
-  public static function putClient( $genre, $nom, $prenom, $adresse, $codepostal, $ville, $naissance, $pi, $mail, $pass) {
+  public function putClient( $genre, $nom, $prenom, $adresse, $codepostal, $ville, $naissance, $pi, $mail, $pass) {
     if (!is_null($this->pdo))
     {
       error_log('PDO is connected');

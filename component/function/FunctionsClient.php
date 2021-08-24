@@ -23,7 +23,7 @@ class FunctionsClient{
         $birthday = Security::testBirthday($birthDate);
         $adress = Security::testAdress($postalCode,$town,$street,$numberstreet);
         $cgu = Security::testCheckObligate($cgv);
-
+        $authdb = new NoAuthDB;
         switch (false)
         {
             case $lastName:
@@ -58,7 +58,7 @@ class FunctionsClient{
                 $_SESSION['error']= "Les Conditions Générales de Vente doivent obligatoirement être validé";
                 header('Location: ../connexion.php');
                 break;
-            case NoAuthDB::putClient(1, $lastName, $firstName, $adress, $postalCode, $town, $birthday, $pi, $email, $password):
+            case $authdb->putClient(1, $lastName, $firstName, $adress, $postalCode, $town, $birthday, $pi, $email, $password):
                 $_SESSION['error']= "Problême technique lors de votre inscription";
                 header('Location: ../connexion.php');
                 break;
