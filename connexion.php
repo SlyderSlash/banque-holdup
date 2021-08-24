@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             "Bonjourfrom78",
             null, null,
             "1990-02-01",
-            "78000",
+            78000,
             "Versailles",
             "Rue des mecs sur un cheval d'or",
             "99",
