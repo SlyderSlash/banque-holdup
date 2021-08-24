@@ -1,5 +1,5 @@
 <?php
-require './db.php';
+require './component/db/db.php';
 class NoAuthDB{
   use DB;
   public function getBankerId($mail,$pass){
