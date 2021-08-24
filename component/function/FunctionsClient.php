@@ -22,8 +22,7 @@ class FunctionsClient{
         $password = Security::testPass($password,$verifPassword);
         $pi = Security::testUploadedFile($idCard, $fidCard);
         $birthday = Security::testBirthday($birthDate);
-        $adress = Security::testAdress($postalCode,$town,$street,$numberstreet,);
-        $adress = Security::testAdress($postalCode,$town,$street,$numberstreet,$value);
+        $adress = Security::testAdress($postalCode,$town,$street,$numberstreet);
         $cgu = Security::testCheckObligate($cgv);
 
         switch (false)

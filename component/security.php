@@ -94,7 +94,7 @@ class Security{
             $date = $date->sub(new DateInterval('P18Y')); // On remplace la date en retirant 18 ans
             if($date_naissance >= $date) // On compare les deux dates pour verifier la majorité de 18 ans
             {
-                return $false;
+                return false;
             }
             else return $birthDate;
         }
