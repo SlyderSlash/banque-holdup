@@ -88,14 +88,15 @@ class Security{
         )
         {
             // Test date
+            $format = "Y-m-d";
+            $date_naissance = DateTime::createFromFormat($format, $birthDate); // Créer une date avec la date de naissance
             $date = new DateTime(); // Créer une date avec la date d'aujourd'hui
             $date = $date->sub(new DateInterval('P18Y')); // On remplace la date en retirant 18 ans
-            $date_naissance = new DateTime($birthDate); // Créer une date avec la date de naissance
             if($date_naissance >= $date) // On compare les deux dates pour verifier la majorité de 18 ans
             {
-                return $birthDate;
+                return $false;
             }
-            else return $birthDate;
+            else return $false;
         }
         else return $birthDate;
     }
