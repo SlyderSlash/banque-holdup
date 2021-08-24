@@ -51,7 +51,7 @@ class NoAuthDB{
       error_log('PDO is connected');
       try { 
         $requete = $this->pdo->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, "pi", mail, pass) 
-        VALUES(:genre, :nom, :prenom, :adresse, :codepostal, :ville, :naissance, ":pi", :mail, :pass)');
+        VALUES(:genre, :nom, :prenom, :adresse, :codepostal, :ville, :naissance, :pin, :mail, :pass)');
         $requete->bindParam(':genre', $genre, PDO::PARAM_BOOL);
         $requete->bindParam(':nom', $nom, PDO::PARAM_STR, 50);
         $requete->bindParam(':prenom', $prenom, PDO::PARAM_STR, 50);
@@ -59,7 +59,7 @@ class NoAuthDB{
         $requete->bindParam(':codepostal', $codepostal, PDO::PARAM_INT, 5);
         $requete->bindParam(':ville',$ville, PDO::PARAM_STR, 50);
         $requete->bindParam(':naissance',$naissance);
-        $requete->bindParam(':"pi"',$pi);
+        $requete->bindParam(':pin',$pi);
         $requete->bindParam(':mail',$mail, PDO::PARAM_STR, 50);
         $requete->bindParam(':pass',$pass, PDO::PARAM_STR, 50);
         error_log('Ready to send');
