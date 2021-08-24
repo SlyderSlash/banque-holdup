@@ -7,7 +7,7 @@ class Security{
             preg_match('/[0-9]/',$value)){
                 return false;
             }
-        else return true;
+        else return $value;
     }
 
     public static function testEmail($value){
