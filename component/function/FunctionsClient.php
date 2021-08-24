@@ -16,12 +16,11 @@ class FunctionsClient{
       $numberstreet,
       $cgv)
     {
-        return false;
-        /* $lastName = Security::testName($name);
+        $lastName = Security::testName($name);
         $firstName = Security::testName($firstname);
         $email = Security::testEmail($email);
         $password = Security::testPass($password,$verifPassword);
-        $pi = Security::testFile($idCard, $fidCard);
+        $pi = Security::testUploadedFile($idCard, $fidCard);
         $birthday = Security::testBirthday($birthDate);
         $adress = Security::testAdress($postalCode,$town,$street,$numberstreet,);
         $cgu = Security::testCheckObligate($cgv);
@@ -68,7 +67,7 @@ class FunctionsClient{
                 $_SESSION['success']= "Bienvenu ".$lastName." ".$firstName." . Votre compte, sera validé dès que possible par l'un de nos conseillers.";
                 header('Location: ../index.php');
                 break;
-        } */
+        }
 }
 
     public function logIn($email, $password){

@@ -1,7 +1,7 @@
 <?php
 session_start();
 class Security{
-    function testName ($value){
+    public static function testName ($value){
         $value = htmlspecialchars($value);
         if (strlen($value) >= 150 || 
             strlen($value) <= 1 || 
@@ -11,7 +11,7 @@ class Security{
         else return true;
     }
 
-    function testEmail($value){
+    public static function testEmail($value){
         if(filter_var($value, FILTER_VALIDATE_EMAIL)){
         return htmlspecialchars($value) ;
         } else {
@@ -19,7 +19,7 @@ class Security{
         }
     }
 
-    function testPass($password,$verifPassword){
+    public static function testPass($password,$verifPassword){
         $pass = htmlspecialchars($password);
         if ($pass !== htmlspecialchars($verifPassword) ||
             strlen($pass) <= 7 || 
@@ -31,7 +31,7 @@ class Security{
         else return $pass;
     }
     
-    function testIban($iban){
+    public static function testIban($iban){
         $iban = htmlspecialchars($iban);
         if (!is_string($iban) || 
             strlen($iban) !== preg_match_all('/[a-zA-Z0-9]/', $iban) || 
@@ -42,7 +42,7 @@ class Security{
         else return $iban;
     }
 
-    function testAdress($postalCode,$town,$street,$numberstreet){
+    public static function testAdress($postalCode,$town,$street,$numberstreet){
         $postalCode = htmlspecialchars($postalCode);
         $town = htmlspecialchars($town);
         $street = htmlspecialchars($street);
@@ -70,14 +70,14 @@ class Security{
         else return [$postalCode,$town,$street,$numberstreet];
     }
 
-    function testCheckObligate($value){
+    public static function testCheckObligate($value){
         if (htmlspecialchars($value) === "on"){
             return true;
         }
         else return false;
     }
 
-    function testBirthday($birthDate){
+    public static function testBirthday($birthDate){
         $birthDate = htmlspecialchars($birthDate); // OKAY
         $array = explode("-",$birthDate);
         if (
@@ -99,7 +99,7 @@ class Security{
         }
         else return false;
     }
-    function testAmount($amount){
+    public static function testAmount($amount){
         $amount = htmlspecialchars($amount);
        if(!is_Number($amount))
        {
@@ -108,7 +108,7 @@ class Security{
        else return $amount;
     }
 
-    function testGender($value){
+    public static function testGender($value){
         if($value === 'man' || $value === 'woman'){
             return htmlspecialchars($value);
         } else {
@@ -116,7 +116,7 @@ class Security{
         }
     }
 
-    function testUploadedFile($file){
+    public static function testUploadedFile($file){
         if
         (
             ($file['type'] === 'image/png' || 'image/jpeg' || 'application/pdf') && 
@@ -132,7 +132,7 @@ class Security{
         }
     }
 
-    function testID($value){
+    public static function testID($value){
         if(preg_match_all('/[0-9]/', $value) !== strlen($value)){
             return false;
         }
