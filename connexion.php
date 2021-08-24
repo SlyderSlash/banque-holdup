@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST['street'],
             $_POST['numberstreet'],
             $_POST['cgv']);
-            echo $call;
+            $_SESSION['error'] = "Je suis une erreur";
             echo 'OH ça marche encore';
     }
     else if ($_POST['type'] === 'li') {
