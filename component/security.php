@@ -49,6 +49,7 @@ class Security{
         $numberstreet = htmlspecialchars($numberstreet);
         if (!preg_match('~[0-9]{5}~', $postalCode)) //strlen($postalCode) !== 5 || !is_int($postalCode)
         {
+            $_SESSION['error']= "pregmatch postal code";
             return false;
         }
         else if (
@@ -57,6 +58,7 @@ class Security{
             strlen($street) < 2 || 
             strlen($street) > 50) 
         {
+            $_SESSION['error']= "street";
             return false;
         }
         else if (
@@ -65,9 +67,13 @@ class Security{
             strlen($town) < 2 || 
             strlen($town) > 50) 
         {
+            $_SESSION['error']= "town";
             return false;
         }
-        else return $street . $numberstreet;
+        else {         
+            $_SESSION['error']= "no problem";
+            return $street . $numberstreet;
+        }
     }
 
     public static function testCheckObligate($value){
