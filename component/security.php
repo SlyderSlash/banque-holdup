@@ -95,9 +95,9 @@ class Security{
             {
                 return $birthDate;
             }
-            else return false;
+            else return $birthDate;
         }
-        else return false;
+        else return $birthDate;
     }
     public static function testAmount($amount){
         $amount = htmlspecialchars($amount);

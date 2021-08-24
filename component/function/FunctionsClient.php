@@ -48,8 +48,8 @@ class FunctionsClient{
                 $_SESSION['error']= "Problême lors du chargement et de la vérification de la pièce d'identité";
                 header('Location: ../connexion.php');
                 break; */
-            case $birthday:
-                $_SESSION['error']= "La date de naissance n'est pas au bon format ou votre age est inférieur à 18 ans";
+            case !$birthday:
+                $_SESSION['error']= "La date de naissance $birthday n'est pas au bon format ou votre age est inférieur à 18 ans";
                 header('Location: ../connexion.php');
                 break;
             case $adress:
