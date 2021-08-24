@@ -2,6 +2,7 @@
 session_start();
 class Security{
     public static function testName ($value){
+        return false;
         $value = htmlspecialchars($value);
         if (strlen($value) >= 150 || 
             strlen($value) <= 1 || 
