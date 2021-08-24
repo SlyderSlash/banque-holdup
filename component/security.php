@@ -138,40 +138,4 @@ class Security{
         }
         else return htmlspecialchars($value);
     }
-
-    //JEREMY :
-    //testPass($password,$verifPassword) ok
-    //testIban($iban); ok
-    //testAdress($postalCode,$town,$street,$numberstreet,); ok
-
-
-    //DEMBA :
-    //testCheckObligate($cgv); ( CHECKBOX => true or false :: check if true ) ok
-    //testBirthday($birthDate); ( DATE DE NAISSANCE =>  2021-07-15) ok
-    //testPassLog($password) test la taille et type String 
-    //testAmount($amount); (MONTANT VIREMENT => Verifier nombre avec 2 chiffres après la virgule) => Demba
-
- /*    $_POST => array(13) { 
-        ["name"]=> string(12) "BanqueHoldUP" 
-        ["firstname"]=> string(8) "efzfzfzf" 
-        ["birthDate"]=> string(10) "2021-07-15" 
-        ["gender"]=> string(3) "man" 
-        ["idCard"]=> string(27) "71HHsQbab-L._AC_SL1500_.jpg" 
-        ["numberstreet"]=> string(2) "12" 
-        ["street"]=> string(13) "Rue du Colmpu" 
-        ["postalCode"]=> string(5) "75000" 
-        ["town"]=> string(5) "Paris" 
-        ["email"]=> string(27) "Jesuisunelicorne@SNAGE.tech" 
-        ["password"]=> string(9) "Bonjour78" 
-        ["verifPassword"]=> string(9) "Bonjour78" 
-        ["cgv"]=> string(2) "on" sinon false = null 
-    } */
-   /*  $_FILE => array(5) { 
-        ["name"]=> string(47) "Capture d’écran 2021-06-18 à 17.44.30.png" 
-        ["type"]=> string(9) "image/png" 
-        ["tmp_name"]=> string(36) "/Applications/MAMP/tmp/php/phptkXsjG" 
-        ["error"]=> int(0) 
-        ["size"]=> int(3589) 
-    }  */
 }
-?>
