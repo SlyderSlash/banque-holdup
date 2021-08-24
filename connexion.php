@@ -4,8 +4,8 @@
 <!doctype html>
 <html lang="fr">
 <?php 
-// require_once ('./component/db/noAuth.php');
-// require_once ('./component/security.php');
+require_once ('./component/db/noAuth.php');
+require_once ('./component/security.php');
 // require_once('./component/function/FunctionsClient.php');
 //require_once(); Security
 //require_once(); function/signIn
