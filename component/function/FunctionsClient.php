@@ -16,6 +16,7 @@ class FunctionsClient{
       $numberstreet,
       $cgv)
     {
+        echo '<Script> console.log("signin started")</Script>';
         $lastName = Security::testName($name);
         $firstName = Security::testName($firstname);
         $email = Security::testEmail($email);
@@ -24,6 +25,7 @@ class FunctionsClient{
         $birthday = Security::testBirthday($birthDate);
         $adress = Security::testAdress($postalCode,$town,$street,$numberstreet,);
         $cgu = Security::testCheckObligate($cgv);
+        echo '<Script> console.log("security OK")</Script>';
 
         switch (false)
         {
@@ -68,6 +70,7 @@ class FunctionsClient{
                 header('Location: ../index.php');
                 break;
         }
+        echo '<Script> console.log("switch ok so why don\'t you are ok ?")</Script>';
     }
 
     public function logIn($email, $password){

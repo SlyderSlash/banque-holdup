@@ -11,8 +11,8 @@ require_once('./component/function/FunctionsClient.php');
 //require_once(); function/signIn
 //require_once(); function/logIn
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    echo '<Script> console.log("c\'est envoyé")</Script>';
     if ($_POST['type'] === 'si'){
+        echo '<Script> console.log("type OK")</Script>';
         FunctionsClient::signIn(
             $_POST['name'],
             $_POST['firstname'],
