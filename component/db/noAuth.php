@@ -46,29 +46,33 @@ class NoAuthDB{
   }
 
   public static function putClient( $genre, $nom, $prenom, $adresse, $codepostal, $ville, $naissance, $pi, $mail, $pass) {
-    return false;
-    if (is_null($this->pdo)){return false;}
-    try { 
-      $requete = $this->pdo->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, "pi", mail, pass) 
-      VALUES(:genre, :nom, :prenom, :adresse, :codepostal, :ville, :naissance, ":pi", :mail, :pass)');
-      $requete->bindParam(':genre', $genre, PDO::PARAM_BOOL);
-      $requete->bindParam(':nom', $nom, PDO::PARAM_STR, 50);
-      $requete->bindParam(':prenom', $prenom, PDO::PARAM_STR, 50);
-      $requete->bindParam(':adresse', $adresse, PDO::PARAM_STR, 100);
-      $requete->bindParam(':codepostal', $codepostal, PDO::PARAM_INT, 5);
-      $requete->bindParam(':ville',$ville, PDO::PARAM_STR, 50);
-      $requete->bindParam(':naissance',$naissance);
-      $requete->bindParam(':"pi"',$pi);
-      $requete->bindParam(':mail',$mail, PDO::PARAM_STR, 50);
-      $requete->bindParam(':pass',$pass, PDO::PARAM_STR, 50);
-      $requete->execute();
-      return true;
-    }
-    catch (PDOException $e)
+    if (!is_null($this->pdo))
     {
-      error_log($e->getMessage());
-      return false;
-    }
+      error_log('PDO is connected');
+      try { 
+        $requete = $this->pdo->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, "pi", mail, pass) 
+        VALUES(:genre, :nom, :prenom, :adresse, :codepostal, :ville, :naissance, ":pi", :mail, :pass)');
+        $requete->bindParam(':genre', $genre, PDO::PARAM_BOOL);
+        $requete->bindParam(':nom', $nom, PDO::PARAM_STR, 50);
+        $requete->bindParam(':prenom', $prenom, PDO::PARAM_STR, 50);
+        $requete->bindParam(':adresse', $adresse, PDO::PARAM_STR, 100);
+        $requete->bindParam(':codepostal', $codepostal, PDO::PARAM_INT, 5);
+        $requete->bindParam(':ville',$ville, PDO::PARAM_STR, 50);
+        $requete->bindParam(':naissance',$naissance);
+        $requete->bindParam(':"pi"',$pi);
+        $requete->bindParam(':mail',$mail, PDO::PARAM_STR, 50);
+        $requete->bindParam(':pass',$pass, PDO::PARAM_STR, 50);
+        error_log('Ready to send');
+        $requete->execute();
+        error_log('Executer');
+        return true;
+      }
+      catch (PDOException $e)
+      {
+        error_log($e->getMessage());
+        return false;
+      }
+  }
   }
   
 }

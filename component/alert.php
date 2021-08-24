@@ -1,5 +1,4 @@
 <?php
-session_start();
 if ($_SESSION['success'] || $_SESSION['error']){
     if ($_SESSION['error']){
         ?>

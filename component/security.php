@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Security{
     public static function testName ($value){
         $value = htmlspecialchars($value);
