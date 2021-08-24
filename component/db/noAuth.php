@@ -50,7 +50,7 @@ class NoAuthDB{
     {
       error_log('PDO is connected');
       try { 
-        $requete = $this->pdo->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, "pi", mail, pass) 
+        $requete = $this->pdo->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, pin, mail, pass) 
         VALUES(:genre, :nom, :prenom, :adresse, :codepostal, :ville, :naissance, :pin, :mail, :pass)');
         $requete->bindParam(':genre', $genre, PDO::PARAM_BOOL);
         $requete->bindParam(':nom', $nom, PDO::PARAM_STR, 50);
