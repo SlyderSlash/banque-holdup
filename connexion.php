@@ -12,7 +12,6 @@ require_once('./component/function/FunctionsClient.php');
 //require_once(); function/logIn
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($_POST['type'] === 'si'){
-        echo 'OH ça marche';
         $funcclient = new FunctionsClient;
         $call = $funcclient->signIn(
             $_POST['name'],
@@ -28,8 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST['street'],
             $_POST['numberstreet'],
             $_POST['cgv']);
-            $_SESSION['error'] = "Je suis une erreur";
-            echo 'OH ça marche encore';
     }
     else if ($_POST['type'] === 'li') {
         Functions::logIn($_POST['email'], $_POST['password']);
