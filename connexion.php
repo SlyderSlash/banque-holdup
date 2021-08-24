@@ -12,7 +12,7 @@ require_once('./component/function/FunctionsClient.php');
 //require_once(); function/logIn
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($_POST['type'] === 'si'){
-        Functions::signIn(
+        FunctionsClient::signIn(
             $_POST['name'],
             $_POST['firstname'],
             $_POST['email'],

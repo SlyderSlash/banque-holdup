@@ -1,7 +1,7 @@
 <?php
 session_start();
 class FunctionsClient{
-    public function signIn($db,
+    public function signIn(
       $name,
       $firstname,
       $email,
