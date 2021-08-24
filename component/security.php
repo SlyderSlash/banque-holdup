@@ -49,29 +49,23 @@ class Security{
         $numberstreet = htmlspecialchars($numberstreet);
         if (!preg_match('~[0-9]{5}~', $postalCode)) //strlen($postalCode) !== 5 || !is_int($postalCode)
         {
-            $_SESSION['error']= "pregmatch postal code";
             return false;
         }
         else if (
             !is_string($street) || 
-            strlen($street) !== preg_match_all('/[a-zA-Z]/', $street) || 
             strlen($street) < 2 || 
             strlen($street) > 50) 
         {
-            $_SESSION['error']= "street";
             return false;
         }
         else if (
             !is_string($town) || 
-            strlen($town) !== preg_match_all('/[a-zA-Z]/', $town) || 
             strlen($town) < 2 || 
             strlen($town) > 50) 
         {
-            $_SESSION['error']= "town";
             return false;
         }
         else {         
-            $_SESSION['error']= "no problem";
             return $street . $numberstreet;
         }
     }

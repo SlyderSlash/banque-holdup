@@ -52,7 +52,7 @@ class FunctionsClient{
                 header('Location: ../connexion.php');
                 break;
             case $adress:
-                //$_SESSION['error']= "L'adresse n'est pas au bon format";
+                $_SESSION['error']= "L'adresse n'est pas au bon format";
                 header('Location: ../connexion.php');
                 break;
             case $cgu:
