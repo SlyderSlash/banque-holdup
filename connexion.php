@@ -12,8 +12,7 @@ require_once('./component/function/FunctionsClient.php');
 //require_once(); function/logIn
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($_POST['type'] === 'si'){
-        echo '<Script> console.log("type OK")</Script>';
-        FunctionsClient::signIn(
+        var_dump (FunctionsClient::signIn(
             $_POST['name'],
             $_POST['firstname'],
             $_POST['email'],
@@ -26,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST['town'],
             $_POST['street'],
             $_POST['numberstreet'],
-            $_POST['cgv']);
+            $_POST['cgv']));
     }
     else if ($_POST['type'] === 'li') {
         Functions::logIn($_POST['email'], $_POST['password']);

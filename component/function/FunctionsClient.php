@@ -70,8 +70,7 @@ class FunctionsClient{
                 header('Location: ../index.php');
                 break;
         }
-        echo '<Script> console.log("switch ok so why don\'t you are ok ?")</Script>';
-    }
+}
 
     public function logIn($email, $password){
         $email = Security::testEmail($email);
