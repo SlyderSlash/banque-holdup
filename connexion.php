@@ -20,13 +20,11 @@
 //require_once(); Security
 //require_once(); function/signIn
 //require_once(); function/logIn
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $db = DB::connect();
-    if (!$db){
-        // Code pour afficher une erreur
-    }
-    else {
-        if(Functions::signIn($db,
+/* if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if (){}
+    else if () {}
+    else {} 
+        Functions::signIn(
             $_POST['name'],
             $_POST['firstname'],
             $_POST['email'],
@@ -39,22 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST['town'],
             $_POST['street'],
             $_POST['numberstreet'],
-            $_POST['cgv']))
-        {
-            //Code success = > to connected
-        }else {
-            //retourner un message d'erreur 
-        }
-        if(Functions::logIn($db,
-        $_POST['email'],
-        $_POST['password']))
-        {
-            //Code success = > to connected
-        }else{
-            //Retourner un message d'erreur 
-        }
-    }
-}
+            $_POST['cgv'])
+        
+    } */
 ?>
   <head>
     <?php require_once('./component/head.php'); ?>
@@ -129,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="col-12">
     
                 <!-- ROW formulaire -->
-                <form action="avenir.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
+                <form action="formokay.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
 
                     
                     <!-- partie 1 : identité -->
@@ -281,7 +266,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     </div>
                     <!-- bouton sumit -->
                     <div id="submit" class="col-12 mt-4  d-none d-lg-flex justify-content-center">
-                        <button class="btn ps-5 pe-5" type="submit" id="validReq">Finaliser la demande</button>
+                        <button class="btn ps-5 pe-5" type="submit" name="signin" value="t" id="validReq">Finaliser la demande</button>
     
                     </div>
     

@@ -2,7 +2,7 @@
 require './db.php';
 class NoAuthDB{
   //Passer bien la connexion DB via la class
-private $conn;
+  private $conn;
   public function getBankerId($mail,$pass){
     try {
       $data=$conn->prepare('SELECT banquierid FROM banquier WHERE mail=:Mail AND pass=:"Password"');
