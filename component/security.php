@@ -42,12 +42,12 @@ class Security{
         else return $iban;
     }
 
-    public static function testAdress($postalCode,$town,$street,$numberstreet,$value){
+    public static function testAdress($postalCode,$town,$street,$numberstreet){
         $postalCode = htmlspecialchars($postalCode);
         $town = htmlspecialchars($town);
         $street = htmlspecialchars($street);
         $numberstreet = htmlspecialchars($numberstreet);
-        if (preg_match('~[0-9]{5}~', $value)) //strlen($postalCode) !== 5 || !is_int($postalCode)
+        if (preg_match('~[0-9]{5}~', $postalCode)) //strlen($postalCode) !== 5 || !is_int($postalCode)
         {
             return false;
         }
