@@ -16,8 +16,8 @@ class FunctionsClient{
       $numberstreet,
       $cgv)
     {
-        echo '<Script> console.log("signin started")</Script>';
-        $lastName = Security::testName($name);
+        return false;
+        /* $lastName = Security::testName($name);
         $firstName = Security::testName($firstname);
         $email = Security::testEmail($email);
         $password = Security::testPass($password,$verifPassword);
@@ -25,7 +25,6 @@ class FunctionsClient{
         $birthday = Security::testBirthday($birthDate);
         $adress = Security::testAdress($postalCode,$town,$street,$numberstreet,);
         $cgu = Security::testCheckObligate($cgv);
-        echo '<Script> console.log("security OK")</Script>';
 
         switch (false)
         {
@@ -69,7 +68,7 @@ class FunctionsClient{
                 $_SESSION['success']= "Bienvenu ".$lastName." ".$firstName." . Votre compte, sera validé dès que possible par l'un de nos conseillers.";
                 header('Location: ../index.php');
                 break;
-        }
+        } */
 }
 
     public function logIn($email, $password){
