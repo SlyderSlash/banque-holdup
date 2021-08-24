@@ -2,7 +2,6 @@
 session_start();
 class Security{
     public static function testName ($value){
-        return false;
         $value = htmlspecialchars($value);
         if (strlen($value) >= 150 || 
             strlen($value) <= 1 || 
@@ -43,7 +42,7 @@ class Security{
         else return $iban;
     }
 
-    public static function testAdress($postalCode,$town,$street,$numberstreet){
+    public static function testAdress($postalCode,$town,$street,$numberstreet,$value){
         $postalCode = htmlspecialchars($postalCode);
         $town = htmlspecialchars($town);
         $street = htmlspecialchars($street);
@@ -102,7 +101,7 @@ class Security{
     }
     public static function testAmount($amount){
         $amount = htmlspecialchars($amount);
-       if(!is_Number($amount))
+       if(!is_numeric($amount))
        {
            return false;
        }

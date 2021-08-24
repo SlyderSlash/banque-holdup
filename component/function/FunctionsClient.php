@@ -17,7 +17,6 @@ class FunctionsClient{
       $cgv)
     {
         $lastName = Security::testName($name);
-        if ($lastName == false) { $_SESSION['error']= "try again";}
         $firstName = Security::testName($firstname);
         $email = Security::testEmail($email);
         $password = Security::testPass($password,$verifPassword);
