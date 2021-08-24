@@ -13,7 +13,8 @@ require_once('./component/function/FunctionsClient.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($_POST['type'] === 'si'){
         echo 'OH ça marche';
-        var_dump (FunctionsClient::signIn(
+        $funcclient = new FunctionsClient;
+        $call = $funcclient->signIn(
             $_POST['name'],
             $_POST['firstname'],
             $_POST['email'],
@@ -26,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST['town'],
             $_POST['street'],
             $_POST['numberstreet'],
-            $_POST['cgv']));
+            $_POST['cgv']);
+            echo $call;
             echo 'OH ça marche encore';
     }
     else if ($_POST['type'] === 'li') {
