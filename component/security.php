@@ -67,7 +67,7 @@ class Security{
         {
             return false;
         }
-        else return [$postalCode,$town,$street,$numberstreet];
+        else return $street . $numberstreet;
     }
 
     public static function testCheckObligate($value){
