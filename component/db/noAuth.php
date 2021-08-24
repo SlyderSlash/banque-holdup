@@ -46,6 +46,7 @@ class NoAuthDB{
   }
 
   public static function putClient( $genre, $nom, $prenom, $adresse, $codepostal, $ville, $naissance, $pi, $mail, $pass) {
+    return false;
     if (is_null($this->pdo)){return false;}
     try { 
       $requete = $this->pdo->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, "pi", mail, pass) 
