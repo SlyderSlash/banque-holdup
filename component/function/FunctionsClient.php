@@ -1,4 +1,6 @@
 <?php
+require_once ('./../db/noAuth.php');
+require_once ('./../security.php');
 session_start();
 class FunctionsClient{
     public function signIn($db,
@@ -59,7 +61,7 @@ class FunctionsClient{
                 $_SESSION['error']= "Les Conditions Générales de Vente doivent obligatoirement être validé";
                 header('Location: ../connexion.php');
                 break;
-            case NoAuthDB::PUTClient($lastName, $firstName, $email, $password, $pi, $birthday, $adress):
+            case NoAuthDB::putClient(1, $lastName, $firstName, $adress, $postalCode, $town, $birthday, $pi, $email, $password):
                 $_SESSION['error']= "Problême technique lors de votre inscription";
                 header('Location: ../connexion.php');
                 break;

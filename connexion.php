@@ -16,14 +16,12 @@
 <!doctype html>
 <html lang="fr">
 <?php 
-//require_once(); DB
+require_once('./component/function/FunctionsClient.php');
 //require_once(); Security
 //require_once(); function/signIn
 //require_once(); function/logIn
-/* if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if (){}
-    else if () {}
-    else {} 
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if ($_POST['type'] === 'si'){
         Functions::signIn(
             $_POST['name'],
             $_POST['firstname'],
@@ -37,9 +35,12 @@
             $_POST['town'],
             $_POST['street'],
             $_POST['numberstreet'],
-            $_POST['cgv'])
-        
-    } */
+            $_POST['cgv']);
+    }
+    else if ($_POST['type'] === 'li') {
+        Functions::logIn($_POST['email'], $_POST['password']);
+    } 
+    }
 ?>
   <head>
     <?php require_once('./component/head.php'); ?>
@@ -49,6 +50,7 @@
   </head>
   <body class="clientpath">
     <?php 
+    require_once('./component/alert.php');
     if (isset($_SESSION['token'])){
         require_once('./component/header/headerConnected.php');
     }else{
@@ -98,7 +100,7 @@
                         <!-- mot de passe oublié -->
                         <a href="#" class=" mb-4 align-self-center">Mot de passe oublié ?</a>
                         <!-- bouton sumit -->
-                        <button class="btn  me-5 ms-5" type="submit" name="btnSubmit" id="lgbtnSubmit">Se connecter</button>
+                        <button class="btn  me-5 ms-5" type="submit" name="type" value="li"  id="lgbtnSubmit">Se connecter</button>
     
                     </form>
                 </div>
@@ -114,7 +116,7 @@
             <div class="col-12">
     
                 <!-- ROW formulaire -->
-                <form action="formokay.php" enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
+                <form enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
 
                     
                     <!-- partie 1 : identité -->
@@ -266,7 +268,7 @@
                     </div>
                     <!-- bouton sumit -->
                     <div id="submit" class="col-12 mt-4  d-none d-lg-flex justify-content-center">
-                        <button class="btn ps-5 pe-5" type="submit" name="signin" value="t" id="validReq">Finaliser la demande</button>
+                        <button class="btn ps-5 pe-5" type="submit" name="type" value="si" id="validReq">Finaliser la demande</button>
     
                     </div>
     

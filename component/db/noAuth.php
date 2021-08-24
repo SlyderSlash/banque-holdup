@@ -1,11 +1,11 @@
 <?php
 require './db.php';
 class NoAuthDB{
-  //Passer bien la connexion DB via la class
-  private $conn;
+  use DB;
   public function getBankerId($mail,$pass){
+    if (is_null($this->pdo)){return false;}
     try {
-      $data=$conn->prepare('SELECT banquierid FROM banquier WHERE mail=:Mail AND pass=:"Password"');
+      $data=$this->pdo->prepare('SELECT banquierid FROM banquier WHERE mail=:Mail AND pass=:"Password"');
       $data->bindParam(':Mail',$mail);
       $data->bindParam(':Password',$pass);
       $data->execute();
@@ -25,9 +25,10 @@ class NoAuthDB{
   }
 
   public function getClientId($mail,$pass) {
+    if (is_null($this->pdo)){return false;}
     try 
     {
-      $requete = $conn->prepare('SELECT clientId FROM client WHERE mail= :mail AND pass= :pass');
+      $requete = $this->pdo->prepare('SELECT clientId FROM client WHERE mail= :mail AND pass= :pass');
       $requete->bindValue(':mail',$mail);
       $requete->bindValue(':pass',$pass);
       $requete->execute();
@@ -45,8 +46,9 @@ class NoAuthDB{
   }
 
   public function putClient( $genre, $nom, $prenom, $adresse, $codepostal, $ville, $naissance, $pi, $mail, $pass) {
+    if (is_null($this->pdo)){return false;}
     try { 
-      $requete = $conn->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, "pi", mail, pass) 
+      $requete = $this->pdo->prepare('INSERT INTO client (genre, nom, prenom, adresse, codepostal, ville, naissance, "pi", mail, pass) 
       VALUES(:genre, :nom, :prenom, :adresse, :codepostal, :ville, :naissance, ":pi", :mail, :pass)');
       $requete->bindParam(':genre', $genre, PDO::PARAM_BOOL);
       $requete->bindParam(':nom', $nom, PDO::PARAM_STR, 50);
