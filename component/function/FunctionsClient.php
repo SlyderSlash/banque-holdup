@@ -18,7 +18,7 @@ class FunctionsClient{
         $lastName = Security::testName($name);
         $firstName = Security::testName($firstname);
         $email = Security::testEmail($email);
-        $password = Security::testPass($password,$verifPassword);
+        $password = Security::testPass($password,$verifPassword,'register');
         $pi = Security::testUploadedFile($idCard, $fidCard);
         $birthday = Security::testBirthday($birthDate);
         $adress = Security::testAdress($postalCode,$town,$street,$numberstreet);

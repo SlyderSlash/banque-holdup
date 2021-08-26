@@ -11,6 +11,7 @@ session_start();
   </head>
   <body class="notclient" id="homepage">
     <?php 
+    require_once('./component/alert.php');
     if (isset($_SESSION['token'])) {
       require_once('./component/header/headerConnected.php');
     }

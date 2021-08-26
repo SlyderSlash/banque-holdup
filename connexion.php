@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     else if ($_POST['type'] === 'dev') {
         $funcclient = new FunctionsClient;
         $call = $funcclient->signIn(
-            "Harnes",
+            "Harness",
             "Jack",
             "jesuisunmail@croyezmoi.fr",
             "Bonjourfrom78",
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             "Versailles",
             "Rue des mecs sur un cheval d'or",
             "99",
-            "on");
+            "on"); 
     } 
     }
 ?>

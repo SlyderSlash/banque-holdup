@@ -18,17 +18,39 @@ class Security{
         }
     }
 
-    public static function testPass($password,$verifPassword){
+    public static function testPass($password,$verifPassword,$type){
         $pass = htmlspecialchars($password);
-        if ($pass !== htmlspecialchars($verifPassword) ||
-            strlen($pass) <= 7 || 
-            strlen($pass) >= 20 || 
-            preg_match_all('/[a-zA-Z0-9]/', $pass) !== strlen($pass)) 
-        { 
-            return false; 
+        if ($type === 'register'){
+            if ($pass !== htmlspecialchars($verifPassword) ||
+                strlen($pass) <= 7 || 
+                strlen($pass) >= 20 || 
+                preg_match_all('/[a-zA-Z0-9]/', $pass) !== strlen($pass)) 
+            { 
+                return false; 
+            }
+            else {
+                $pass=str_split($pass,5);
+                $pass=$pass[0] + "tn6YJ!=-48Xc2z" + $pass[1];
+                $pass=password_hash($pass, PASSWORD_DEFAULT);
+                return $pass; // ICI retourner le mot de passe hashé
+            }
         }
-        else return $pass;
-    }
+        else if ($type === 'login'){
+            if (strlen($pass) <= 7 || 
+                strlen($pass) >= 20 || 
+                preg_match_all('/[a-zA-Z0-9]/', $pass) !== strlen($pass)) 
+            { 
+                return false; 
+            }
+            else {
+                $pass=str_split($pass,5);
+                $pass=$pass[0] + "tn6YJ!=-48Xc2z" + $pass[1];
+                $pass=password_hash($pass, PASSWORD_DEFAULT);
+                return $pass; // ICI retourner le mot de passe hashé
+            }
+        }
+        else return false;
+    } 
     
     public static function testIban($iban){
         $iban = htmlspecialchars($iban);
