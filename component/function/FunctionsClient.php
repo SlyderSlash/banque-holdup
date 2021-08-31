@@ -71,8 +71,10 @@ class FunctionsClient{
 
     public function logIn($email, $password){
         $email = Security::testEmail($email);
-        $password = Security::testPassLog($password);
-        $idclient = NoAuthDB::GETClientId($email, $password);
+        $password = Security::testPass($password, null, 'login');
+        $authdb = new NoAuthDB;
+        $clientdb = new ClientDB;
+        $idclient = $authdb->GETClientId($email, $password);
         switch(false){
             case $email:
                 $_SESSION['error']= "L'adresse n'est pas au bon format";
@@ -89,7 +91,7 @@ class FunctionsClient{
                     break;
                 }
                 else {
-                    $token = ClientDB::PUTToken($idclient);
+                    $token = $clientdb->PUTToken($idclient);
                     if (!$token){
                         $_SESSION['error']= "Problème technique";
                         header('Location: ../connexion.php');
