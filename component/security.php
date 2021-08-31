@@ -29,7 +29,7 @@ class Security{
                 return false; 
             }
             else {
-                $pass="tn6YJ!=-48Xc2z"+$pass+"tnPlu!=-48Xc2z";
+                $pass="tn6YJ8Xc2z".$pass."tnPlu8Xc2z";
                 $pass=password_hash($pass, PASSWORD_DEFAULT);
                 return $pass; // ICI retourner le mot de passe hashé
             }
