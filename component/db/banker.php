@@ -1,6 +1,6 @@
 <?php require './db.php';
 class banquierDB{
-  //Passer bien la connexion DB via la class
+  
   private $conn;
   
   public function GETClientWait($idbanquier){
