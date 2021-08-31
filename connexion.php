@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <img src="./assets/img/connexion-illustration.svg" alt="" class="">
                     </div>
                     <!-- formulaire -->
-                    <form action="avenir.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
+                    <form id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
                         <!-- email -->
                         <div class="text-start mb-3 ">
                             <label for="email" >Email</label>
