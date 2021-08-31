@@ -29,7 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST['cgv']);
     }
     else if ($_POST['type'] === 'li') {
-        Functions::logIn($_POST['email'], $_POST['password']);
+        $funcclient=new FunctionsClient;
+        $call = $funcclient->logIn(
+            $_POST['email'],
+            $_POST['password']
+        );
     } 
     else if ($_POST['type'] === 'dev') {
         $funcclient = new FunctionsClient;
