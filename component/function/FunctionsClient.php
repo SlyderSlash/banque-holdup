@@ -70,10 +70,11 @@ class FunctionsClient{
 }
 
     public function logIn($email, $password){
+        $type = "client";
         $email = Security::testEmail($email);
         $password = Security::testPass($password, null, 'login');
         $authdb = new NoAuthDB;
-        $clientdb = new ClientDB;
+        $clientdb = new clientDB;
         $idclient = $authdb->GETClientId($email, $password);
         switch(false){
             case $email:
@@ -91,7 +92,8 @@ class FunctionsClient{
                     break;
                 }
                 else {
-                    $token = $clientdb->PUTToken($idclient);
+                    $dbinfotoken = Security::generateToken($idclient, $type);
+                    $token = $clientdb->PUTToken($idclient, $type, $dbinfotoken[2], $dbinfotoken[0], $dbinfotoken[1]);
                     if (!$token){
                         $_SESSION['error']= "Problème technique";
                         header('Location: ../connexion.php');

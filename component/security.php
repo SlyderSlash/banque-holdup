@@ -158,4 +158,14 @@ class Security{
         }
         else return htmlspecialchars($value);
     }
+
+    public static function generateToken($userid, $type){
+        $privatekey = "hjfeo78scds";
+        $privatekeye = hash('sha256', $privatekey);
+        $create = time ();
+        $expire =  time() + (120 * 60);
+        $token = $userid . $privatekey . $type . $privatekeye . $create . 'a' . $expire . $privatekey;
+        $token = base64_encode($token);
+        return [$create, $expire, $token];
+    }
 }
