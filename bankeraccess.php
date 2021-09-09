@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $funcbanquier=new FunctionsBanquier;
         $call = $funcbanquier->logIn(
             $_POST['email'],
-            $_POST['password']
+            $_POST['bankerPassword']
         );
     }
 ?>
