@@ -61,14 +61,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div> 
           </div>
           <div class="mx-auto w-100">
-            <button type="button" class="btn w-100">Se connecter</button>
+            <button type="submit" class="btn w-100">Se connecter</button>
           </div>
         </form>
         </div>
         </section>
 
     </main> 
-    <script src="component/script/login.js"></script>
     <?php require_once('./component/footer.php'); ?>
   </body>
         
