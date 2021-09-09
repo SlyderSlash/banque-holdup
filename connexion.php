@@ -297,6 +297,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <?php 
     require_once('./component/footer.php');
     echo 'this is your token : ';
-    var_dump($_SESSION['token']);?>
+    var_dump($_SESSION['token']);
+    var_dump($_SESSION['idclient']);
+    ?>
   </body>
 </html>

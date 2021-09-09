@@ -76,6 +76,7 @@ class FunctionsClient{
         $authdb = new NoAuthDB;
         $clientdb = new clientDB;
         $idclient = $authdb->GETClientId($email, $password);
+        $_SESSION['idclient'] = $idclient;
         switch(false){
             case $email:
                 $_SESSION['error']= "L'adresse n'est pas au bon format";
@@ -86,7 +87,7 @@ class FunctionsClient{
                 header('Location: ../connexion.php');
                 break;
             default:
-                if (!$idclient) {
+                if ($idclient) {
                     $_SESSION['error']= "Problême d'identifiant";
                     header('Location: ../connexion.php');
                     break;
