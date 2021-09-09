@@ -3,45 +3,45 @@ session_start();
 class FunctionsBanquier{
 
 
-    public function loginBanker($db, $email, $password){
+    public function logIn($email, $password){
+        $type = "banquier";
         $email = Security::testEmail($email);
-        $password = Security::testPass($password);
-        $idbanquier = NoAuthDB::getBankerId($db,$email,$password);
-
+        $password = Security::testPass($password, null, 'login');
+        $authdb = new NoAuthDB;
+        $banquierdb = new banquierDB;
+        $idbanquier = $authdb->getBankerId($email, $password);
+        $_SESSION['idbanquier'] = $idbanquier;
         switch(false){
             case $email:
                 $_SESSION['error']= "L'adresse n'est pas au bon format";
-                header('Location: ../bankeraccess.php'); 
-                break; 
-
+                header('Location: ../connexion.php');
+                break;
             case $password:
                 $_SESSION['error']= "Le mot de passe n'est pas au bon format";
-                header('Location: ../bankeraccess.php');
+                header('Location: ../connexion.php');
                 break;
-
             default:
-            if (!$idbanquier) {
-                $_SESSION['error']= "Problême d'identifiant";
-                header('Location: ../bankeraccess.php');
-                break;
-            }
-
-            else {
-                $token = BanquierDB::PUTToken($idbanquier);
-                if (!$token){
-                    $_SESSION['error']= "Problème technique";
-                    header('Location: ../bankeraccess.php');
+                if ($idbanquier) {
+                    $_SESSION['error']= "Problême d'identifiant";
+                    header('Location: ../connexion.php');
+                    break;
                 }
                 else {
-                    $_SESSION['token'] = $token;
-                    $_SESSION['success']="Bienvenue !";
-                    header('Location: ../dashboardbanquier.php'); // Ici, il manque la page du dashboard banquier
+                    $dbinfotoken = Security::generateToken($idbanquier, $type);
+                    $token = $banquierdb->PUTToken($idbanquier, $dbinfotoken[2], $dbinfotoken[0], $dbinfotoken[1]);
+                    if (!$token){
+                        $_SESSION['error']= "Problème technique";
+                        header('Location: ../connexion.php');
+                    }
+                    else {
+                        $_SESSION['token'] = $token;
+                        $_SESSION['success']="Bienvenue !";
+                        header('Location: ../index.php');
+                    }
+                    break;
                 }
-                break;
-            }
-        }   
+        }
     }
-    
 
     public function validClient($idclient, $idbanker){
         

@@ -4,24 +4,20 @@ class NoAuthDB{
   use DB;
   public function getBankerId($mail,$pass){
     if (is_null($this->pdo)){return false;}
-    try {
-      $data=$this->pdo->prepare('SELECT banquierid FROM banquier WHERE mail=:Mail AND pass=:"Password"');
-      $data->bindParam(':Mail',$mail);
-      $data->bindParam(':Password',$pass);
-      $data->execute();
-      $banker=$data->fetch(PDO::FETCH_ASSOC); 
-      if(is_int($bankerid))
-      {
-        //return $banker.banquierid;
-        return $banker['banquierid'];
-      }
-        else return false;
-    } 
-    catch (PDOException $e) 
+    try 
+    {
+      $requete = $this->pdo->prepare('SELECT id FROM banquier WHERE mail= :mail AND pass= :pass');
+      $requete->bindValue(':mail',$mail);
+      $requete->bindValue(':pass',$pass);
+      $requete->execute();
+      $banker = $requete->fetch(PDO::FETCH_ASSOC);
+      return $banker['id'];
+    }
+    catch (PDOException $e)
     {
       error_log($e->getMessage());
       return false;
-    };
+    }
   }
 
   public function getFreeBankerId(){

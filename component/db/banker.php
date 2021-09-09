@@ -1,45 +1,30 @@
-<?php require './db.php';
+<?php 
+require_once './component/db/db.php';
 class banquierDB{
-  
-  private $conn;
-  
-  public function GETClientWait($idbanquier){
-    try {
-    
-      
-    } 
-    catch (PDOException $e) 
-    {
-      
-    };
-  }
+  use DB;
 
-
-  public function GETBankerId($token){
-    try {
-     $data=$conn->prepare("SELECT id FROM banquier INNER JOIN token ON banquier.id = token.banquierId WHERE bankerid=:id");
-    $data->bindParam(':id',$bankerid);
-    $data->execute();
-    $catchbanker=$data->fetch(PDO::FETCH_ASSOC);
-    return true;
-    } catch (PDOException $e) {
-      error_log($e->getMessage());
-      return false;
+  public function putToken ($banquierid, $token, $create, $expire) {
+    if (!is_null($this->pdo)) {
+      try {
+        $date = new DateTime();
+        $date->setTimestamp($create);
+        $date = $date->format('Y-m-d H-i-s'); 
+        $tokrequest = $this->pdo->prepare('INSERT INTO token (token, type, banquierid, date_added, expirationTime) 
+        VALUES (:token, "banquier", :banquierid, :date_added, :expire)');
+        $tokrequest->bindParam(':token', $token, PDO::PARAM_STR, 300);
+        $tokrequest->bindParam(':banquierid', $banquierid, PDO::PARAM_INT, 50);
+        $tokrequest->bindParam(':date_added', $date);
+        $tokrequest->bindParam(':expire', $expire);
+        $tokrequest->execute();
+        return true;
+      }
+      catch (PDOException $e)
+      {
+        error_log($e->getMessage());
+        return false;
+      }
     }
-  }
-  public function PATCHClientValid($idbanquier, $idclient){
-    try {
-      //code...
-    } catch (PDOException $e) {
-          return false;
-    }
-  }
-  public function PUTToken($idbanquier, $idclient){
-    try {
-      //code...
-    } catch (PDOException $e) {
-          return false;
-    }
+    else {return false;}
   }
   
 }

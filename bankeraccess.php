@@ -1,30 +1,22 @@
-<!-- TODO Coucou demba et severine :D
-- [ ] Ajout sur les formulaires des name 
-- [ ] Pensez au required ( pour le confort mais ne pas le considerer comme une sécurité)
-- [ ] Créer une balise main avec l'id et la class du body
--->
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="fr">
 <?php
-//require_once(); DB
-//require_once(); Security
-//require_once(); function/loginBanker
-if($_SERVER['REQUEST_METHOD']=='POST'){
-    $db = DB::connect();
-    if(!$db || !$email || $password){
-        //Code pour afficher une erreur
-    }else{
-        if(Functions::loginBanker($db,
-            $_POST['email'],
-            $_POST['password']))
-            {
-                //Code success = > to connected
-            }else{
-                //retourner un message d'erreur 
-            } 
-    }
-}
+require_once ('./component/db/banker.php');
+require_once ('./component/db/noAuth.php');
+require_once ('./component/security.php');
+require_once ('./component/function/FunctionBanquier.php');
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $funcbanquier=new FunctionsBanquier;
+        $call = $funcbanquier->logIn(
+            $_POST['email'],
+            $_POST['password']
+        );
+    }
 ?>
 
   <head>
