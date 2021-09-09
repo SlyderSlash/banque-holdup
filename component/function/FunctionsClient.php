@@ -94,7 +94,7 @@ class FunctionsClient{
                 }
                 else {
                     $dbinfotoken = Security::generateToken($idclient, $type);
-                    $token = $clientdb->PUTToken($idclient, $type, $dbinfotoken[2], $dbinfotoken[0], $dbinfotoken[1]);
+                    $token = $clientdb->PUTToken($idclient, $dbinfotoken[2], $dbinfotoken[0], $dbinfotoken[1]);
                     if (!$token){
                         $_SESSION['error']= "Problème technique";
                         header('Location: ../connexion.php');
