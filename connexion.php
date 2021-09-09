@@ -294,6 +294,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </main>
     <script src="component/script/login.js"></script>
     <script src="component/script/connexion.js"></script>
-    <?php require_once('./component/footer.php');?>
+    <?php 
+    require_once('./component/footer.php');
+    echo 'this is your token : ';
+    var_dump($_SESSION['token']);?>
   </body>
 </html>
