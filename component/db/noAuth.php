@@ -51,7 +51,6 @@ class NoAuthDB{
       $requete->bindValue(':mail',$mail);
       $requete->bindValue(':pass',$pass);
       $requete->execute();
-      $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'noAuth');
       $client = $requete->fetch(PDO::FETCH_ASSOC);
       return $client['id'];
     }
