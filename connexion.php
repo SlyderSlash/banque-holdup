@@ -7,10 +7,9 @@
 require_once ('./component/db/client.php');
 require_once ('./component/db/noAuth.php');
 require_once ('./component/security.php');
-require_once('./component/function/FunctionsClient.php');
-//require_once(); Security
-//require_once(); function/signIn
-//require_once(); function/logIn
+require_once ('./component/function/FunctionsClient.php');
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($_POST['type'] === 'si'){
         $funcclient = new FunctionsClient;

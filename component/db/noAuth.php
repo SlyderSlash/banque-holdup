@@ -1,5 +1,5 @@
 <?php
-require './component/db/db.php';
+require_once './component/db/db.php';
 class NoAuthDB{
   use DB;
   public function getBankerId($mail,$pass){
@@ -53,9 +53,7 @@ class NoAuthDB{
       $requete->execute();
       $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'noAuth');
       $client = $requete->fetch(PDO::FETCH_ASSOC);
-      if (is_int($clientid)) {
-        return $client['clientId'];
-      } else return false;
+      return $client['id'];
     }
     catch (PDOException $e)
     {

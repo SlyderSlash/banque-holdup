@@ -1,21 +1,19 @@
 <?php
-require './component/db/db.php';
+require_once './component/db/db.php';
 class clientDB{
   use DB;
-
-  public function putToken( $idclient, $token, $create, $expire) {
-      $date = new DateTime();
-      $date->setTimestamp($create);
-    if (!is_null($this->pdo))
-    {
-      try { 
-        $requete = $this->pdo->prepare('INSERT INTO token (token, type, clientid, date_added, expirationTime) 
+  public function putToken ($idclient, $token, $create, $expire) {
+    if (!is_null($this->pdo)) {
+      try {
+        $date = new DateTime();
+        $date->setTimestamp($create); 
+        $tokrequest = $this->pdo->prepare('INSERT INTO token (token, type, clientid, date_added, expirationTime) 
         VALUES (:token, "client", :clientid, :date_added, :expire)');
-        $requete->bindParam(':token', $token, PDO::PARAM_STR, 300);
-        $requete->bindParam(':clientid', $clientid, PDO::PARAM_INT, 50);
-        $requete->bindParam(':date_added', $date);
-        $requete->bindParam(':expire', $expire);
-        $requete->execute();
+        $tokrequest->bindParam(':token', $token, PDO::PARAM_STR, 300);
+        $tokrequest->bindParam(':clientid', $clientid, PDO::PARAM_INT, 50);
+        $tokrequest->bindParam(':date_added', $date);
+        $tokrequest->bindParam(':expire', $expire);
+        $tokrequest->execute();
         return true;
       }
       catch (PDOException $e)
@@ -24,6 +22,7 @@ class clientDB{
         return false;
       }
     }
+    else {return false;}
   }
   
-}
+} 
