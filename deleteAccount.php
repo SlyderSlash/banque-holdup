@@ -3,7 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
+//BACK : A FAIRE APRES LA CREATION DES PAGES COMPTE EN BANQUE ET BANQUIER
 <?php
 
 //require_once(); DB

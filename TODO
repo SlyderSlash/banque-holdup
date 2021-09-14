@@ -1,0 +1,30 @@
+[ ]  FRONT : Page banquier ( lecture des demandes en attentes, validation des comptes, validation des bénéficiaire et validation des suppression )
+[ ]  FRONT : Page virement / beneficiaire( création de virement et lecture de beneficiaire / création de beneficiaire )
+[ ]  FRONT : Page compte en banque ( lecture des comptes )
+[ ]  FRONT / BACK : Création de la route version la page banquier
+[ ]  BACK : Lecture des infos du comptes en banque (Historique bancaire)
+[ ]  BACK : Lecture des demandes en attentes (BANQUIER) - Wi
+[ ]  BACK : Lecture des infos de beneficiaire - Sv
+[ ]  BACK : Vérification des données saisies lors du virement - Ma
+[ ]  BACK : Vérification des données saisies lors de l'ajout d'un bénéficiaire - De
+[ ]  BACK : Envois des données saisies lors du virement en base de données - li
+[ ]  BACK : Envois des données saisies lors de l'ajout d'un bénéficiaire en bdd -so
+[ ]  BACK : Validation des comptes pour le banquier
+[ ]  BACK : Validation des bénéficiaires pour le banquier
+[ ]  BACK : Vérification des données saisies lors de la suppression de compte
+[ ]  BACK : Envois des données saisies lors de la suppression de compte en base de données
+[ ]  BACK : Validation des suppression de compte pour le banquier
+
+
+BACK :
+=> Mallaury => Lecture des infos du compte en banque ( parler avec Demba ) / Lecture des bénéficiaires ( parler avec Soizic )
+=> Séverine =>  Vérification données saisies virement et beneficiaire
+=> Lionel (Mail)
+=> Glandu => Lecture des infos banquier et validation
+
+FRONT : 
+=> Wilfried => Banquier
+=> Soizic => Virement / bénéficiaire
+=> Demba => Compte en banque 
+=> Glandu => Helpeur
+
