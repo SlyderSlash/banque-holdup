@@ -1,30 +1,19 @@
-<!-- TODO
-- [ ] Ajout sur les formulaires des name 
-- [x] Birthdate réduire la taille de la police pour un meilleur résultat
-- [-] Se renseigner et mettre en place un input type hidden pour la pièce en filename
-- [x] Mettre en type number ce qui peut l'être
-- [x] Pensez au required ( pour le confort mais ne pas le considerer comme une sécurité)
-- [ ] 
-
-
-
-
--->
-
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="fr">
 <?php 
-//require_once(); DB
-//require_once(); Security
-//require_once(); function/signIn
-//require_once(); function/logIn
+require_once ('./component/db/client.php');
+require_once ('./component/db/noAuth.php');
+require_once ('./component/security.php');
+require_once ('./component/function/FunctionsClient.php');
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $db = DB::connect();
-    if (!$db){
-        // Code pour afficher une erreur
-    }
-    else {
-        if(Functions::signIn($db,
+    if ($_POST['type'] === 'si'){
+        $funcclient = new FunctionsClient;
+        $call = $funcclient->signIn(
             $_POST['name'],
             $_POST['firstname'],
             $_POST['email'],
@@ -37,22 +26,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST['town'],
             $_POST['street'],
             $_POST['numberstreet'],
-            $_POST['cgv']))
-        {
-            //Code success = > to connected
-        }else {
-            //retourner un message d'erreur 
-        }
-        if(Functions::logIn($db,
-        $_POST['email'],
-        $_POST['password']))
-        {
-            //Code success = > to connected
-        }else{
-            //Retourner un message d'erreur 
-        }
+            $_POST['cgv']);
     }
-}
+    else if ($_POST['type'] === 'li') {
+        $funcclient=new FunctionsClient;
+        $call = $funcclient->logIn(
+            $_POST['email'],
+            $_POST['password']
+        );
+    } 
+    else if ($_POST['type'] === 'dev') {
+        $funcclient = new FunctionsClient;
+        $call = $funcclient->signIn(
+            "Harness",
+            "Jack",
+            "jesuisunmail@croyezmoi.fr",
+            "Bonjourfrom78",
+            "Bonjourfrom78",
+            null, null,
+            "1990-02-01",
+            78000,
+            "Versailles",
+            "Rue des mecs sur un cheval d'or",
+            "99",
+            "on"); 
+    } 
+    }
 ?>
   <head>
     <?php require_once('./component/head.php'); ?>
@@ -61,11 +60,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <link href="./assets/styles/connexion.css" rel="stylesheet">
   </head>
   <body class="clientpath">
-    <?php require_once('./component/header/headerNotConnected.php'); 
-        //import de header_not_connected.php contenant le header non connecté
+    <?php 
+    require_once('./component/alert.php');
+    if (isset($_SESSION['token'])){
+        require_once('./component/header/headerConnected.php');
+    }else{
+       require_once('./component/header/headerNotConnected.php'); 
+       //import de header_not_connected.php contenant le header non connecté
+    }
     ?>
     <main class="container py-5 mt-5">
-
+    <form method="post" ><button class="btn  me-5 ms-5" type="submit" name="type" value="dev"  id="lgbtnSubmit">DevMode</button></form>
     <!-- section de connexion -->
         <section class="row text-center" id="logIn">
             <h1 >Se connecter</h1>
@@ -81,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <img src="./assets/img/connexion-illustration.svg" alt="" class="">
                     </div>
                     <!-- formulaire -->
-                    <form action="formokay.php" id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
+                    <form id="logInForm" method="POST" class="col-12 col-md-6 text-sm-start d-flex flex-column  align-items-md-stretch ps-5 pe-5">
                         <!-- email -->
                         <div class="text-start mb-3 ">
                             <label for="email" >Email</label>
@@ -106,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <!-- mot de passe oublié -->
                         <a href="#" class=" mb-4 align-self-center">Mot de passe oublié ?</a>
                         <!-- bouton sumit -->
-                        <button class="btn  me-5 ms-5" type="submit" name="btnSubmit" id="lgbtnSubmit">Se connecter</button>
+                        <button class="btn  me-5 ms-5" type="submit" name="type" value="li"  id="lgbtnSubmit">Se connecter</button>
     
                     </form>
                 </div>
@@ -122,7 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="col-12">
     
                 <!-- ROW formulaire -->
-                <form action="" method="POST" class="row mt-5" id="signInForm">
+                <form enctype="multipart/form-data" method="POST" class="row mt-5" id="signInForm">
+
                     
                     <!-- partie 1 : identité -->
                     <div id="identity" class="col-12 col-lg-4 text-sm-start d-flex flex-column  align-items-stretch ps-5 pe-5  d-lg-flex d-none">
@@ -172,6 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <!-- Pièce d'identité -->
                         <div class="mb-3 mt-3 d-flex flex-column align-items-stretch">
                             <button type="button" id="iD" class="inputFile">Pièce d'identité</button>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                             <input class="form-control d-none" name="idCard" type="file" id="idCard" accept="image/png, image/jpeg, image/jpg, .pdf" required>
                             <div class="opt mt-1 text-center">formats acceptés : *.jpg, *.jpeg, *.png, *.pdf</div>
                             <div id="selectedFile" class="mt-2 text-center">
@@ -267,12 +274,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
                     <!-- valider les CGV -->
                     <div id="cgv" class="col-12 form-check mt-2 d-none d-lg-flex justify-content-center ">
-                        <input class="form-check-input me-3" name="cgv" type="checkbox" value="" id="cgvbox"  required>
+                        <input class="form-check-input me-3" name="cgv" type="checkbox" id="cgvbox"  required>
                         <label class="form-check-label" for="cgvbox">Valider les C.G.V.</label>
                     </div>
                     <!-- bouton sumit -->
                     <div id="submit" class="col-12 mt-4  d-none d-lg-flex justify-content-center">
-                        <button class="btn ps-5 pe-5" type="submit" id="validReq">Finaliser la demande</button>
+                        <button class="btn ps-5 pe-5" type="submit" name="type" value="si" id="validReq">Finaliser la demande</button>
     
                     </div>
     
@@ -287,6 +294,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </main>
     <script src="component/script/login.js"></script>
     <script src="component/script/connexion.js"></script>
-    <?php require_once('./component/footer.php'); ?>
+    <?php 
+    require_once('./component/footer.php');
+    echo 'this is your token : ';
+    var_dump($_SESSION['token']);
+    var_dump($_SESSION['idclient']);
+    ?>
   </body>
 </html>

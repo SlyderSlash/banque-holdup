@@ -55,21 +55,21 @@ class Update {
 
   function deleteBenif($db, $clientid , $token, $benif)
   {
-      $bankerid = DB::getBankerIDwithToken($bankerid);
+      $bankerid = DB::getBankerIDwithToken($db, $token);
       $token = htmlspecialchars($token);
       $benif = htmlspecialchars($benif);
       $clientid = htmlspecialchars($clientid);
 
-      if (!bankerid){
+      if (!$bankerid){
           return false;
       }
       else {
 
       try
       {
-        $stmt = $db->prepare("UPDATE beneficiaire SET valid=NOW() WHERE id=:benif AND clientid = :clientid");
+        $stmt = $db->prepare("DELETE FROM beneficiaire WHERE id=:benif AND clientid = :clientid");
         $stmt ->bind_param(':benif', $benif);
-        $stmt ->bind_param(':idclient', $idclient);
+        $stmt ->bind_param(':clientid', $clientid);
         $stmt ->execute();
         return true; 
 
@@ -81,35 +81,32 @@ class Update {
   }
 
 
-  function askdeletclient($db, $clientid, $token)
+  function askdeletclient($db, $token, $file)
   {
-      $bankeridbankerid = DB::getBankerIDwithToken($bankerid);
-      $token = htmlspecialchars($token);
-      $clientid = htmlspecialchars($clientid);
+    $token = htmlspecialchars($token);
+    $clientid = DB::getClientIDwithToken($token);
 
-      if (!bankerid){
-        return false;
+    if (!$clientid){
+      return false;
     }
     else {
 
-    try
-    {
-      $stmt = $db->prepare("UPDATE client SET valid=NOW() WHERE id=:client");
-      $stmt ->bind_param(':idclient', $idclient);
-      $stmt ->execute();
-      return true;
+      try
+      {
+        $stmt = $db->prepare("UPDATE client SET supress = :filer WHERE id=:client");
+        $stmt ->bind_param(':client', $clientid);
+        $stmt ->bind_param(':filer', $file);
+        return true;
 
-    }catch(PDOException $e) {
-      return false;
-    
-    
+      }catch(PDOException $e) {
+        return false;
+      
+      
+      }
     }
-  }
  
+  }
 }
-
-  function virement(){}
-
 
 
 ?>
