@@ -244,3 +244,26 @@ text-align: center;
     background-size: contain;
     background-position: top;
 }
+
+/************** BanKer ***************/
+
+@media screen and (max-width:1023px){
+.bankerpath{
+    background-image: url('/assets/img/bggg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    height: calc(25vh + 5vw);
+    }
+}
+
+
+@media screen and (min-width:1024px){
+    .bankerpath{
+        background-image: url('/assets/img/bggg.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: calc(35vh + 5vw);
+    }
+}
