@@ -30,7 +30,7 @@
                 </figure>
                 <ul class="navbar-nav d-flex pt-5 align-items-end p-lg-0 justify-content-lg-end fixed-top w-100 h-100">
                     <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Mon compte</h6>
-                    <li class="nav-item d-lg-none">
+                    <!-- <li class="nav-item d-lg-none">
                         <a class="nav-link fw-light pe-4" href="#" title="Historique du compte">Historique</a>
                     </li>
                     <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Virements</h6>
@@ -52,7 +52,7 @@
                     </li>
                     <li class="nav-item d-lg-none">
                         <a class="nav-link fw-light pe-4" href="#" title="../../CGU.php">Conditions générales</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item border border-white rounded align-self-end px-4 mt-4 me-4">
                         <a class="nav-link text-white fw-light" href="../../deconnexion.php" title="Déconnexion">Déconnexion</a>
                     </li>
