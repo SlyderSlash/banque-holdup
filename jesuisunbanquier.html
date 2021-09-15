@@ -2,197 +2,339 @@
 <html lang="fr">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- SEO min meta tags -->
-    <meta name="description" content="Banque Hold'Up, une banque innovante aux qualités indamissibles" />
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO min meta tags -->
+  <meta name="description" content="Banque Hold'Up, une banque innovante aux qualités indamissibles" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link href="./assets/styles/custom.css" rel="stylesheet">
-    <!-- Bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title>Banque Hold'Up</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link href="./assets/styles/custom.css" rel="stylesheet">
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <title>Banque Hold'Up</title>
 </head>
 
 <body>
-<!-- Début du header_connected  -->
-<header class="bankerpath">
+  <!-- Début du header_connected  -->
+  <header class="bankerpath">
     <nav class="navbar navbar-expand-lg">
-     <div class="container-fluid">
-       <a class="navbar-brand m-0" href="index.php" title="Retour à l'accueil">
-         <img class="logo" src="./assets/img/logo-white-without-text.png" alt="Logo de la banque Hold up">
-       </a>
-       <span class="header_title d-flex flex-column flex-grow-1 align-content-start">
-         <h1 class="mb-0 text-white">Banque</h1>
-         <h1 class="mb-0 text-white">Hold'up</h1>
-       </span>
-       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon">
-           <figure>
-             <img src="./assets/img/user-icon.png">
-           </figure>
-         </span>
-       </button>
+      <div class="container-fluid">
+        <a class="navbar-brand m-0" href="index.php" title="Retour à l'accueil">
+          <img class="logo" src="./assets/img/logo-white-without-text.png" alt="Logo de la banque Hold up">
+        </a>
+        <span class="header_title d-flex flex-column flex-grow-1 align-content-start">
+          <h1 class="mb-0 text-white">Banque</h1>
+          <h1 class="mb-0 text-white">Hold'up</h1>
+        </span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <figure>
+              <img src="./assets/img/user-icon.png">
+            </figure>
+          </span>
+        </button>
 
-       <!-- menu overlay -->
-       <div class="collapse navbar-collapse flex-grow-0" id="navbarText">
-         <button class="navbar-toggler expanded d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon">
-             <figure>
-               <img src="./assets/img/cross.png">
-             </figure>
-           </span> 
-         </button>
-         <figure class="logo-expand d-lg-none">
-           <img src="./assets/img/logo-gradient-opacity.png">
-         </figure>
-         <ul class="navbar-nav d-flex pt-5 align-items-end p-lg-0 justify-content-lg-end fixed-top w-100 h-100">
-           <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Mon compte</h6>
-           <li class="nav-item d-lg-none">
-             <a class="nav-link fw-light pe-4" href="#" title="Historique du compte">Historique</a>
-           </li>
-           <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Virements</h6>
-           <li class="nav-item d-lg-none">
-             <a class="nav-link fw-light pe-4" href="#" title="Mes virements">Mes virements</a>
-           </li> 
-           <li class="nav-item d-lg-none">
-             <a class="nav-link fw-light pe-4" href="#" title="Ajouter bénéficiaires">Ajouter des bénéficiaires</a>
-           </li>
-           <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Profil</h6>
-           <li class="nav-item d-lg-none">
-             <a class="nav-link fw-light pe-4" href="#" title="Modifier coordonnées">Modifier mes coordonnées</a>
-           </li> 
-           <li class="nav-item d-lg-none">
-             <a class="nav-link fw-light pe-4" href="../../deleteAccount.php" title="Cloturer le compte">Cloturer mon compte</a>
-           </li> 
-           <li class="nav-item d-lg-none">
-             <a class="nav-link fw-light pe-4" href="#" title="Contacter conseiller">Contacter mon conseiller</a>
-           </li>                 
-           <li class="nav-item d-lg-none">
-             <a class="nav-link fw-light pe-4" href="#" title="../../CGU.php">Conditions générales</a>
-           </li>              
-           <li class="nav-item border border-white rounded align-self-end px-4 mt-4 me-4">
-             <a class="nav-link text-white fw-light" href="../../deconnexion.php" title="Déconnexion">Déconnexion</a>
-           </li>
-         </ul>
-       </div>
-     </div>
-   </nav>
-</header>
-
-    <main class="container">
-        <div class="row">
-            <h2 class="text-center mb-4">Vos demandes en attentes</h2>
-            <section class="col-md-8 col-lg-6 d-flex flex-column w-100" id="globalSection">
-                <article class=" text-center my-md-4">
-                    <h3>Validation des comptes</h3>
-                    <div class="item d-flex justify-content-center mb-4">
-                        <p class="my-auto me-4">Vous avez X demandes</p>
-                        <button type="button" class="border-0 bg-transparent" id="category" name="account_creation"><img src="./assets/img/leftArrow.svg" alt="Bouton de sélection"></button>
-                        
-                    </div>
-                </article>
-
-                <article class=" text-center my-md-4">
-                    <h3>Ajout des bénéficiaires</h3>
-                    <div class="item d-flex justify-content-center mb-4">
-                        <p class="my-auto me-4">Vous avez X demandes</p>
-                        <button type="button" class="border-0 bg-transparent" id="category" name="account_beneficiaries"><img src="./assets/img/leftArrow.svg" alt="Bouton de sélection"></button>
-                    </div>
-                </article>
-
-                <article class=" text-center my-md-4">
-                    <h3>Suppression des comptes</h3>
-                    <div class="item d-flex justify-content-center mb-4">
-                        <p class="my-auto me-4">Vous avez X demandes</p>
-                        <button type="button" class="border-0 bg-transparent" id="category" name="account_deletion"><img src="./assets/img/leftArrow.svg" alt="Bouton de sélection"></button>
-                    </div>
-                </article>
-
-            </section>
-
-            <section id="account_creation" class="d-none">
-              <article class=" text-center my-md-4">
-                <h3>Validation des comptes</h3>
-                <button type="button" class="border-0 bg-transparent" id="category" name="backToChoices"><img src="./assets/img/leftArrow.svg" alt="Bouton de retour"></button>
-
-                TEST 1
-              </article>
-            </section>
-            <section id="account_beneficiaries" class="d-none">
-              TEST 2
-              <button type="button" class="border-0 bg-transparent" id="category" name="backToChoices"><img src="./assets/img/leftArrow.svg" alt="Bouton de retour"></button>
-            </section>
-            <section id="account_deletion" class="d-none">
-              TEST 3
-              <button type="button" class="border-0 bg-transparent" id="category" name="backToChoices"><img src="./assets/img/leftArrow.svg" alt="Bouton de retour"></button>
-
-            </section>
-
+        <!-- menu overlay -->
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarText">
+          <button class="navbar-toggler expanded d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+              <figure>
+                <img src="./assets/img/cross.png">
+              </figure>
+            </span>
+          </button>
+          <figure class="logo-expand d-lg-none">
+            <img src="./assets/img/logo-gradient-opacity.png">
+          </figure>
+          <ul class="navbar-nav d-flex pt-5 align-items-end p-lg-0 justify-content-lg-end fixed-top w-100 h-100">
+            <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Mon compte</h6>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link fw-light pe-4" href="#" title="Historique du compte">Historique</a>
+            </li>
+            <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Virements</h6>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link fw-light pe-4" href="#" title="Mes virements">Mes virements</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link fw-light pe-4" href="#" title="Ajouter bénéficiaires">Ajouter des bénéficiaires</a>
+            </li>
+            <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Profil</h6>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link fw-light pe-4" href="#" title="Modifier coordonnées">Modifier mes coordonnées</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link fw-light pe-4" href="../../deleteAccount.php" title="Cloturer le compte">Cloturer mon
+                compte</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link fw-light pe-4" href="#" title="Contacter conseiller">Contacter mon conseiller</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <a class="nav-link fw-light pe-4" href="#" title="../../CGU.php">Conditions générales</a>
+            </li>
+            <li class="nav-item border border-white rounded align-self-end px-4 mt-4 me-4">
+              <a class="nav-link text-white fw-light" href="../../deconnexion.php" title="Déconnexion">Déconnexion</a>
+            </li>
+          </ul>
         </div>
-    </main>
+      </div>
+    </nav>
+  </header>
 
-    <footer class="container-fluid  footer-bg py-2">
+  <main class="container">
+    <div class="row">
+      <h2 class="text-center mb-4">Vos demandes en attentes</h2>
+      <section class="col-md-8 col-lg-6 d-flex flex-column w-100" id="globalSection">
+        <article class=" text-center my-md-4">
+          <h3>Validation des comptes</h3>
+          <div class="item d-flex justify-content-center mb-4">
+            <p class="my-auto me-4">Vous avez X demandes</p>
+            <button type="button" class="border-0 bg-transparent" id="category" name="account_creation"><img
+                src="./assets/img/leftArrow.svg" alt="Bouton de sélection"></button>
+          </div>
+        </article>
 
-        <div class="row justify-content-center">
-            <img class="logoFooter" src="assets/img/logoFooter.svg">
-        </div>
+        <article class=" text-center my-md-4">
+          <h3>Ajout des bénéficiaires</h3>
+          <div class="item d-flex justify-content-center mb-4">
+            <p class="my-auto me-4">Vous avez X demandes</p>
+            <button type="button" class="border-0 bg-transparent" id="category" name="account_beneficiaries"><img
+                src="./assets/img/leftArrow.svg" alt="Bouton de sélection"></button>
+          </div>
+        </article>
 
+        <article class=" text-center my-md-4">
+          <h3>Suppression des comptes</h3>
+          <div class="item d-flex justify-content-center mb-4">
+            <p class="my-auto me-4">Vous avez X demandes</p>
+            <button type="button" class="border-0 bg-transparent" id="category" name="account_deletion"><img
+                src="./assets/img/leftArrow.svg" alt="Bouton de sélection"></button>
+          </div>
+        </article>
 
-        <nav>
-            <div class="row">
-                <ul
-                    class="d-flex flex-column align-items-center flex-lg-row justify-content-around list-unstyled mt-3 ">
-                    <li class="mx-lg-4">
-                        <a class="nav-link  fw-light" href="#">Contact</a>
-                    </li>
-                    <li class="mx-lg-4 ">
-                        <a class="nav-link  fw-light" href="#">C.G.V</a>
-                    </li>
-                    <li class="mx-lg-4 ">
-                        <a class="nav-link  fw-light" href="#">Mention légale</a>
-                    </li>
-                    <li class="mx-lg-4 ">
-                        <a class="nav-link fw-light" href="bankeraccess.php">Accès interne</a>
-                    </li>
-                </ul>
+      </section>
+
+      <section id="account_creation" class="d-none">
+        <article class="text-center my-4">
+          <h3>Validation des comptes</h3>
+          <table class="table table-borderless my-3">
+            <tbody>
+              <tr class="d-flex justify-content-center align-items-center">
+                <td>01250</td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="document"><img
+                      src="./assets/img/docButton.svg" alt="Accès pièce jointe"></button>
+                </td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="validation"><img
+                      src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+                </td>
+              </tr>
+              <tr class="d-flex justify-content-center align-items-center">
+                <td>10001</td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="document"><img
+                      src="./assets/img/docButton.svg" alt="Accès pièce jointe"></button>
+                </td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="validation"><img
+                      src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+                </td>
+              </tr>
+              <tr class="d-flex justify-content-center align-items-center">
+                <td>10231</td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="document"><img
+                      src="./assets/img/docButton.svg" alt="Accès pièce jointe"></button>
+                </td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="validation"><img
+                      src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <button type="button" class="border-0 bg-transparent" id="category" name="backToChoices"><img
+            src="./assets/img/backArrow.svg" alt="Bouton de retour" data-bs-toggle="tooltip" data-bs-placement="left"
+            title="Retour aux sélections" class="me-2">Retour aux sélections</button>
+
+      </section>
+
+      <section id="account_beneficiaries" class="d-none">
+        <article class="text-center my-4">
+          <h3>Ajout de bénéficiaires</h3>
+
+          <hr class="hr_demands">
+          <div class="row g-0 my-3 justify-content-center align-items-center">
+            <div class="col-2">
+              <span>10235</span>
             </div>
-        </nav>
+            <div class="col-8">
+              <!-- ! Avec le tiret = 28 caractères -->
+              <span>FR76-30006</span>
+              <span>000011234567890</span>
+              <span>189</span>
+            </div>
+            <div class="col-2">
+              <button type="button" class="border-0 bg-transparent" id="validation"><img
+                  src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+            </div>
+          </div>
+          <hr class="hr_demands">
+          <div class="row g-0 my-3 justify-content-center align-items-center">
+            <div class="col-2">
+              <span>01235</span>
+            </div>
+            <div class="col-8">
+              <!-- ! Avec le tiret = 28 caractères -->
+              <span>FR76-30006</span>
+              <span>000019253467682</span>
+              <span>157</span>
+            </div>
+            <div class="col-2">
+              <button type="button" class="border-0 bg-transparent" id="validation"><img
+                  src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+            </div>
+          </div>
+          <hr class="hr_demands">
+          <div class="row g-0 my-3 justify-content-center align-items-center">
+            <div class="col-2">
+              <span>03233</span>
+            </div>
+            <div class="col-8">
+              <!-- ! Avec le tiret = 28 caractères -->
+              <span>FR76-30035</span>
+              <span>000025687512332</span>
+              <span>235</span>
+            </div>
+            <div class="col-2">
+              <button type="button" class="border-0 bg-transparent" id="validation"><img
+                  src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+            </div>
+          </div>
+          <hr class="hr_demands">
 
-        <div id="socialMedia" class="row">
-            <ul class="d-flex flex-row justify-content-center list-unstyled mt-3">
-                <li class="mx-lg-2">
-                    <a class="nav-link fw-light" href="#"><img src="assets/img/Facebook.svg"></a>
-                </li>
-                <li class="mx-lg-2">
-                    <a class="nav-link fw-light" href="#"><img src="assets/img/Instagram.svg"></a>
-                </li>
-                <li class="mx-lg-2">
-                    <a class="nav-link fw-light" href="#"><img src="assets/img/TwitterFooter.svg"></a>
-                </li>
-            </ul>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-            <hr class="text-white">
-            <p class=" text-white">tout droit réservé &copy; Team Hold'up</p>
-        </div>
+        </article>
+        <button type="button" class="border-0 bg-transparent" id="category" name="backToChoices"><img
+            src="./assets/img/backArrow.svg" alt="Bouton de retour" data-bs-toggle="tooltip" data-bs-placement="left"
+            title="Retour aux sélections" class=" me-2">Retour aux sélections</button>
+
+      </section>
+
+      <section id="account_deletion" class="d-none">
+        <article class="text-center my-4">
+          <h3>Suppression de comptes</h3>
+          <table class="table table-borderless my-3">
+            <tbody>
+              <tr class="d-flex justify-content-center align-items-center">
+                <td>01250</td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="document"><img
+                      src="./assets/img/docButton.svg" alt="Accès pièce jointe"></button>
+                </td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="validation"><img
+                      src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+                </td>
+              </tr>
+              <tr class="d-flex justify-content-center align-items-center">
+                <td>10001</td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="document"><img
+                      src="./assets/img/docButton.svg" alt="Accès pièce jointe"></button>
+                </td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="validation"><img
+                      src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+                </td>
+              </tr>
+              <tr class="d-flex justify-content-center align-items-center">
+                <td>10231</td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="document"><img
+                      src="./assets/img/docButton.svg" alt="Accès pièce jointe"></button>
+                </td>
+                <td>
+                  <button type="button" class="border-0 bg-transparent" id="validation"><img
+                      src="./assets/img/checkIcon.svg" alt="Validation dossier"></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        <button type="button" class="border-0 bg-transparent" id="category" name="backToChoices"><img
+            src="./assets/img/backArrow.svg" alt="Bouton de retour" data-bs-toggle="tooltip" data-bs-placement="left"
+            title="Retour aux sélections" class="me-2">Retour aux sélections</button>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="container-fluid  footer-bg py-2">
+
+    <div class="row justify-content-center">
+      <img class="logoFooter" src="assets/img/logoFooter.svg">
+    </div>
+
+
+    <nav>
+      <div class="row">
+        <ul class="d-flex flex-column align-items-center flex-lg-row justify-content-around list-unstyled mt-3 ">
+          <li class="mx-lg-4">
+            <a class="nav-link  fw-light" href="#">Contact</a>
+          </li>
+          <li class="mx-lg-4 ">
+            <a class="nav-link  fw-light" href="#">C.G.V</a>
+          </li>
+          <li class="mx-lg-4 ">
+            <a class="nav-link  fw-light" href="#">Mention légale</a>
+          </li>
+          <li class="mx-lg-4 ">
+            <a class="nav-link fw-light" href="bankeraccess.php">Accès interne</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="socialMedia" class="row">
+      <ul class="d-flex flex-row justify-content-center list-unstyled mt-3">
+        <li class="mx-lg-2">
+          <a class="nav-link fw-light" href="#"><img src="assets/img/Facebook.svg"></a>
+        </li>
+        <li class="mx-lg-2">
+          <a class="nav-link fw-light" href="#"><img src="assets/img/Instagram.svg"></a>
+        </li>
+        <li class="mx-lg-2">
+          <a class="nav-link fw-light" href="#"><img src="assets/img/TwitterFooter.svg"></a>
+        </li>
+      </ul>
+    </div>
+    <div class="row d-flex justify-content-center text-center">
+      <hr class="text-white">
+      <p class=" text-white">tout droit réservé &copy; Team Hold'up</p>
+    </div>
 
 
 
-    </footer>
+  </footer>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
-    <script src="./component/script/bankerNavigation.js"></script>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="./component/script/bankerNavigation.js"></script>
 
 </body>
 

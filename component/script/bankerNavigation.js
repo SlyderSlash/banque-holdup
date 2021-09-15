@@ -10,11 +10,11 @@ for (let i = 0; i < buttons.length; i++) {
         //console.log(button);
         if (button[0].name ==='account_creation') {
           document.getElementById('globalSection').classList.toggle('d-none');
-          document.getElementById('account_creation').classList.toggle('d-none');
+          document.getElementById('account_creation').classList.replace('d-none','activeSection' );
         }
         else if (button[0].name ==='account_beneficiaries') {
           document.getElementById('globalSection').classList.toggle('d-none');
-          document.getElementById('account_beneficiaries').classList.toggle('d-none');
+          document.getElementById('account_beneficiaries').classList.replace('d-none','activeSection' );
         }
         else if (button[0].name ==='account_deletion') {
           document.getElementById('globalSection').classList.toggle('d-none');

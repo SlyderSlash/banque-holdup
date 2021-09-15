@@ -245,12 +245,21 @@ text-align: center;
     background-position: top;
 }
 
-/************** BanKer ***************/
 
+
+/************** BanKer ***************/
 
 .item {
     border: 1px solid #FFDCDC;
     padding: 0.5rem;
+}
+
+.hr_demands {
+    color:#FFDCDC;
+}
+
+button#category {
+    font-weight: 300;
 }
 
 @media screen and (max-width:768px){
@@ -293,3 +302,5 @@ main p {
         height: calc(20vh + 15vw);
     }
 }
+
+/************** End of banKer ***************/
