@@ -2,94 +2,20 @@
 <html lang="fr">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- SEO min meta tags -->
-  <meta name="description" content="Banque Hold'Up, une banque innovante aux qualités indamissibles" />
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png" />
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <!-- Custom CSS -->
-  <link href="./assets/styles/custom.css" rel="stylesheet">
-  <!-- Bootstrap icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <title>Banque Hold'Up</title>
+  <?php require_once('./component/head.php'); ?>
 </head>
 
 <body>
   <!-- Début du header_connected  -->
-  <header class="bankerpath">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand m-0" href="index.php" title="Retour à l'accueil">
-          <img class="logo" src="./assets/img/logo-white-without-text.png" alt="Logo de la banque Hold up">
-        </a>
-        <span class="header_title d-flex flex-column flex-grow-1 align-content-start">
-          <h1 class="mb-0 text-white">Banque</h1>
-          <h1 class="mb-0 text-white">Hold'up</h1>
-        </span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-            <figure>
-              <img src="./assets/img/user-icon.png">
-            </figure>
-          </span>
-        </button>
-
-        <!-- menu overlay -->
-        <div class="collapse navbar-collapse flex-grow-0" id="navbarText">
-          <button class="navbar-toggler expanded d-lg-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-              <figure>
-                <img src="./assets/img/cross.png">
-              </figure>
-            </span>
-          </button>
-          <figure class="logo-expand d-lg-none">
-            <img src="./assets/img/logo-gradient-opacity.png">
-          </figure>
-          <ul class="navbar-nav d-flex pt-5 align-items-end p-lg-0 justify-content-lg-end fixed-top w-100 h-100">
-            <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Mon compte</h6>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link fw-light pe-4" href="#" title="Historique du compte">Historique</a>
-            </li>
-            <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Virements</h6>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link fw-light pe-4" href="#" title="Mes virements">Mes virements</a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link fw-light pe-4" href="#" title="Ajouter bénéficiaires">Ajouter des bénéficiaires</a>
-            </li>
-            <h6 class="text-white text-decoration-underline d-lg-none pt-3 pe-3">Profil</h6>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link fw-light pe-4" href="#" title="Modifier coordonnées">Modifier mes coordonnées</a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link fw-light pe-4" href="../../deleteAccount.php" title="Cloturer le compte">Cloturer mon
-                compte</a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link fw-light pe-4" href="#" title="Contacter conseiller">Contacter mon conseiller</a>
-            </li>
-            <li class="nav-item d-lg-none">
-              <a class="nav-link fw-light pe-4" href="#" title="../../CGU.php">Conditions générales</a>
-            </li>
-            <li class="nav-item border border-white rounded align-self-end px-4 mt-4 me-4">
-              <a class="nav-link text-white fw-light" href="../../deconnexion.php" title="Déconnexion">Déconnexion</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <?php 
+  require_once('./component/alert.php');
+  if (isset($_SESSION['token'])) {
+    require_once('./component/header/headerConnected.php');
+    }
+  else {
+    require_once('./component/header/headerBanker.php');
+    } 
+  ?>
 
   <main class="container">
     <div class="row">
@@ -282,59 +208,8 @@
     </div>
   </main>
 
-  <footer class="container-fluid  footer-bg py-2">
-
-    <div class="row justify-content-center">
-      <img class="logoFooter" src="assets/img/logoFooter.svg">
-    </div>
-
-
-    <nav>
-      <div class="row">
-        <ul class="d-flex flex-column align-items-center flex-lg-row justify-content-around list-unstyled mt-3 ">
-          <li class="mx-lg-4">
-            <a class="nav-link  fw-light" href="#">Contact</a>
-          </li>
-          <li class="mx-lg-4 ">
-            <a class="nav-link  fw-light" href="#">C.G.V</a>
-          </li>
-          <li class="mx-lg-4 ">
-            <a class="nav-link  fw-light" href="#">Mention légale</a>
-          </li>
-          <li class="mx-lg-4 ">
-            <a class="nav-link fw-light" href="bankeraccess.php">Accès interne</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div id="socialMedia" class="row">
-      <ul class="d-flex flex-row justify-content-center list-unstyled mt-3">
-        <li class="mx-lg-2">
-          <a class="nav-link fw-light" href="#"><img src="assets/img/Facebook.svg"></a>
-        </li>
-        <li class="mx-lg-2">
-          <a class="nav-link fw-light" href="#"><img src="assets/img/Instagram.svg"></a>
-        </li>
-        <li class="mx-lg-2">
-          <a class="nav-link fw-light" href="#"><img src="assets/img/TwitterFooter.svg"></a>
-        </li>
-      </ul>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <hr class="text-white">
-      <p class=" text-white">tout droit réservé &copy; Team Hold'up</p>
-    </div>
-
-
-
-  </footer>
-
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-    crossorigin="anonymous"></script>
-  <script src="./component/script/bankerNavigation.js"></script>
+  <?php require_once('./component/footer.php'); ?>
+<script src="./component/script/bankerNavigation.js"></script>
 
 </body>
 
