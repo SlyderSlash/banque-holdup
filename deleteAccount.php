@@ -1,7 +1,11 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
-
+//BACK : A FAIRE APRES LA CREATION DES PAGES COMPTE EN BANQUE ET BANQUIER
 <?php
+
 //require_once(); DB
 //require_once(); Security
 //require_once(); function/DeleteClientRequest
@@ -25,19 +29,22 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 ?>
 <head>
-    <!-- Load head -->
     <?php require_once('./component/head.php'); ?>
 </head>
-<body class="clientpath">
-    <!-- Load connected header -->
-    <?php require_once('./component/header/headerConnected.php'); ?>
 
-<!-- Start of main content -->
+<body class="clientpath">
+<?php 
+    if(isset($_SESSION['token'])){
+        require_once('./component/header/headerConnected.php');
+    }else{
+        header('Location: ./index.php');
+    }
+?>
     <main class="container mt-5">
         <div class="row-cols-sm-auto d-flex justify-content-end d-md-none">
             <button class="btn rounded-pill bg-danger text-white my-3" type="button">Je reste</button>
         </div>
-<!-- Resiliation form -->
+        
 <div class="row">
     <div class="col-md-12 d-flex flex-row justify-content-center justify-content-md-between">
     <div class="col-md-5">

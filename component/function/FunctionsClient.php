@@ -1,7 +1,6 @@
 <?php
-session_start();
 class FunctionsClient{
-    public function signIn($db,
+    public function signIn(
       $name,
       $firstname,
       $email,
@@ -19,12 +18,12 @@ class FunctionsClient{
         $lastName = Security::testName($name);
         $firstName = Security::testName($firstname);
         $email = Security::testEmail($email);
-        $password = Security::testPass($password,$verifPassword);
-        $pi = Security::testFile($idCard, $fidCard);
+        $password = Security::testPass($password,$verifPassword,'register');
+        $pi = Security::testUploadedFile($idCard, $fidCard);
         $birthday = Security::testBirthday($birthDate);
-        $adress = Security::testAdress($postalCode,$town,$street,$numberstreet,);
+        $adress = Security::testAdress($postalCode,$town,$street,$numberstreet);
         $cgu = Security::testCheckObligate($cgv);
-
+        $authdb = new NoAuthDB;
         switch (false)
         {
             case $lastName:
@@ -43,10 +42,10 @@ class FunctionsClient{
                 $_SESSION['error']= "Le mot de passe n'est pas au bon format - 8 Caractère minimum ( 1 Majuscule, 1 Minuscule et 1 chiffre nécesaire)";
                 header('Location: ../connexion.php');
                 break;
-            case $pi:
+            /* case $pi:
                 $_SESSION['error']= "Problême lors du chargement et de la vérification de la pièce d'identité";
                 header('Location: ../connexion.php');
-                break;
+                break; */
             case $birthday:
                 $_SESSION['error']= "La date de naissance n'est pas au bon format ou votre age est inférieur à 18 ans";
                 header('Location: ../connexion.php');
@@ -59,7 +58,7 @@ class FunctionsClient{
                 $_SESSION['error']= "Les Conditions Générales de Vente doivent obligatoirement être validé";
                 header('Location: ../connexion.php');
                 break;
-            case NoAuthDB::PUTClient($lastName, $firstName, $email, $password, $pi, $birthday, $adress):
+            case $authdb->putClient(1, $lastName, $firstName, $adress, $postalCode, $town, $birthday, $pi, $email, $password):
                 $_SESSION['error']= "Problême technique lors de votre inscription";
                 header('Location: ../connexion.php');
                 break;
@@ -68,12 +67,16 @@ class FunctionsClient{
                 header('Location: ../index.php');
                 break;
         }
-    }
+}
 
     public function logIn($email, $password){
+        $type = "client";
         $email = Security::testEmail($email);
-        $password = Security::testPassLog($password);
-        $idclient = NoAuthDB::GETClientId($email, $password);
+        $password = Security::testPass($password, null, 'login');
+        $authdb = new NoAuthDB;
+        $clientdb = new clientDB;
+        $idclient = $authdb->GETClientId($email, $password);
+        $_SESSION['idclient'] = $idclient;
         switch(false){
             case $email:
                 $_SESSION['error']= "L'adresse n'est pas au bon format";
@@ -84,13 +87,14 @@ class FunctionsClient{
                 header('Location: ../connexion.php');
                 break;
             default:
-                if (!$idclient) {
+                if ($idclient) {
                     $_SESSION['error']= "Problême d'identifiant";
                     header('Location: ../connexion.php');
                     break;
                 }
                 else {
-                    $token = ClientDB::PUTToken($idclient);
+                    $dbinfotoken = Security::generateToken($idclient, $type);
+                    $token = $clientdb->PUTToken($idclient, $dbinfotoken[2], $dbinfotoken[0], $dbinfotoken[1]);
                     if (!$token){
                         $_SESSION['error']= "Problème technique";
                         header('Location: ../connexion.php');
@@ -187,5 +191,3 @@ class FunctionsClient{
     }
 
 };
-
-?>

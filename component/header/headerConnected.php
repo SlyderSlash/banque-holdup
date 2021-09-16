@@ -46,16 +46,16 @@
                 <a class="nav-link fw-light pe-4" href="#" title="Modifier coordonnées">Modifier mes coordonnées</a>
               </li> 
               <li class="nav-item d-lg-none">
-                <a class="nav-link fw-light pe-4" href="#" title="Cloturer le compte">Cloturer mon compte</a>
+                <a class="nav-link fw-light pe-4" href="../../deleteAccount.php" title="Cloturer le compte">Cloturer mon compte</a>
               </li> 
               <li class="nav-item d-lg-none">
                 <a class="nav-link fw-light pe-4" href="#" title="Contacter conseiller">Contacter mon conseiller</a>
               </li>                 
               <li class="nav-item d-lg-none">
-                <a class="nav-link fw-light pe-4" href="#" title="Conditions générales">Conditions générales</a>
+                <a class="nav-link fw-light pe-4" href="#" title="../../CGU.php">Conditions générales</a>
               </li>              
               <li class="nav-item border border-white rounded align-self-end px-4 mt-4 me-4">
-                <a class="nav-link text-white fw-light" href="#" title="Déconnexion">Déconnexion</a>
+                <a class="nav-link text-white fw-light" href="../../deconnexion.php" title="Déconnexion">Déconnexion</a>
               </li>
             </ul>
           </div>

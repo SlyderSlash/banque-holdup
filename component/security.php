@@ -1,17 +1,16 @@
 <?php
-session_start();
 class Security{
-    function testName ($value){
+    public static function testName ($value){
         $value = htmlspecialchars($value);
         if (strlen($value) >= 150 || 
             strlen($value) <= 1 || 
             preg_match('/[0-9]/',$value)){
                 return false;
             }
-        else return true;
+        else return $value;
     }
 
-    function testEmail($value){
+    public static function testEmail($value){
         if(filter_var($value, FILTER_VALIDATE_EMAIL)){
         return htmlspecialchars($value) ;
         } else {
@@ -19,19 +18,39 @@ class Security{
         }
     }
 
-    function testPass($password,$verifPassword){
+    public static function testPass($password,$verifPassword,$type){
         $pass = htmlspecialchars($password);
-        if ($pass !== htmlspecialchars($verifPassword) ||
-            strlen($pass) <= 7 || 
-            strlen($pass) >= 20 || 
-            preg_match_all('/[a-zA-Z0-9]/', $pass) !== strlen($pass)) 
-        { 
-            return false; 
+        if ($type === 'register'){
+            if ($pass !== htmlspecialchars($verifPassword) ||
+                strlen($pass) <= 7 || 
+                strlen($pass) >= 20 || 
+                preg_match_all('/[a-zA-Z0-9]/', $pass) !== strlen($pass)) 
+            { 
+                return false; 
+            }
+            else {
+                $pass="tn6YJ8Xc2z".$pass."tnPlu8Xc2z";
+                $pass=password_hash($pass, PASSWORD_DEFAULT);
+                return $pass; // ICI retourner le mot de passe hashé
+            }
         }
-        else return $pass;
-    }
+        else if ($type === 'login'){
+            if (strlen($pass) <= 7 || 
+                strlen($pass) >= 20 || 
+                preg_match_all('/[a-zA-Z0-9]/', $pass) !== strlen($pass)) 
+            { 
+                return false; 
+            }
+            else {
+                $pass="tn6YJ8Xc2z".$pass."tnPlu8Xc2z";
+                $pass=password_hash($pass, PASSWORD_DEFAULT);
+                return $pass; // ICI retourner le mot de passe hashé
+            }
+        }
+        else return false;
+    } 
     
-    function testIban($iban){
+    public static function testIban($iban){
         $iban = htmlspecialchars($iban);
         if (!is_string($iban) || 
             strlen($iban) !== preg_match_all('/[a-zA-Z0-9]/', $iban) || 
@@ -42,18 +61,17 @@ class Security{
         else return $iban;
     }
 
-    function testAdress($postalCode,$town,$street,$numberstreet){
+    public static function testAdress($postalCode,$town,$street,$numberstreet){
         $postalCode = htmlspecialchars($postalCode);
         $town = htmlspecialchars($town);
         $street = htmlspecialchars($street);
         $numberstreet = htmlspecialchars($numberstreet);
-        if (preg_match('~[0-9]{5}~', $value)) //strlen($postalCode) !== 5 || !is_int($postalCode)
+        if (!preg_match('~[0-9]{5}~', $postalCode)) //strlen($postalCode) !== 5 || !is_int($postalCode)
         {
             return false;
         }
         else if (
             !is_string($street) || 
-            strlen($street) !== preg_match_all('/[a-zA-Z]/', $street) || 
             strlen($street) < 2 || 
             strlen($street) > 50) 
         {
@@ -61,23 +79,24 @@ class Security{
         }
         else if (
             !is_string($town) || 
-            strlen($town) !== preg_match_all('/[a-zA-Z]/', $town) || 
             strlen($town) < 2 || 
             strlen($town) > 50) 
         {
             return false;
         }
-        else return [$postalCode,$town,$street,$numberstreet];
+        else {         
+            return $street . $numberstreet;
+        }
     }
 
-    function testCheckObligate($value){
+    public static function testCheckObligate($value){
         if (htmlspecialchars($value) === "on"){
             return true;
         }
         else return false;
     }
 
-    function testBirthday($birthDate){
+    public static function testBirthday($birthDate){
         $birthDate = htmlspecialchars($birthDate); // OKAY
         $array = explode("-",$birthDate);
         if (
@@ -88,19 +107,28 @@ class Security{
         )
         {
             // Test date
+            $format = "Y-m-d";
+            $date_naissance = DateTime::createFromFormat($format, $birthDate); // Créer une date avec la date de naissance
             $date = new DateTime(); // Créer une date avec la date d'aujourd'hui
             $date = $date->sub(new DateInterval('P18Y')); // On remplace la date en retirant 18 ans
-            $date_naissance = new DateTime($birthDate); // Créer une date avec la date de naissance
             if($date_naissance >= $date) // On compare les deux dates pour verifier la majorité de 18 ans
             {
-                return $birthDate;
+                return false;
             }
-            else return false;
+            else return $birthDate;
         }
         else return false;
     }
+    public static function testAmount($amount){
+        $amount = htmlspecialchars($amount);
+       if(!is_numeric($amount))
+       {
+           return false;
+       }
+       else return $amount;
+    }
 
-    function testGender($value){
+    public static function testGender($value){
         if($value === 'man' || $value === 'woman'){
             return htmlspecialchars($value);
         } else {
@@ -108,7 +136,7 @@ class Security{
         }
     }
 
-    function testUploadedFile($file){
+    public static function testUploadedFile($file){
         if
         (
             ($file['type'] === 'image/png' || 'image/jpeg' || 'application/pdf') && 
@@ -124,46 +152,20 @@ class Security{
         }
     }
 
-    function testID($value){
+    public static function testID($value){
         if(preg_match_all('/[0-9]/', $value) !== strlen($value)){
             return false;
         }
         else return htmlspecialchars($value);
     }
 
-    //JEREMY :
-    //testPass($password,$verifPassword) ok
-    //testIban($iban); ok
-    //testAdress($postalCode,$town,$street,$numberstreet,); ok
-
-
-    //DEMBA :
-    //testCheckObligate($cgv); ( CHECKBOX => true or false :: check if true ) ok
-    //testBirthday($birthDate); ( DATE DE NAISSANCE =>  2021-07-15) ok
-    //testPassLog($password) test la taille et type String 
-    //testAmount($amount); (MONTANT VIREMENT => Verifier nombre avec 2 chiffres après la virgule) => Demba
-
- /*    $_POST => array(13) { 
-        ["name"]=> string(12) "BanqueHoldUP" 
-        ["firstname"]=> string(8) "efzfzfzf" 
-        ["birthDate"]=> string(10) "2021-07-15" 
-        ["gender"]=> string(3) "man" 
-        ["idCard"]=> string(27) "71HHsQbab-L._AC_SL1500_.jpg" 
-        ["numberstreet"]=> string(2) "12" 
-        ["street"]=> string(13) "Rue du Colmpu" 
-        ["postalCode"]=> string(5) "75000" 
-        ["town"]=> string(5) "Paris" 
-        ["email"]=> string(27) "Jesuisunelicorne@SNAGE.tech" 
-        ["password"]=> string(9) "Bonjour78" 
-        ["verifPassword"]=> string(9) "Bonjour78" 
-        ["cgv"]=> string(2) "on" sinon false = null 
-    } */
-   /*  $_FILE => array(5) { 
-        ["name"]=> string(47) "Capture d’écran 2021-06-18 à 17.44.30.png" 
-        ["type"]=> string(9) "image/png" 
-        ["tmp_name"]=> string(36) "/Applications/MAMP/tmp/php/phptkXsjG" 
-        ["error"]=> int(0) 
-        ["size"]=> int(3589) 
-    }  */
+    public static function generateToken($userid, $type){
+        $privatekey = "hjfeo78scds";
+        $privatekeye = hash('sha256', $privatekey);
+        $create = time ();
+        $expire =  time() + (120 * 60);
+        $token = $userid . $privatekey . $type . $privatekeye . $create . 'a' . $expire . $privatekey;
+        $token = base64_encode($token);
+        return [$create, $expire, $token];
+    }
 }
-?>
