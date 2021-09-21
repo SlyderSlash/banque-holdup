@@ -24,6 +24,7 @@ class FunctionsBanquier{
                 break;
             default:
                 if (!$idbanquier) {
+                    error_log($password);
                     $_SESSION['error']= "Problême d'identifiant";
                     error_log("Problême d'identifiant");
                     header('Location: ../bankeraccess.php');
