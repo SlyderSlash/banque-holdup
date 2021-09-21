@@ -10,6 +10,7 @@ class NoAuthDB{
       $requete->bindValue(':mail',$mail);
       $requete->execute();
       $banker = $requete->fetch(PDO::FETCH_ASSOC);
+      error_log($banker['pass']);
       if (password_verify($pass,$banker['pass'])){
         return $banker['id'];
       }
