@@ -11,6 +11,7 @@ class NoAuthDB{
       $requete->bindValue(':pass',$pass);
       $requete->execute();
       $banker = $requete->fetch(PDO::FETCH_ASSOC);
+      error_log('banker = '.print_r($banker,true));
       return $banker['id'];
     }
     catch (PDOException $e)
