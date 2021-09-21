@@ -244,3 +244,63 @@ text-align: center;
     background-size: contain;
     background-position: top;
 }
+
+
+
+/************** BanKer ***************/
+
+.item {
+    border: 1px solid #FFDCDC;
+    padding: 0.5rem;
+}
+
+.hr_demands {
+    color:#FFDCDC;
+}
+
+button#category {
+    font-weight: 300;
+}
+
+@media screen and (max-width:768px){
+.bankerpath{
+    background-image: url('/assets/img/bggg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    height: calc(20vh + 5vw);
+    }
+
+main {
+    position: relative;
+    top: -2rem;
+    }
+
+main h2 {
+    font-size: calc(1.275rem + 0.3vw);
+    font-weight: 500;
+    }
+
+main h3 {
+    font-size: calc(1rem + 0.3vw);
+    font-weight: normal;
+    }
+
+main p {
+    font-size: calc(1rem + 0.3vw);
+    font-weight: 300;
+    }
+}
+
+
+@media screen and (min-width:768px){
+    .bankerpath{
+        background-image: url('/assets/img/bggg.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: calc(20vh + 15vw);
+    }
+}
+
+/************** End of banKer ***************/
