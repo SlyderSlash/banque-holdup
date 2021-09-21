@@ -6,7 +6,7 @@ class NoAuthDB{
     if (is_null($this->pdo)){return false;}
     try 
     {
-      $requete = $this->pdo->prepare('SELECT id FROM banquier WHERE mail= :mail AND pass= :pass');
+      $requete = $this->pdo->prepare('SELECT id FROM banquier WHERE Mail= :mail AND pass= :pass');
       $requete->bindValue(':mail',$mail);
       $requete->bindValue(':pass',$pass);
       $requete->execute();
