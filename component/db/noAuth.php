@@ -51,7 +51,11 @@ class NoAuthDB{
       $requete->bindValue(':mail',$mail);
       $requete->bindValue(':pass',$pass);
       $requete->execute();
+      error_log('mail = '.$mail);
+      error_log('pass = '.$pass);
+      error_log('SELECT id FROM client WHERE mail= '.$mail.' AND pass= '.$pass);
       $client = $requete->fetch(PDO::FETCH_ASSOC);
+      error_log('client = '.$client['id']);
       return $client['id'];
     }
     catch (PDOException $e)
