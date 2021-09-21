@@ -87,7 +87,7 @@ class FunctionsClient{
                 header('Location: ../connexion.php');
                 break;
             default:
-                if ($idclient) {
+                if (!$idclient) {
                     $_SESSION['error']= "Problême d'identifiant";
                     header('Location: ../connexion.php');
                     break;
