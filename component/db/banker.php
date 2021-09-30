@@ -20,6 +20,7 @@ class banquierDB{
       }
       catch (PDOException $e)
       {
+        error_log($banquierid);
         error_log($e->getMessage());
         return false;
       }

@@ -6,12 +6,14 @@ class NoAuthDB{
     if (is_null($this->pdo)){return false;}
     try 
     {
-      $requete = $this->pdo->prepare('SELECT id FROM banquier WHERE mail= :mail AND pass= :pass');
+      $requete = $this->pdo->prepare('SELECT id, pass FROM banquier WHERE Mail= :mail');
       $requete->bindValue(':mail',$mail);
-      $requete->bindValue(':pass',$pass);
       $requete->execute();
       $banker = $requete->fetch(PDO::FETCH_ASSOC);
-      return $banker['id'];
+      if (password_verify($pass,$banker['pass'])){
+        return $banker['id'];
+      }
+      else return false;
     }
     catch (PDOException $e)
     {
@@ -43,12 +45,14 @@ class NoAuthDB{
     if (is_null($this->pdo)){return false;}
     try 
     {
-      $requete = $this->pdo->prepare('SELECT id FROM client WHERE mail= :mail AND pass= :pass');
+      $requete = $this->pdo->prepare('SELECT id,pass FROM client WHERE mail= :mail');
       $requete->bindValue(':mail',$mail);
-      $requete->bindValue(':pass',$pass);
       $requete->execute();
       $client = $requete->fetch(PDO::FETCH_ASSOC);
-      return $client['id'];
+      if (password_verify($pass,$client['pass'])){
+        return $client['id'];
+      }
+      else return false;
     }
     catch (PDOException $e)
     {

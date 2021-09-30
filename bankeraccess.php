@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   
   <body class="clientpath">
   <?php 
+    require_once('./component/alert.php');
     if (isset($_SESSION['token'])){
         require_once('./component/header/headerConnected.php');
     }else{

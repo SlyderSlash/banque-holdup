@@ -14,16 +14,20 @@ class FunctionsBanquier{
         switch(false){
             case $email:
                 $_SESSION['error']= "L'adresse n'est pas au bon format";
-                header('Location: ../connexion.php');
+                error_log("L'adresse n'est pas au bon format");
+                header('Location: ../bankeraccess.php');
                 break;
             case $password:
                 $_SESSION['error']= "Le mot de passe n'est pas au bon format";
-                header('Location: ../connexion.php');
+                error_log("Le mot de passe n'est pas au bon format");
+                header('Location: ../bankeraccess.php');
                 break;
             default:
-                if ($idbanquier) {
+                if (!$idbanquier) {
+                    error_log($password);
                     $_SESSION['error']= "Problême d'identifiant";
-                    header('Location: ../connexion.php');
+                    error_log("Problême d'identifiant");
+                    header('Location: ../bankeraccess.php');
                     break;
                 }
                 else {
@@ -31,11 +35,13 @@ class FunctionsBanquier{
                     $token = $banquierdb->PUTToken($idbanquier, $dbinfotoken[2], $dbinfotoken[0], $dbinfotoken[1]);
                     if (!$token){
                         $_SESSION['error']= "Problème technique";
-                        header('Location: ../connexion.php');
+                        error_log("Problème technique");
+                        header('Location: ../bankeraccess.php');
                     }
                     else {
                         $_SESSION['token'] = $token;
                         $_SESSION['success']="Bienvenue !";
+                        error_log("Bienvenue !");
                         header('Location: ../index.php');
                     }
                     break;
